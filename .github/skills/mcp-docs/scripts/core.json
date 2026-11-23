@@ -1,0 +1,25 @@
+{
+ "currentlyActive": true,
+ "displayName": "Core",
+ "groupId": "core",
+ "safetyLevel": "low",
+ "shortDescription": "Always-available meta-tools: discover and activate additional tool groups, and run several tool calls as one undo step.",
+ "toolCount": 3,
+ "tools": [
+  {
+   "description": "List active AND inactive tool groups with their metadata and activation state. Before declaring a capability unsupported, inspect relevant groups with 'group' (display name or groupId) and 'includeTools' true to read their tool names and descriptions without activation or schemas. Activate the required group, then refresh tools/list before using its tools; absence from the active tool list does not mean unsupported.",
+   "name": "listToolGroups",
+   "safetyLevel": "low"
+  },
+  {
+   "description": "Enable one or more tool groups for the rest of the session, exposing their tools to subsequent tools/list requests. Each entry may be either the group's display name or its groupId as reported by listToolGroups. Refresh tools/list after activation (or allow your client's list_changed handling to refresh it) before calling newly exposed tools. Activation changes tool availability, not drawing content, and does not authorize editing tools.",
+   "name": "activateToolGroups",
+   "safetyLevel": "low"
+  },
+  {
+   "description": "Run several tool calls as ONE Vectorworks undo step 'MCP: <name>', all or nothing. Use it for one user-level job made of independent calls, for example 'create these 4 walls and the slab', so that one Undo reverts the whole job. 'calls' run in this order, each { tool, arguments } as in a direct call of the tool (arguments default {}); at most 50. A call cannot use results of earlier calls in the same batch, such as the UUID of an object created in it: for that, write one runPythonScript. Returns 'undoStep' true, 'undoName' and 'results' ({ tool, result } per call). When a call fails ('err' in its result, or an exception), the batch stops and everything it did is reverted: 'err' names the call, 'failedCall' is its 1-based number, 'rolledBack' says whether the revert ran, 'undoStep' is false and 'results' ends with the failed call. 'warning' is added when an undo event is still open afterwards. Only tools of active groups. Refused before anything runs: high-risk tools (safetyLevel=high or destructiveHint=true: ask the user, then call them one by one), the interactive tools (they record their own undo) and the meta-tools, runToolBatch included; any batch while no document is open or another Vectorworks operation is in progress. Vectorworks is busy until the batch ends. Read-only tools are allowed but not needed.",
+   "name": "runToolBatch",
+   "safetyLevel": "medium"
+  }
+ ]
+}
