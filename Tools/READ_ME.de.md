@@ -3,6 +3,7 @@
 ## Inhalt
 
 - [MCP-Server in Vectorworks starten](#mcp-server-in-vectorworks-starten)
+- [GitHub Copilot Desktop](#github-copilot-desktop)
 - [GitHub Copilot in VS Code](#github-copilot-in-vs-code)
 - [Claude Desktop](#claude-desktop)
 - [Claude Code](#claude-code)
@@ -15,9 +16,18 @@
 2. Wählen Sie **Tools > MCP Server > Start MCP Server...** und anschließend **Start Server**.
 3. Klicken Sie auf **Copy URL**. Verwenden Sie die HTTP-URL aus dem Dialog: Ist der gewünschte Port belegt, kann Vectorworks einen anderen wählen. Lassen Sie den Server laufen, solange Sie den Client verwenden.
 
+## GitHub Copilot Desktop
+
+GitHub Copilot Desktop verbindet sich direkt mit der HTTP-URL. Dafür benötigen Sie weder ein Plugin noch ein Bundle.
+
+1. Öffnen Sie in GitHub Copilot Desktop den Bereich **Customize**.
+2. Klicken Sie auf **+ Add** und wählen Sie anschließend **Add MCP Server**.
+3. Fügen Sie die aus Vectorworks kopierte URL ein, geben Sie dem Server den Namen `vectorworks` und speichern Sie. Wählen Sie **HTTP**, falls nach dem Servertyp gefragt wird.
+4. Bitten Sie Copilot in einem neuen Chat, die Ebenen der aktiven Zeichnung aufzulisten, um die Verbindung zu prüfen.
+
 ## GitHub Copilot in VS Code
 
-Copilot verbindet sich direkt mit der HTTP-URL. Dafür benötigen Sie weder ein Plugin noch ein Bundle.
+Auch Copilot in VS Code verbindet sich direkt mit der HTTP-URL. Dafür benötigen Sie weder ein Plugin noch ein Bundle.
 
 1. Führen Sie in der Befehlspalette von VS Code **MCP: Add Server** aus und wählen Sie **HTTP**.
 2. Fügen Sie die aus Vectorworks kopierte URL ein, geben Sie dem Server den Namen `vectorworks` und wählen Sie den Speicherort für die Konfiguration.
