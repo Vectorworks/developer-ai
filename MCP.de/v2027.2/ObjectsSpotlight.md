@@ -22,13 +22,13 @@ Werkzeuge für Spotlight-Beleuchtungsgeräte und die von ihnen verwendeten GDTF-
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 5 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Spotlight](#spotlight) | `spotlight` | Nein | mittel | 5 | Spotlight-Beleuchtungsgeräte und die von ihnen verwendeten GDTF-Scheinwerfertypen. |
 
 ## Spotlight
 
-> **Gruppe:** `Spotlight` · **Gruppen-ID:** `spotlight` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 5
+> **Gruppe:** `Spotlight` · **Gruppen-ID:** `spotlight` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 5
 
 **Spotlight-Beleuchtungsgeräte und die von ihnen verwendeten GDTF-Scheinwerfertypen.**
 
@@ -36,7 +36,7 @@ Spotlight-Beleuchtungsgeräte und die von ihnen verwendeten GDTF-Scheinwerfertyp
 
 Jede Änderung wird als eigener benannter, rückgängig machbarer Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`listGDTFs`](#listgdtfs) | Nur lesend | niedrig | Listet die verfügbaren GDTF-Scheinwerfertypen und ihre DMX-Modi auf. |
 | [`importGDTF`](#importgdtf) | Bearbeitung | mittel | Importiert eine .gdtf-Datei als GDTF-Scheinwerfertyp in die Zeichnung. |
@@ -48,7 +48,7 @@ Jede Änderung wird als eigener benannter, rückgängig machbarer Vectorworks-Vo
 
 Listet die verfügbaren GDTF-Scheinwerfertypen und ihre DMX-Modi auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -84,7 +84,7 @@ Optionale Filter: `manufacturer` und `search` (Teile des Herstellernamens / Sche
 
 Importiert eine .gdtf-Datei als GDTF-Scheinwerfertyp in die Zeichnung.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: importGDTF“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: importGDTF“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -108,7 +108,7 @@ Importiert die .gdtf-Datei unter `filePath` (vollständiger nativer Pfad) als GD
 
 Erstellt ein Beleuchtungsgerät, optional mit einem GDTF-Scheinwerfertyp.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createLightingDevice“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createLightingDevice“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -143,7 +143,7 @@ Fehler: `failed to create the lighting device (is Spotlight installed?)`. Ein fe
 
 Liest ein Beleuchtungsgerät aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -176,7 +176,7 @@ Liest ein Beleuchtungsgerät anhand von UUID, Namen oder Index aus: `instrumentT
 
 Bearbeitet ein Beleuchtungsgerät.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: setLightingDevice“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: setLightingDevice“ · **In runToolBatch:** ja
 
 **Details**
 

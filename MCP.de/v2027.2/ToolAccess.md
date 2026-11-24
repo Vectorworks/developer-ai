@@ -27,13 +27,13 @@ Werkzeuge zum Bedienen der interaktiven Vectorworks-Werkzeuge in den Werkzeugpal
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 10 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Anzahl der Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Anzahl der Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [InteractiveTools](#interactivetools) | `interactivetools` | Nein | hoch | 10 | Bedient die interaktiven Vectorworks-Werkzeuge der Werkzeugpaletten wie ein Benutzer. |
 
 ## InteractiveTools
 
-> **Gruppe:** `InteractiveTools` · **Gruppen-ID:** `interactivetools` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** hoch · **Werkzeuge:** 10
+> **Gruppe:** `InteractiveTools` · **Gruppen-ID:** `interactivetools` · **Standardmäßig aktiv:** Nein · **Risikostufe:** hoch · **Werkzeuge:** 10
 
 **Bedient die interaktiven Vectorworks-Werkzeuge der Werkzeugpaletten wie ein Benutzer.**
 
@@ -49,7 +49,7 @@ Arbeitsablauf:
 
 Prüfen Sie das Ergebnis mit getActiveTool (`toolPointCount`, `helpMessage`) und den Gruppen Objects/Selection. Zusatztasten (Shift, Alt) werden nicht unterstützt. Änderungen durch ein Werkzeug werden vom Werkzeug selbst im Vectorworks-Rückgängig-Verlauf aufgezeichnet, nicht als „MCP: <tool>“.
 
-| Werkzeug | Wirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Wirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`getTools`](#gettools) | Nur lesend | niedrig | Listet die Vectorworks-Werkzeuge auf. |
 | [`getTool`](#gettool) | Nur lesend | niedrig | Gibt ein Werkzeug mit seinen deklarierten Modusschaltflächen zurück. |
@@ -66,7 +66,7 @@ Prüfen Sie das Ergebnis mit getActiveTool (`toolPointCount`, `helpMessage`) und
 
 Listet die Vectorworks-Werkzeuge auf.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -114,7 +114,7 @@ Jedes Werkzeug gibt universalName, name, displayName, category, helpText, shortc
 
 Gibt ein Werkzeug mit seinen deklarierten Modusschaltflächen zurück.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -152,7 +152,7 @@ Fehler: `'name' is required`; `no Vectorworks tool matches '<name>' (use getTool
 
 Gibt den Status des aktiven Werkzeugs zurück.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -183,7 +183,7 @@ Gibt den Status des aktiven Werkzeugs zurück: das Werkzeug, seinen aktuellen An
 
 Aktiviert ein Werkzeug.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -219,7 +219,7 @@ Gibt den Status des neuen aktiven Werkzeugs mit seiner aktuellen Modusleiste und
 
 Liest die aktuelle Modusleiste des aktiven Werkzeugs aus.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -258,7 +258,7 @@ Liest die aktuelle Modusleiste des aktiven Werkzeugs aus. Ohne `modeIndex`/`mode
 
 Ändert einen Modus des aktiven Werkzeugs.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -320,7 +320,7 @@ setValue liest `value` je nach Modustyp aus:
 
 Legt mehrere Modi des aktiven Werkzeugs fest.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -356,7 +356,7 @@ Legt mehrere Modi des aktiven Werkzeugs der Reihe nach fest: `settings` ist ein 
 
 Klickt, doppelklickt, bewegt den Zeiger oder zieht mit dem aktiven Werkzeug in der Zeichnung.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -389,7 +389,7 @@ Gibt `sent` und den Werkzeugstatus nach der Eingabe zurück (`toolPointCount`, `
 
 Schließt die Aktion des aktiven Werkzeugs ab, bricht sie ab oder entfernt den letzten Punkt.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -416,7 +416,7 @@ Steuert die Aktion des aktiven Werkzeugs: finish (Return – schließt Werkzeuge
 
 Wandelt Punkte zwischen Modellraum und der Ansicht des aktiven Ansichtsfensters um.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 

@@ -38,14 +38,14 @@ Tools for the active drawing as a whole and for the current selection: the docum
 
 This folder holds 2 tool groups with 20 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Document](#document) | `document` | Yes | low | 17 | The active drawing: document summary, layers, stories, classes, units, view and document preferences. |
 | [Selection](#selection) | `selection` | Yes | medium | 3 | List the current selection and move, rotate, scale, duplicate, group, delete or re-class it in bulk. |
 
 ## Document
 
-> **Group:** `Document` · **Group ID:** `document` · **Active by default:** Yes · **Safety level:** low · **Tools:** 17
+> **Group:** `Document` · **Group ID:** `document` · **Active by default:** Yes · **Risk level:** low · **Tools:** 17
 
 **The active drawing: document summary, layers, stories, classes, units, view and document preferences.**
 
@@ -62,7 +62,7 @@ How a Vectorworks drawing is composed:
 - COORDINATES are world units (the internal length unit the API uses); the UI shows them converted to the document units (use convertUnits). The USER ORIGIN is the world point the user sees as (0,0). Angles are radians, counter-clockwise from the X axis.
 - UNDO: each call that changes the drawing is ONE undo step 'MCP: &lt;tool&gt;' that the user can undo (Vectorworks shows the name in the status message after Edit &gt; Undo), and a call that fails changes nothing (`rolledBack` in its result). To make a user-level job one undo step, do it in one runPythonScript run (Scripting group).
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`getDocumentInfo`](#getdocumentinfo) | Read-only | low | Returns a summary of the active document: file, counts, page bounds, view center and user origin. |
 | [`getLayers`](#getlayers) | Read-only | low | Lists the layers with their kind, visibility, scale, elevation, object count and bounds. |
@@ -88,7 +88,7 @@ How a Vectorworks drawing is composed:
 
 Returns a summary of the active document: file, counts, page bounds, view center and user origin.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -125,7 +125,7 @@ A value that Vectorworks cannot read is left out of the result.
 
 Lists the layers with their kind, visibility, scale, elevation, object count and bounds.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -156,7 +156,7 @@ Errors: `'activeOnly' must be true or false` (likewise `visibleOnly`); `unknown 
 
 Creates a design layer or a sheet layer.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createLayer" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createLayer" · **In runToolBatch:** yes
 
 **Details**
 
@@ -193,7 +193,7 @@ Errors: `'name' is required`; `'scale' must be a positive number (1:scale)`; `'e
 
 Changes the properties of a layer: name, visibility, scale, elevation, thickness and more.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: editLayer" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: editLayer" · **In runToolBatch:** yes
 
 **Details**
 
@@ -231,7 +231,7 @@ Errors: `layer not found: <name>`; `'story' and 'levelType' must be strings`; `'
 
 Lists the stories (building floors) with their levels, lowest first.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -263,7 +263,7 @@ Errors: `'includeLevelTypes' must be true or false` (likewise for `includeDefaul
 
 Creates one or more stories with their levels.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createStory" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createStory" · **In runToolBatch:** yes
 
 **Details**
 
@@ -319,7 +319,7 @@ Errors: `give either one story ('name', 'elevation', ...) or a 'stories' array`;
 
 Changes a story, the level types of the document or its default story levels.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: editStory" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: editStory" · **In runToolBatch:** yes
 
 **Details**
 
@@ -389,7 +389,7 @@ Errors: `nothing to change: give changes of the story 'name', 'levelTypes' or 'd
 
 Lists the classes of the document and names the special classes.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -418,7 +418,7 @@ With `detailed`, each class also has: `description` (only when it is not empty),
 
 Creates a class, or returns the existing class of that name.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createClass" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createClass" · **In runToolBatch:** yes
 
 **Details**
 
@@ -449,7 +449,7 @@ Errors: `'name' is required (or set 'guides')`; `failed to create class`.
 
 Changes a class: description, visibility, pen, fill, markers, drop shadow and more.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: editClass" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: editClass" · **In runToolBatch:** yes
 
 **Details**
 
@@ -522,7 +522,7 @@ Errors: `class not found: <name>` (also when `name` is omitted and the active cl
 
 Sets the active layer and class and how the other layers and classes are shown.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: setActiveContext" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: setActiveContext" · **In runToolBatch:** yes
 
 **Details**
 
@@ -558,7 +558,7 @@ Errors: `layer not found: <name>`; `class not found: <name>`; `symbol definition
 
 Returns the primary and secondary unit settings of the document.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -581,7 +581,7 @@ Both have the keys `name`, `mark`, `unitsPerInch`, `style`, `metric`, `showUnitM
 
 Changes the primary or secondary unit settings of the document.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: setUnits" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: setUnits" · **In runToolBatch:** yes
 
 **Details**
 
@@ -633,7 +633,7 @@ Error: `provide at least one unit setting to change`.
 
 Converts lengths between world units and document units.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -660,7 +660,7 @@ A conversion that fails leaves its key out. Error: `provide 'worldLength' and/or
 
 Moves the view, sets the zoom, moves the user origin or redraws the page.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: setView" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: setView" · **In runToolBatch:** yes
 
 **Details**
 
@@ -690,7 +690,7 @@ A `center` or `userOrigin` that is not a point, and a `zoom` that is not a numbe
 
 Reads one category of document preferences.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -735,7 +735,7 @@ setPreferences writes the same settings under the same names.
 
 Writes document preferences of one category.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: setPreferences" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: setPreferences" · **In runToolBatch:** yes
 
 **Details**
 
@@ -768,13 +768,13 @@ Errors: `unknown 'category' (display, editing, snapping, grid, stackLayers, text
 
 ## Selection
 
-> **Group:** `Selection` · **Group ID:** `selection` · **Active by default:** Yes · **Safety level:** medium · **Tools:** 3
+> **Group:** `Selection` · **Group ID:** `selection` · **Active by default:** Yes · **Risk level:** medium · **Tools:** 3
 
 **List the current selection and move, rotate, scale, duplicate, group, delete or re-class it in bulk.**
 
 Query and operate on the current selection: list selected objects and move, rotate, scale, duplicate, group, delete or re-class them in bulk. Each edit runs as its own named, undoable Vectorworks operation.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`getSelection`](#getselection) | Read-only | low | Lists the selected objects on every layer and the bounds of the selection. |
 | [`selectObjects`](#selectobjects) | Edit | medium | Selects or deselects objects by criteria or by UUID, or all or none. |
@@ -784,7 +784,7 @@ Query and operate on the current selection: list selected objects and move, rota
 
 Lists the selected objects on every layer and the bounds of the selection.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -813,7 +813,7 @@ Error: `unknown 'descend'; use none | groups | viewports | all`.
 
 Selects or deselects objects by criteria or by UUID, or all or none.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: selectObjects" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: selectObjects" · **In runToolBatch:** yes
 
 **Details**
 
@@ -845,7 +845,7 @@ Errors: `invalid criteria: <detail>`; `no target objects (provide 'criteria', 'u
 
 Moves, rotates, scales, duplicates, groups, deletes or re-classes the selection.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: editSelection" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: editSelection" · **In runToolBatch:** yes
 
 **Details**
 

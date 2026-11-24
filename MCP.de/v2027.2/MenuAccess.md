@@ -21,13 +21,13 @@ Werkzeuge zum Auslesen der Vectorworks-Menüs, Prüfen, ob ein Befehl ausgeführ
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 4 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Menus](#menus) | `menus` | Nein | high | 4 | Menübefehle suchen, die Menüleiste auslesen, prüfen, ob ein Befehl jetzt ausgeführt werden kann, und ihn ausführen. |
 
 ## Menus
 
-> **Gruppe:** `Menus` · **Gruppen-ID:** `menus` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** high · **Werkzeuge:** 4
+> **Gruppe:** `Menus` · **Gruppen-ID:** `menus` · **Standardmäßig aktiv:** Nein · **Risikostufe:** high · **Werkzeuge:** 4
 
 **Menübefehle suchen, die Menüleiste auslesen, prüfen, ob ein Befehl jetzt ausgeführt werden kann, und ihn ausführen.**
 
@@ -48,7 +48,7 @@ Arbeitsablauf:
 3. Mit getMenuStatus prüfen, ob ein Befehl oder Element einer Elementgruppe jetzt ausgeführt werden kann und warum nicht.
 4. runMenuCommand führt den Befehl aus, nachdem der Benutzer zugestimmt hat.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`findMenuCommands`](#findmenucommands) | Nur lesend | low | Sucht installierte Menübefehle anhand von Text und Arbeitsbereich. |
 | [`getMenus`](#getmenus) | Nur lesend | low | Liest die Menüleiste des aktuellen Arbeitsbereichs, ein Menü oder die Elemente einer Elementgruppe aus. |
@@ -59,7 +59,7 @@ Arbeitsablauf:
 
 Sucht installierte Menübefehle anhand von Text und Arbeitsbereich.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -84,7 +84,7 @@ Jeder Befehl enthält `universalName`, `name`, `displayName`, `category` (seine 
 
 Liest die Menüleiste des aktuellen Arbeitsbereichs, ein Menü oder die Elemente einer Elementgruppe aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -109,7 +109,7 @@ Liest die Menüleiste des aktuellen Arbeitsbereichs aus; es wird nichts ausgefü
 
 Gibt an, ob ein Menübefehl oder Element einer Elementgruppe jetzt ausgeführt werden kann und warum nicht.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -129,7 +129,7 @@ Gibt an, ob Vectorworks einen Menübefehl oder ein Element einer Elementgruppe j
 
 Führt einen Menübefehl oder ein Element einer Elementgruppe so aus, als hätte der Benutzer es ausgewählt.
 
-> **Auswirkung:** Interaktiv, destruktiv · **Sicherheit:** high · **Rückgängig:** vom Menübefehl aufgezeichnet · **In runToolBatch:** nein
+> **Auswirkung:** Interaktiv, destruktiv · **Risiko:** high · **Rückgängig:** vom Menübefehl aufgezeichnet · **In runToolBatch:** nein
 
 **Details**
 

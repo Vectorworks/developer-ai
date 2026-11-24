@@ -26,13 +26,13 @@ SpotlightのLighting Deviceと、それらが使用するGDTF（General Device T
 
 このフォルダには1個のツールグループがあり、合計5個のツールが含まれています。
 
-| グループ | グループID | 初期状態で有効 | 安全性レベル | ツール数 | 概要 |
+| グループ | グループID | 初期状態で有効 | リスクレベル | ツール数 | 概要 |
 |---|---|---|---|---|---|
 | [Spotlight](#spotlight) | `spotlight` | いいえ | 中 | 5 | SpotlightのLighting Deviceと、それらが使用するGDTF器具タイプ。 |
 
 ## Spotlight
 
-> **グループ:** `Spotlight` · **グループID:** `spotlight` · **初期状態で有効:** いいえ · **安全性レベル:** 中 · **ツール数:** 5
+> **グループ:** `Spotlight` · **グループID:** `spotlight` · **初期状態で有効:** いいえ · **リスクレベル:** 中 · **ツール数:** 5
 
 **SpotlightのLighting Deviceと、それらが使用するGDTF器具タイプ。**
 
@@ -42,7 +42,7 @@ SpotlightのLighting Deviceと、それらが使用するGDTF（General Device T
 
 > **注:** `gdtfName`と`mode`は、大文字と小文字を区別して完全一致で照合されます。照合の対象は図面内の器具タイプだけです。図面内の器具タイプの場合、`gdtfName`はGDTFファイルのデータから`<Manufacturer>@<Name>.gdtf`として作成されます。まだ取り込まれていない.gdtfファイルについては、`listGDTFs`はディスク上のファイル名を表示しますが、これは異なる場合があります。`importGDTF`が返す`gdtfName`、または`documentOnly`を指定して`listGDTFs`が報告するものを使用してください。
 
-| ツール | 作用 | 安全性 | 概要 |
+| ツール | 作用 | リスク | 概要 |
 |---|---|---|---|
 | [`listGDTFs`](#listgdtfs) | 読み取り専用 | 低 | 使用可能なGDTF器具タイプとそのDMXモードの一覧を返します。 |
 | [`importGDTF`](#importgdtf) | 編集 | 中 | .gdtfファイルをGDTF器具タイプとして図面に取り込みます。 |
@@ -54,7 +54,7 @@ SpotlightのLighting Deviceと、それらが使用するGDTF（General Device T
 
 使用可能なGDTF器具タイプとそのDMXモードの一覧を返します。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 
@@ -95,7 +95,7 @@ Spotlightで使用可能なGDTF器具タイプを、DMXモードごとに1件ず
 
 .gdtfファイルをGDTF器具タイプとして図面に取り込みます。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: importGDTF" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: importGDTF" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -126,7 +126,7 @@ Spotlightで使用可能なGDTF器具タイプを、DMXモードごとに1件ず
 
 必要に応じてGDTF器具タイプを指定して、Lighting Deviceを作成します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: createLightingDevice" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: createLightingDevice" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -162,7 +162,7 @@ SpotlightのLighting Device（照明シンボルなし）を`position`に作成�
 
 Lighting Deviceを読み取ります。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 
@@ -200,7 +200,7 @@ Lighting Deviceにそのパラメータがない場合、キーは省略され�
 
 Lighting Deviceを編集します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: setLightingDevice" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: setLightingDevice" · **runToolBatch内:** はい
 
 **詳細**
 

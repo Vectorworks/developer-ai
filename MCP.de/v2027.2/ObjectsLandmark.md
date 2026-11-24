@@ -27,19 +27,19 @@ Werkzeuge für Grundstücks- und Landschaftsobjekte: Pflanzen, Beläge, Landscha
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 10 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Landmark](#landmark) | `landmark` | Nein | mittel | 10 | Pflanzen, Beläge, Landschaftsflächen, Geländemodelle, Geländemodifikationen, Höhenpunkte, Grundstücksgrenzen und vorhandene Bäume. |
 
 ## Landmark
 
-> **Gruppe:** `Landmark` · **Gruppen-ID:** `landmark` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 10
+> **Gruppe:** `Landmark` · **Gruppen-ID:** `landmark` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 10
 
 **Pflanzen, Beläge, Landschaftsflächen, Geländemodelle, Geländemodifikationen, Höhenpunkte, Grundstücksgrenzen und vorhandene Bäume.**
 
 Grundstücks- und Landschaftsobjekte erstellen, anzeigen und bearbeiten: Pflanzen, Beläge, Landschaftsflächen, Geländemodelle, Geländemodifikationen, Höhenpunkte, Grundstücksgrenzen und vorhandene Bäume, einschließlich ihrer typisierten Einstellungen sowie Flächen- und Volumenangaben. Pfadbasierte Objekte werden anhand eines vorhandenen Polygons oder einer Polylinie erstellt. Jede Änderung wird als eigener benannter, rückgängig machbarer Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`createPlant`](#createplant) | Bearbeitung | mittel | Erstellt eine Pflanze an einem Punkt oder entlang eines Pfads. |
 | [`createHardscape`](#createhardscape) | Bearbeitung | mittel | Erstellt einen Belag aus einem 2D-Pfadobjekt. |
@@ -56,7 +56,7 @@ Grundstücks- und Landschaftsobjekte erstellen, anzeigen und bearbeiten: Pflanze
 
 Erstellt eine Pflanze an einem Punkt oder entlang eines Pfads.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createPlant“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createPlant“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -98,7 +98,7 @@ Die optionalen Werte `config` (mit `pathUuid`: plantsAtPolyVertices, plantsAlong
 
 Erstellt einen Belag aus einem 2D-Pfadobjekt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createHardscape“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createHardscape“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -135,7 +135,7 @@ Erstellt einen Belag (befestigte Fläche) aus einem vorhandenen 2D-Pfadobjekt, a
 
 Erstellt eine Landschaftsfläche aus einem 2D-Pfadobjekt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createLandscapeArea“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createLandscapeArea“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -168,7 +168,7 @@ Erstellt eine Landschaftsfläche (bepflanzter Bereich) aus einem vorhandenen 2D-
 
 Erstellt eine Geländemodifikation aus einem 2D-Pfadobjekt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createSiteModifier“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createSiteModifier“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -200,7 +200,7 @@ Erstellt eine Geländemodifikation aus einem vorhandenen 2D-Pfadobjekt, angegebe
 
 Erstellt eine Grundstücksgrenze aus einem geschlossenen 2D-Pfadobjekt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createPropertyLine“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createPropertyLine“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -233,7 +233,7 @@ Erstellt eine Grundstücksgrenze (Parzellengrenze) aus einem vorhandenen geschlo
 
 Erstellt ein leeres Geländemodell.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createSiteModel“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createSiteModel“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -266,7 +266,7 @@ Erstellt ein (leeres) Geländemodell-/Geländeobjekt an `position`; füge anschl
 
 Erstellt einen Höhenpunkt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createStake“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createStake“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -303,7 +303,7 @@ Erstellt an `position` einen Höhenpunkt mit optionaler Höhe `z` und Beschriftu
 
 Erstellt einen vorhandenen Baum.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createExistingTree“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createExistingTree“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -348,7 +348,7 @@ Erstellt an `position` ein Objekt für einen vorhandenen Baum. Optional sind `bo
 
 Liest die Eigenschaften eines Grundstücks- oder Landschaftsobjekts aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -379,7 +379,7 @@ Pfadbasierte Objekte geben außerdem `pathObject` zurück, die Referenz auf ihre
 
 Bearbeitet ein Grundstücks- oder Landschaftsobjekt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: setLandmarkObject“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: setLandmarkObject“ · **In runToolBatch:** ja
 
 **Details**
 

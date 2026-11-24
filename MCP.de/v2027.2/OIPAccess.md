@@ -20,13 +20,13 @@ Werkzeuge zum Lesen und Bedienen der Objekt-Info-Palette für die aktuelle Auswa
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 3 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Anzahl der Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Anzahl der Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Object Info](#object-info) | `object-info` | Nein | mittel | 3 | Liest und bedient die Objekt-Info-Palette für die aktuelle Auswahl wie ein Benutzer. |
 
 ## Object Info
 
-> **Gruppe:** `Object Info` · **Gruppen-ID:** `object-info` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 3
+> **Gruppe:** `Object Info` · **Gruppen-ID:** `object-info` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 3
 
 **Liest und bedient die Objekt-Info-Palette für die aktuelle Auswahl wie ein Benutzer.**
 
@@ -47,7 +47,7 @@ Rückgängig: Jede Änderung in der Palette ist ein eigener Vectorworks-Rückgä
 
 Dialoge: Eine Schaltfläche oder Auswahl kann einen modalen Dialog oder eine Warnmeldung öffnen. Der Aufruf wartet dann, bis der Benutzer ihn schließt; währenddessen beantwortet Vectorworks keine anderen MCP-Aufrufe und beim MCP-Client kann eine Zeitüberschreitung auftreten. Eine Schaltflächenbezeichnung oder ein Auswahlname mit abschließendem „...“ öffnet einen Dialog (`opensDialog` in getOIPControls) und erfordert `allowDialog`: true (Standardwert false). Übergeben Sie den Wert nur, nachdem Sie dem Benutzer mitgeteilt haben, dass sich der Dialog öffnet und dort geschlossen werden muss.
 
-| Werkzeug | Wirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Wirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`getOIPControls`](#getoipcontrols) | Nur lesend | niedrig | Listet die Steuerelemente eines Reiters der Objekt-Info-Palette auf. |
 | [`setOIPValues`](#setoipvalues) | Interaktiv | mittel | Legt Steuerelementwerte in der Objekt-Info-Palette wie ein Benutzer fest. |
@@ -57,7 +57,7 @@ Dialoge: Eine Schaltfläche oder Auswahl kann einen modalen Dialog oder eine War
 
 Listet die Steuerelemente eines Reiters der Objekt-Info-Palette auf.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -81,7 +81,7 @@ Gibt `pane`, `available` (true), `selectionCount`, `count` (die Anzahl der auf `
 
 Legt Steuerelementwerte in der Objekt-Info-Palette wie ein Benutzer fest.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -109,7 +109,7 @@ Es gibt keinen Rückgängig-Schritt „MCP: setOIPValues“ und kein Zurücksetz
 
 Betätigt eine Schaltfläche der Objekt-Info-Palette.
 
-> **Wirkung:** Interaktiv · **Sicherheit:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
+> **Wirkung:** Interaktiv · **Risiko:** mittel · **Rückgängig:** von Vectorworks wie Benutzereingabe aufgezeichnet · **In runToolBatch:** nein
 
 **Einzelheiten**
 

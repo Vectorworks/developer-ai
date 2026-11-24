@@ -15,6 +15,9 @@ Weitere Informationen zur API und zum KI-Kontext für die Skriptentwicklung find
 
 ## MCP-Server
 
+> [!NOTE]
+> Kunden können [hier Zugang zur Beta beantragen](https://www3.vectorworks.net/mcp-server-public-beta-group). Nach dem Ausfüllen des Formulars werden Sie in die Vectorworks MCP Server Public Beta Group aufgenommen. Als Mitglied dieser privaten Gruppe im [Vectorworks-Forum](https://forum.vectorworks.net/) können Sie Einblicke, Tipps und Tricks teilen oder sich von anderen Mitgliedern und Experten beraten lassen.
+
 Der Vectorworks-MCP-Server ermöglicht kompatiblen KI-Clients über das [Model Context Protocol (MCP)](https://modelcontextprotocol.io) eine direkte Verbindung zu Vectorworks. MCP ist ein offenes Protokoll, über das KI-Anwendungen externe Funktionen und Kontext nutzen können. Die Verbindung unterstützt sowohl die Entwicklung und Ausführung von Skripten als auch die direkte Bearbeitung von Zeichnungen mit einer breiten Auswahl an MCP-Tools.
 
 Vorteile:

@@ -45,14 +45,14 @@ Werkzeuge für beliebige Objekte der Zeichnung (Suchen, Prüfen, Gestalten, Tran
 
 Dieser Ordner enthält 2 Werkzeuggruppen mit insgesamt 27 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Draw2D](#draw2d) | `draw2d` | Nein | niedrig | 15 | 2D-Grundformen erstellen, bearbeiten, messen und kombinieren sowie Textobjekte erstellen, auslesen und bearbeiten. |
 | [Objects](#objects) | `objects` | Ja | mittel | 12 | Beliebige Objekte suchen, prüfen und bearbeiten: Attribute, Transformationen, Container, Plug-in-Parameter und Datensätze. |
 
 ## Draw2D
 
-> **Gruppe:** `Draw2D` · **Gruppen-ID:** `draw2d` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** niedrig · **Werkzeuge:** 15
+> **Gruppe:** `Draw2D` · **Gruppen-ID:** `draw2d` · **Standardmäßig aktiv:** Nein · **Risikostufe:** niedrig · **Werkzeuge:** 15
 
 **2D-Grundformen erstellen, bearbeiten, messen und kombinieren sowie Textobjekte erstellen, auslesen und bearbeiten.**
 
@@ -60,7 +60,7 @@ Erstellen, bearbeiten und messen Sie die Geometrie von 2D-Grundformen: Linien, R
 
 Koordinaten werden in Welteinheiten, Winkel im Bogenmaß angegeben. Neue Objekte werden auf der aktiven Konstruktionsebene erstellt, Ergebnisse von `combineShapes` im Container der ersten Form. Jede Änderung wird als eigener, benannter und rückgängig machbarer Vectorworks-Vorgang ausgeführt. `queryGeometry` beantwortet Fragen zum nächsten Punkt, Abstand, Enthaltensein, Schnitt und zu Tangenten und misst Polygone und Polylinien entlang ihrer tatsächlichen Kurve (Länge, Punkt, Tangente und Krümmung an einer bestimmten Entfernung sowie Unterteilung in gleich große Abschnitte), ohne die Zeichnung zu ändern.
 
-| Werkzeug | Wirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Wirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`createLine`](#createline) | Bearbeiten | niedrig | Erstellt eine gerade Linie zwischen zwei Punkten. |
 | [`createRectangle`](#createrectangle) | Bearbeiten | niedrig | Erstellt ein Rechteck, optional gedreht und mit abgerundeten Ecken. |
@@ -82,7 +82,7 @@ Koordinaten werden in Welteinheiten, Winkel im Bogenmaß angegeben. Neue Objekte
 
 Erstellt eine gerade Linie zwischen zwei Punkten.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createLine“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createLine“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -103,7 +103,7 @@ Erstellt eine gerade Linie zwischen den Punkten `start` und `end`.
 
 Erstellt ein Rechteck, optional gedreht und mit abgerundeten Ecken.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createRectangle“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createRectangle“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -131,7 +131,7 @@ Erstellt ein Rechteck mit Mittelpunkt `center`, `width` und `height` sowie optio
 
 Erstellt einen Kreis anhand von Mittelpunkt und Radius oder durch drei Punkte.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createCircle“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createCircle“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -153,7 +153,7 @@ Erstellt einen Kreis mit Mittelpunkt `center` und Radius `radius` oder den Kreis
 
 Erstellt einen Kreisbogen anhand von Mittelpunkt, Radius und Winkeln oder durch drei Punkte.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createArc“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createArc“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -177,7 +177,7 @@ Erstellt einen Kreisbogen mit Mittelpunkt `center`, Radius `radius`, `startAngle
 
 Erstellt ein Polygon aus Punkten oder ein regelmäßiges Polygon.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createPolygon“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createPolygon“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -202,7 +202,7 @@ Erstellt ein Polygon aus einem `points`-Array (mit `closed`, standardmäßig tru
 
 Erstellt eine Polylinie aus Scheitelpunkten beliebigen Typs oder eine abgerundete Form.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createPolyline“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createPolyline“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -233,7 +233,7 @@ Erstellt eine Polylinie aus einem `vertices`-Array. Jeder Scheitelpunkt hat die 
 
 Erstellt eine 2D-Ortspunkt (Bezugspunkt).
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: createLocus“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: createLocus“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -253,7 +253,7 @@ Erstellt eine 2D-Ortspunkt (Bezugs-/Fangpunkt) an `position`.
 
 Liest die typspezifische Geometrie einer 2D-Grundform aus.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -285,7 +285,7 @@ Liest die typspezifische Geometrie einer 2D-Grundform (`kind`) aus.
 
 Bearbeitet die Geometrie einer 2D-Grundform.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: setGeometry“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: setGeometry“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -347,7 +347,7 @@ Bearbeitet die Geometrie einer 2D-Grundform anhand ihrer UUID. Geben Sie die Fel
 
 Fügt Scheitelpunkte eines Polygons oder einer Polylinie hinzu oder ein, ändert, löscht, kehrt sie um oder ersetzt sie.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt „MCP: editVertices“ · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt „MCP: editVertices“ · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -392,7 +392,7 @@ Scheitelpunkt-`type` (corner|bezier|cubic|arc|radius) und `arcRadius` gelten nur
 
 Beantwortet geometrische Fragen zu einer 2D-Grundform: nächster Punkt, Abstand, Enthaltensein, Schnittpunkte, Tangenten und Messungen entlang von Kurven.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -440,7 +440,7 @@ Rechtecke werden entlang ihrer vier Ecken gemessen (Eckenabrundungen werden igno
 
 Kombiniert zwei 2D-Formen mit einer Booleschen Operation: Vereinigung, Schnittmenge, Differenz oder symmetrische Differenz.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt "MCP: combineShapes" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt "MCP: combineShapes" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -487,7 +487,7 @@ Alle Argumente werden geprüft, bevor Änderungen vorgenommen werden. Ein abgewi
 
 Erstellt ein Textobjekt.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt "MCP: createText" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt "MCP: createText" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -539,7 +539,7 @@ Alle Argumente werden geprüft, bevor etwas erstellt wird. Ein falscher Typ, ein
 
 Liest Inhalt, Zeichenformatierung, Stil und Layout eines Textobjekts aus.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -563,7 +563,7 @@ Die Namen und Schlüssel entsprechen den Parametern von `createText` und `editTe
 
 Bearbeitet Inhalt und Formatierung eines Textobjekts.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** niedrig · **Rückgängig:** ein Schritt "MCP: editText" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** niedrig · **Rückgängig:** ein Schritt "MCP: editText" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -637,7 +637,7 @@ Fehler: `object not found (provide 'uuid', 'name' or 'index')`; `the object is n
 
 ## Objects
 
-> **Gruppe:** `Objects` · **Gruppen-ID:** `objects` · **Standardmäßig aktiv:** Ja · **Sicherheitsstufe:** mittel · **Werkzeuge:** 12
+> **Gruppe:** `Objects` · **Gruppen-ID:** `objects` · **Standardmäßig aktiv:** Ja · **Risikostufe:** mittel · **Werkzeuge:** 12
 
 **Beliebige Objekte finden, prüfen und bearbeiten: Attribute, Transformationen, Container, Plug-in-Parameter und Datensätze.**
 
@@ -649,7 +649,7 @@ IFC-Daten (IFC-Entität, standardmäßige und benutzerdefinierte Eigenschaftssä
 
 Jede Bearbeitung wird als eigener, benannter und rückgängig machbarer Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Wirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Wirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`findObjects`](#findobjects) | Nur lesend | niedrig | Findet Objekte, die einer Kriterienzeichenfolge entsprechen. |
 | [`getObjectsAtPoint`](#getobjectsatpoint) | Nur lesend | niedrig | Findet die Objekte an einem Punkt. |
@@ -668,7 +668,7 @@ Jede Bearbeitung wird als eigener, benannter und rückgängig machbarer Vectorwo
 
 Findet Objekte, die einer Kriterienzeichenfolge entsprechen.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -709,7 +709,7 @@ Schließen Sie Zeichenfolgen in einfache Anführungszeichen ein und verdoppeln S
 
 Findet die Objekte an einem Punkt.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -740,7 +740,7 @@ Sucht Objekte an einem Welt-`point`, optional innerhalb eines `radius`. `travers
 
 Gibt Identität, Klasse, Ebene, Begrenzungen, Status und Container eines Objekts zurück.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -783,7 +783,7 @@ Bei `includeMembers` true listet `members` die Mitglieder als Objekt-Referenzen 
 
 Gibt die grafischen Attribute eines Objekts zurück.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -803,7 +803,7 @@ Die Schlüssel entsprechen den von `setObjectAttributes` akzeptierten Schlüssel
 
 Legt grafische Attribute eines Objekts fest: Stift, Füllung, Deckkraft, Marker, Schlagschatten und mehr.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** mittel · **Rückgängig:** ein Schritt "MCP: setObjectAttributes" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** mittel · **Rückgängig:** ein Schritt "MCP: setObjectAttributes" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -918,7 +918,7 @@ Legt grafische Attribute eines Objekts fest; geändert werden nur die angegebene
 
 Kopiert die grafischen Attribute eines Objekts auf andere Objekte.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** mittel · **Rückgängig:** ein Schritt "MCP: copyAttributes" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** mittel · **Rückgängig:** ein Schritt "MCP: copyAttributes" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -949,7 +949,7 @@ Kopiert alle grafischen Attribute des Quellobjekts (Stift, Füllung, Marker, Sch
 
 Verschiebt, dreht, skaliert, spiegelt, dupliziert, gruppiert neu, wandelt um, setzt zurück oder löscht ein Objekt oder ändert dessen Namen und Klasse.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** mittel · **Rückgängig:** ein Schritt "MCP: editObject" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** mittel · **Rückgängig:** ein Schritt "MCP: editObject" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -1006,7 +1006,7 @@ Bearbeiten &gt; Rückgängig stellt die Gruppe samt Mitgliedern wieder her.
 
 Liest die Parameter eines Plug-in-Objekts aus.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -1042,7 +1042,7 @@ Für alle anderen Objekte (Linien, Rechtecke, Kreisbögen, Polygone, Gruppen, Sy
 
 Liest die an ein Objekt angehängten Datensätze aus.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -1072,7 +1072,7 @@ Der Parameter-Datensatz eines Plug-in-Objekts ist nicht enthalten. Verwenden Sie
 
 Schreibt einen oder mehrere Parameter eines Plug-in-Objekts.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** mittel · **Rückgängig:** ein Schritt "MCP: setObjectParameter" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** mittel · **Rückgängig:** ein Schritt "MCP: setObjectParameter" · **Bei runToolBatch:** ja
 
 **Details**
 
@@ -1101,7 +1101,7 @@ Schreibt Parameter eines parametrischen Plug-in-Objekts. Legen Sie entweder ein 
 
 Beschreibt ein installiertes Plug-in-Objekt: Typ, Parameter und Popup-Auswahlen.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keine · **Bei runToolBatch:** zulässig
 
 **Details**
 
@@ -1130,7 +1130,7 @@ Bei unbekanntem oder anders geschriebenem Namen, nicht installiertem Plug-in, Me
 
 Erstellt ein Plug-in-Objekt ohne eigenes Erstellungswerkzeug.
 
-> **Wirkung:** Bearbeiten · **Sicherheit:** mittel · **Rückgängig:** ein Schritt "MCP: createPluginObject" · **Bei runToolBatch:** ja
+> **Wirkung:** Bearbeiten · **Risiko:** mittel · **Rückgängig:** ein Schritt "MCP: createPluginObject" · **Bei runToolBatch:** ja
 
 **Details**
 

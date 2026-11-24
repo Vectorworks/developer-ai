@@ -24,14 +24,14 @@ Read-only access to the IFC (Industry Foundation Classes) data of the drawing: t
 
 This folder holds 2 tool groups with 6 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [IFC](#ifc) | `ifc` | Yes | low | 4 | Read-only IFC data: the IFC entity and property sets of objects, the IFC property-set definitions (standard and custom) and the custom property sets of the document. |
 | [IFC Data Mapping](#ifc-data-mapping) | `ifc-data-mapping` | No | low | 2 | Read the IFC Data Manager mapping definitions of the active document. |
 
 ## IFC
 
-> **Group:** `IFC` · **Group ID:** `ifc` · **Active by default:** Yes · **Safety level:** low · **Tools:** 4
+> **Group:** `IFC` · **Group ID:** `ifc` · **Active by default:** Yes · **Risk level:** low · **Tools:** 4
 
 **Read-only IFC data: the IFC entity and property sets of objects, the IFC property-set definitions (standard and custom) and the custom property sets of the document.**
 
@@ -41,7 +41,7 @@ When IFC support is unavailable they return an explicit error. getObjectIFCData 
 
 Data Manager mapping definitions are in the inactive 'IFC Data Mapping' group; use it only when the user asks about data mapping. A failed read is an `err` result and never means the data is absent.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`getObjectIFCData`](#getobjectifcdata) | Read-only | low | Reads the IFC data of an object as IFC export computes it. |
 | [`getIFCPsetDefinition`](#getifcpsetdefinition) | Read-only | low | Reads one IFC property-set definition by name. |
@@ -52,7 +52,7 @@ Data Manager mapping definitions are in the inactive 'IFC Data Mapping' group; u
 
 Reads the IFC data of an object as IFC export computes it.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -90,7 +90,7 @@ Errors: `'uuid' is required`, `object not found`, `IFC support is unavailable in
 
 Reads one IFC property-set definition by name.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -122,7 +122,7 @@ Errors: `'name' is required`, `IFC support is unavailable in this Vectorworks se
 
 Lists the IFC property sets applicable to an IFC entity type.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -149,7 +149,7 @@ Errors: `IFC support is unavailable in this Vectorworks session`, `failed to lis
 
 Lists the custom IFC property-set definitions of the document.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -170,13 +170,13 @@ Errors: `IFC support is unavailable in this Vectorworks session` and `the custom
 
 ## IFC Data Mapping
 
-> **Group:** `IFC Data Mapping` · **Group ID:** `ifc-data-mapping` · **Active by default:** No · **Safety level:** low · **Tools:** 2
+> **Group:** `IFC Data Mapping` · **Group ID:** `ifc-data-mapping` · **Active by default:** No · **Risk level:** low · **Tools:** 2
 
 **Read the IFC Data Manager mapping definitions of the active document.**
 
 Read the IFC Data Manager mapping definitions of the active document: which objects are mapped, their conditions, IFC entries, property sets and the formula that supplies each field. Use these tools only when the user asks about data mapping or the Data Manager; for an object's IFC values use getObjectIFCData in the IFC group.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`listIFCMappingObjects`](#listifcmappingobjects) | Read-only | low | Lists the mapping objects of the active Data Manager mapping. |
 | [`getIFCMapping`](#getifcmapping) | Read-only | low | Reads the Data Manager mapping of one mapping object. |
@@ -185,7 +185,7 @@ Read the IFC Data Manager mapping definitions of the active document: which obje
 
 Lists the mapping objects of the active Data Manager mapping.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -217,7 +217,7 @@ An object that cannot be read has only `index` and `readFailed: true`. A mapping
 
 Reads the Data Manager mapping of one mapping object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 

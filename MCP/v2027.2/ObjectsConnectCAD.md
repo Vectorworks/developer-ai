@@ -27,13 +27,13 @@ Tools for ConnectCAD schematic devices, their sockets and their device types, an
 
 This folder holds 1 tool group with 10 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [ConnectCAD](#connectcad) | `connectcad` | No | medium | 10 | ConnectCAD schematic devices, sockets and device types, built from JSON device descriptions. |
 
 ## ConnectCAD
 
-> **Group:** `ConnectCAD` · **Group ID:** `connectcad` · **Active by default:** No · **Safety level:** medium · **Tools:** 10
+> **Group:** `ConnectCAD` · **Group ID:** `connectcad` · **Active by default:** No · **Risk level:** medium · **Tools:** 10
 
 **ConnectCAD schematic devices, sockets and device types, built from JSON device descriptions.**
 
@@ -49,7 +49,7 @@ Create and inspect ConnectCAD schematic devices without scripts: a device with a
 >
 > **Note:** Arguments of the wrong type fall back silently: a `position` or `origin` that is not a point is (0, 0), a `gap` that is not a number is 0, a `createDeviceType` or `createDeviceTypes` that is not a boolean is false, and a text filter or socket value that is not a string is empty. Only `limit`, `offset` and `countOnly` report a wrong type.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`listConnectCADSignals`](#listconnectcadsignals) | Read-only | low | Lists the ConnectCAD signal types. |
 | [`listConnectCADConnectors`](#listconnectcadconnectors) | Read-only | low | Lists the ConnectCAD connector types and their pins. |
@@ -66,7 +66,7 @@ Create and inspect ConnectCAD schematic devices without scripts: a device with a
 
 Lists the ConnectCAD signal types.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -98,7 +98,7 @@ Errors: the paging errors (see [Paging](Common.md#paging)); `ConnectCAD is not a
 
 Lists the ConnectCAD connector types and their pins.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -129,7 +129,7 @@ Errors: as for `listConnectCADSignals`.
 
 Checks a device description without creating anything.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -170,7 +170,7 @@ The create tools use the same rules. A message about a socket group starts with 
 
 Creates a schematic device with all its sockets from a device description.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createConnectCADDevice" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createConnectCADDevice" · **In runToolBatch:** yes
 
 **Details**
 
@@ -203,7 +203,7 @@ Errors: `ConnectCAD is not available (the ConnectCAD plug-in is not installed)`.
 
 Creates several schematic devices in a row in one operation.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createConnectCADDevices" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createConnectCADDevices" · **In runToolBatch:** yes
 
 **Details**
 
@@ -233,7 +233,7 @@ Errors: `ConnectCAD is not available (the ConnectCAD plug-in is not installed)`;
 
 Reads a ConnectCAD device and its sockets.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -267,7 +267,7 @@ A key is left out when its value cannot be read. Errors: `object not found`; `no
 
 Adds a socket to a device.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: addConnectCADSocket" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: addConnectCADSocket" · **In runToolBatch:** yes
 
 **Details**
 
@@ -301,7 +301,7 @@ A value that is missing or not a string counts as empty and fails the check. Err
 
 Edits a socket.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setConnectCADSocket" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setConnectCADSocket" · **In runToolBatch:** yes
 
 **Details**
 
@@ -333,7 +333,7 @@ The call succeeds even when every value was refused. The socket and its device a
 
 Creates the device-type symbol of a device.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createConnectCADDeviceType" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createConnectCADDeviceType" · **In runToolBatch:** yes
 
 **Details**
 
@@ -372,7 +372,7 @@ In `warnings`: `a device type '<name>' was already in the drawing; it is kept an
 
 Reads the Device Definition record of a device-type symbol.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 

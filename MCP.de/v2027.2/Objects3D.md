@@ -33,13 +33,13 @@ Werkzeuge zum Erstellen, Lesen und Bearbeiten von 3D-Geometrie: Volumenkörper, 
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 16 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [3D Modeling](#3d-modeling) | `3d-modeling` | Nein | mittel | 16 | Erstellt, liest und bearbeitet Volumenkörper, 3D-Polygone, Netze, NURBS-Kurven und -Flächen sowie Flächenmodelle. |
 
 ## 3D Modeling
 
-> **Gruppe:** `3D Modeling` · **Gruppen-ID:** `3d-modeling` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 16
+> **Gruppe:** `3D Modeling` · **Gruppen-ID:** `3d-modeling` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 16
 
 **Erstellt, liest und bearbeitet Volumenkörper, 3D-Polygone, Netze, NURBS-Kurven und -Flächen sowie Flächenmodelle.**
 
@@ -47,7 +47,7 @@ Erstellen, Lesen und Bearbeiten von 3D-Volumenkörpern: Extrusionskörper (aus P
 
 **NURBS-Kurven und -Flächen:** Kurven aus Kontrollpunkten (mit Gewichten) oder Stützpunkten eines Grades erstellen (createNurbsCurve) und Flächen aus einem Kontrollnetz `points[u][v]` mit Graden und Gewichten erstellen (createNurbsSurface); Teilstücke, Punkte, Gewichte und Knoten auslesen und Kurven vermessen: Punkte in bestimmten Abständen, nächstgelegene Punkte, Punkte mit Tangente und Krümmung an Parametern sowie Unterteilung in gleich große Abschnitte (get3DGeometry); ihre Punkte und Gewichte festlegen, eine Fläche mit einer Kurve trimmen und erweiterte sowie versetzte Kopien beider erzeugen (edit3DGeometry; für NURBS sind `move3D`, `rotate3D`, `scale3D` und Knotenbearbeitungen nicht verfügbar). Flächenmodelle aus NURBS-Flächen: Übergänge durch Querschnitte, Schienensweeps von Querschnitten entlang einer oder zwei Schienen, Rotationen eines Profils (um dessen linke Kante oder entlang einer Schiene um eine Achse) und Extrusionen eines Profils entlang eines Pfads; das Ergebnis ist eine NURBS-Fläche, ein allgemeiner Volumenkörper oder eine Gruppe davon (createSurfaceModel). Längen werden in Welteinheiten und Winkel gegen den Uhrzeigersinn im Bogenmaß angegeben. Rahmen, Mittelpunkte und Eingabepunkte verwenden Ebenenkoordinaten; `bounds3D` verwendet die Welt-Z-Koordinate, und `layerElevation` gibt die Welt-Z-Höhe der zugehörigen Konstruktionsebene an (ohne Konstruktionsebenen-Eigentümer `null`). Neue Objekte werden normalerweise auf der aktiven Ebene angelegt; Hüllen und Umwandlungen können den Container des Quellobjekts beibehalten. Die optionale Erstellungsoption `select` legt fest, ob ein Ergebnis ausgewählt wird. Eingabeformen werden nie geändert: Die Werkzeuge kopieren sie (nicht mehr benötigte Formen anschließend mit der Aktion `delete` von editObject löschen). Jede Änderung wird als eigener benannter, rückgängig zu machender Vectorworks-Vorgang ausgeführt; ein abgewiesener Aufruf ändert nichts.
 
-| Werkzeug | Auswirkung | Sicherheitsstufe | Zusammenfassung |
+| Werkzeug | Auswirkung | Risikostufe | Zusammenfassung |
 |---|---|---|---|
 | [`createExtrude`](#createextrude) | Bearbeiten | mittel | Erstellt einen Extrusionskörper, Mehrfach-Extrusionskörper oder verjüngten Extrusionskörper. |
 | [`createSolidPrimitive`](#createsolidprimitive) | Bearbeiten | mittel | Erstellt eine Kugel, ein Ellipsoid, eine Halbkugel, einen Kegel, Quader, Zylinder oder Torus. |
@@ -70,7 +70,7 @@ Erstellen, Lesen und Bearbeiten von 3D-Volumenkörpern: Extrusionskörper (aus P
 
 Erstellt einen Extrusionskörper, Mehrfach-Extrusionskörper oder verjüngten Extrusionskörper.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createExtrude" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createExtrude" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -117,7 +117,7 @@ Erstellt einen Extrusionskörper aus genau einer Profilquelle: `points` (mindest
 
 Erstellt eine Kugel, ein Ellipsoid, eine Halbkugel, einen Kegel, Quader, Zylinder oder Torus.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createSolidPrimitive" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createSolidPrimitive" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -150,7 +150,7 @@ Radien müssen positiv sein. Alle Argumente werden überprüft, bevor etwas erst
 
 Erstellt einen Rotationskörper aus 2D-Profilen, die um eine Achse gedreht werden.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createSweep" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createSweep" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -179,7 +179,7 @@ Gibt die Objekt-Referenz, `kind` sweep, `bounds3D` { min, max } in Welt-Z sowie 
 
 Kombiniert zwei Volumenkörper durch Vereinigung, Schnitt oder Differenz zu einem allgemeinen Volumenkörper.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: combineSolids" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: combineSolids" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -201,7 +201,7 @@ Kombiniert zwei Volumenkörper anhand von `blankUuid` und `toolUuid` mit der Ope
 
 Erstellt eine Hülle durch Aufdicken einer NURBS-Fläche oder Aushöhlen eines Volumenkörpers.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createShell" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createShell" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -225,7 +225,7 @@ Eine gesperrte Quelle oder eine Quelle, die sich nicht in einer Ebene, einer Sym
 
 Erstellt eine Kopie eines Volumenkörpers, umgewandelt in einen allgemeinen Volumenkörper oder ein Netz.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: convertSolid" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: convertSolid" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -248,7 +248,7 @@ Die optionale Erstellungsoption `select` legt fest, ob das Ergebnis ausgewählt 
 
 Liest Art, 3D-Begrenzungen, Parameter und Verlauf eines Volumenkörpers aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 
@@ -268,7 +268,7 @@ Liest einen Volumenkörper anhand von UUID, Name oder Index aus: die Objekt-Refe
 
 Verschiebt, dreht, skaliert, richtet einen Volumenkörper neu aus oder ändert seine Größe.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: editSolid" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: editSolid" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -330,7 +330,7 @@ Gibt die Objekt-Referenz, `changed` (die angewendeten Argumente in Reihenfolge) 
 
 Erstellt ein 3D-Polygon aus 3D-Punkten, 2D-Punkten auf einer Höhe oder einem Rechteck.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: create3DPolygon" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: create3DPolygon" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -356,7 +356,7 @@ Alle Argumente werden überprüft, bevor etwas erstellt wird; das Polygon wird a
 
 Erstellt ein Netz aus Scheitelpunkten und Flächen, Polygonen oder einer Gruppe von 3D-Polygonen.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createMesh" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createMesh" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -381,7 +381,7 @@ Eine gesperrte Gruppe oder eine Gruppe, die sich nicht in einer Ebene, einer Sym
 
 Erstellt eine NURBS-Kurve aus Kontrollpunkten oder Stützpunkten.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createNurbsCurve" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createNurbsCurve" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -406,7 +406,7 @@ Alle Argumente werden überprüft, bevor etwas erstellt wird; die Kurve wird auf
 
 Erstellt eine NURBS-Fläche aus ihrem Kontrollnetz.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createNurbsSurface" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createNurbsSurface" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -431,7 +431,7 @@ Erstellt eine NURBS-Fläche aus dem Kontrollnetz `points`: ein Array mit mindest
 
 Erstellt aus vorhandenen Objekten ein Übergangs-, Schienensweep-, Rotations- oder Pfadextrusions-Flächenmodell.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createSurfaceModel" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createSurfaceModel" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -470,7 +470,7 @@ Erstellt ein Flächenmodell der Art `kind` aus Kopien vorhandener Objekte, die u
 
 Liest ein 3D-Polygon, Netz, eine NURBS-Kurve oder -Fläche aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 
@@ -508,7 +508,7 @@ Liest ein 3D-Polygon, ein Netz, eine NURBS-Kurve oder eine NURBS-Fläche anhand 
 
 Bearbeitet ein 3D-Polygon, Netz, eine NURBS-Kurve oder -Fläche.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: edit3DGeometry" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: edit3DGeometry" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -600,7 +600,7 @@ Die Operationen werden in dieser Reihenfolge angewendet: `vertices` (ersetzt all
 
 Wandelt eine Kopie eines Objekts in 3D-Polygone, ein Netz oder einen allgemeinen Volumenkörper um.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: convertTo3D" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: convertTo3D" · **Bei runToolBatch:** Ja
 
 **Details**
 

@@ -26,13 +26,13 @@ Werkzeuge für BIM-Gebäudeelemente: Wände, Böden/Decken, Dächer, Türen, Fen
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 9 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Architecture](#architecture) | `architecture` | Nein | mittel | 9 | BIM-Gebäudeelemente: Wände, Böden/Decken, Dächer, Türen, Fenster, Stützen und Treppen. |
 
 ## Architecture
 
-> **Gruppe:** `Architecture` · **Gruppen-ID:** `architecture` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 9
+> **Gruppe:** `Architecture` · **Gruppen-ID:** `architecture` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 9
 
 **BIM-Gebäudeelemente: Wände, Böden/Decken, Dächer, Türen, Fenster, Stützen und Treppen.**
 
@@ -40,7 +40,7 @@ BIM-Gebäudeobjekte anzeigen, erstellen und bearbeiten: gerade und runde (gekrü
 
 **BIM-Arbeitsablauf:** Zuerst Geschosse und deren Ebenen (Gruppe Document: getStories, createStory), dann Stile (Gruppe Resources) und anschließend die Gebäudeelemente auf den Geschossebenen. Wände werden mit `topBound` / `bottomBound` an die Geschossebenen gebunden. `getArchitectureObject` liest die Wandendhöhen und den Stil aus; mit `includeHeightDetails` werden die durchschnittliche Höhe sowie Metadaten, Versätze und geprüfte Höhen der oberen und unteren Bindung ausgegeben. Längen werden in Welteinheiten und Winkel in Radiant angegeben, außer Dachneigungen an Dachkanten, die in Grad (2 bis 90) angegeben werden. Türen und Fenster werden freistehend erstellt; füge sie in Vectorworks in eine Wand ein. Jede Änderung wird als eigener benannter, rückgängig machbarer Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`createWall`](#createwall) | Bearbeitung | mittel | Erstellt eine gerade oder runde Wand. |
 | [`createSlab`](#createslab) | Bearbeitung | mittel | Erstellt einen Boden/eine Decke aus einem 2D-Begrenzungsobjekt. |
@@ -56,7 +56,7 @@ BIM-Gebäudeobjekte anzeigen, erstellen und bearbeiten: gerade und runde (gekrü
 
 Erstellt eine gerade oder runde Wand.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createWall“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createWall“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -100,7 +100,7 @@ Die Bindungen werden nach den anderen Werten angewendet und verschieben die Wand
 
 Erstellt einen Boden/eine Decke aus einem 2D-Begrenzungsobjekt.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createSlab“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createSlab“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -131,7 +131,7 @@ Erstellt einen Boden/eine Decke (Bodenplatte/Belag/Decke; Vectorworks-Plug-in-Ob
 
 Erstellt ein polygonales Dach.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createRoof“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createRoof“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -169,7 +169,7 @@ Fehler: `'edges' must be an array of 3 to 32767 edges`; ein Problem mit einer Ka
 
 Erstellt eine freistehende Tür.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createDoor“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createDoor“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -203,7 +203,7 @@ Wird die Referenz durch `sizeReference` geändert, müssen sowohl `width` als au
 
 Erstellt ein freistehendes Fenster.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createWindow“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createWindow“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -239,7 +239,7 @@ Optional ist `idLabel`. Ein Wert, der durch den Plug-in-Stil des Fensters festge
 
 Erstellt eine Stütze.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createColumn“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createColumn“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -271,7 +271,7 @@ Fehler: `failed to create column (requires the 'Column2' plug-in object)`; `fail
 
 Erstellt eine Treppe.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createStair“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createStair“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -303,7 +303,7 @@ Erstellt an `position` eine Treppe (das Vectorworks-Plug-in-Objekt „Stairs CW�
 
 Liest die Eigenschaften einer Wand, eines Bodens/einer Decke, Dachs, einer Tür, eines Fensters, einer Stütze oder Treppe aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -353,7 +353,7 @@ Der gezeichnete Öffnungswinkel wird getrennt von der Funktion ausgegeben. Die T
 
 Bearbeitet eine Wand, einen Boden/eine Decke, ein Dach, eine Tür, ein Fenster, eine Stütze oder Treppe.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: setArchitectureObject“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: setArchitectureObject“ · **In runToolBatch:** ja
 
 **Details**
 

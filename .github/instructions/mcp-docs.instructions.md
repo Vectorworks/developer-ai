@@ -34,11 +34,11 @@ does:
   `OIPAccess`, `Resources`, `Scripting`, `ToolAccess`.
 - Every page: `# <Folder> — <subject>`; `> **Server:** Vectorworks MCP · **Version:** ...`; a link back to the
   index; an introduction; `## Table of contents` near the top, listing every level 2 and 3 heading; an `## Overview`
-  table (Group, Group ID, Active by default, Safety level, Tools, Summary).
-- Every group: `## <display name>`; a quote line with Group, Group ID, Active by default, Safety level and Tools; a
-  bold one-line summary; the description the server reports; a table Tool, Effect, Safety, Summary.
+  table (Group, Group ID, Active by default, Risk level, Tools, Summary).
+- Every group: `## <display name>`; a quote line with Group, Group ID, Active by default, Risk level and Tools; a
+  bold one-line summary; the description the server reports; a table Tool, Effect, Risk, Summary.
 - Every tool: `### <toolName>` (anchor: the name in lowercase); a one-line summary;
-  `> **Effect:** ... · **Safety:** ... · **Undo:** ... · **In runToolBatch:** ...`; **Details** (the description
+  `> **Effect:** ... · **Risk:** ... · **Undo:** ... · **In runToolBatch:** ...`; **Details** (the description
   the server reports); **Parameters** (Parameter, Type, Required, Description; members as `parameter.member` and
   `parameter[].member`), or "This tool takes no parameters."
 - Tools are listed in definition order. Shared formats are linked, not repeated: point, 3D point, color and

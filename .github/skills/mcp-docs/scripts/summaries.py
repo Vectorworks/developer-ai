@@ -8,7 +8,7 @@ FOLDERS = {
     "Attributes": ("line end markers and drop shadows",
         "The value formats of line end markers and drop shadows. They are shared by the tools that read and write the graphical attributes of classes and objects."),
     "Common": ("shared conventions",
-        "The conventions that every tool of the Vectorworks MCP server follows: calls and results, object references, points and colors, units, creation options, applied settings, plug-in parameters, paging, effects, safety levels and undo."),
+        "The conventions that every tool of the Vectorworks MCP server follows: calls and results, object references, points and colors, units, creation options, applied settings, plug-in parameters, paging, effects, risk levels and undo."),
     "DocumentAccess": ("document and selection",
         "Tools for the active drawing as a whole and for the current selection: the document summary, layers, stories, classes, units, the view and the document preferences, and bulk edits of the selected objects."),
     "IFC": ("IFC data and Data Manager mappings",

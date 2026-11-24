@@ -34,14 +34,14 @@ Werkzeuge für Beschriftungen: Datenstempel, Plankopf-Rahmen und Plankopf-Projek
 
 Dieser Ordner enthält 2 Werkzeuggruppen mit insgesamt 16 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Annotation](#annotation) | `annotation` | Nein | mittel | 8 | Datenstempel, Plankopf-Rahmen und die Plankopf-Projektdaten des Dokuments. |
 | [Dimensioning](#dimensioning) | `dimensioning` | Nein | mittel | 8 | Lineare, Winkel-, Bogenlängen- und Radiusbemaßungen sowie Mittelpunktmarkierungen. |
 
 ## Annotation
 
-> **Gruppe:** `Annotation` · **Gruppen-ID:** `annotation` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 8
+> **Gruppe:** `Annotation` · **Gruppen-ID:** `annotation` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 8
 
 **Datenstempel, Plankopf-Rahmen und die Plankopf-Projektdaten des Dokuments.**
 
@@ -49,7 +49,7 @@ Die Zeichnung mit Datenstempeln und Plankopf-Rahmen beschriften. Ein Datenstempe
 
 Jede Änderung wird als eigener benannter, rückgängig zu machender Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Auswirkung | Sicherheitsstufe | Zusammenfassung |
+| Werkzeug | Auswirkung | Risikostufe | Zusammenfassung |
 |---|---|---|---|
 | [`createDataTag`](#createdatatag) | Bearbeiten | mittel | Erstellt einen Datenstempel, optional einem Objekt zugeordnet. |
 | [`createTitleBlock`](#createtitleblock) | Bearbeiten | mittel | Erstellt einen Plankopf-Rahmen. |
@@ -64,7 +64,7 @@ Jede Änderung wird als eigener benannter, rückgängig zu machender Vectorworks
 
 Erstellt einen Datenstempel, optional einem Objekt zugeordnet.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createDataTag" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createDataTag" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -101,7 +101,7 @@ Optional sind `useLeader`, `leaderLength`, `leaderAngle` (Bogenmaß), `leaderEnd
 
 Erstellt einen Plankopf-Rahmen.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createTitleBlock" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createTitleBlock" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -135,7 +135,7 @@ Die Objektreferenz des neuen Plankopf-Rahmens (siehe [Objektreferenzen](Common.m
 
 Liest einen Datenstempel oder Plankopf-Rahmen aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 
@@ -172,7 +172,7 @@ Einstellungen verwenden dieselben Schlüssel, Einheiten und Enum-Werte wie setAn
 
 Bearbeitet einen Datenstempel oder Plankopf-Rahmen.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: setAnnotationObject" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: setAnnotationObject" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -239,7 +239,7 @@ Bearbeitet einen Datenstempel oder Plankopf-Rahmen anhand von UUID.
 
 Ordnet einem Objekt einen Datenstempel zu oder löst die Zuordnung.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: tagObject" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: tagObject" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -267,7 +267,7 @@ Ordnet den anhand von UUID/Name/Index angegebenen Datenstempel dem durch `object
 
 Listet die einem Objekt zugeordneten Datenstempel auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 
@@ -294,7 +294,7 @@ Listet die Datenstempel auf, die dem anhand von UUID, Name oder Index angegebene
 
 Liest die Plankopf-Projektdaten des Dokuments aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 
@@ -316,7 +316,7 @@ Dieses Werkzeug benötigt keine Parameter.
 
 Schreibt die Plankopf-Projektdaten des Dokuments.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: setProjectData" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: setProjectData" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -335,7 +335,7 @@ Schreibt die Plankopf-Projektdaten des Dokuments. `projectData` ist ein Objekt a
 
 ## Dimensioning
 
-> **Gruppe:** `Dimensioning` · **Gruppen-ID:** `dimensioning` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 8
+> **Gruppe:** `Dimensioning` · **Gruppen-ID:** `dimensioning` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 8
 
 **Lineare, Winkel-, Bogenlängen- und Radiusbemaßungen sowie Mittelpunktmarkierungen.**
 
@@ -347,7 +347,7 @@ Mit `unit` wird festgelegt, welche Dokumenteinstellung für Bemaßungseinheiten 
 
 Alle Winkel in dieser Gruppe werden im Bogenmaß angegeben. Eine Mittelpunktmarkierung ist kein Bemaßungsobjekt, sondern eine Gruppe von Liniensegmenten in der Bemaßungsklasse; sie wird daher mit den allgemeinen Objektwerkzeugen ausgelesen und bearbeitet. Jede Änderung wird als eigener benannter, rückgängig zu machender Vectorworks-Vorgang ausgeführt. Die Erstellungswerkzeuge geben außerdem `applied` (true/false je geschriebener Einstellung, einschließlich `associate`) zurück, wenn Einstellungen angegeben wurden.
 
-| Werkzeug | Auswirkung | Sicherheitsstufe | Zusammenfassung |
+| Werkzeug | Auswirkung | Risikostufe | Zusammenfassung |
 |---|---|---|---|
 | [`createLinearDimension`](#createlineardimension) | Bearbeiten | mittel | Erstellt eine gebundene, horizontale, vertikale, ungebundene oder Ordinatenbemaßung. |
 | [`createAngularDimension`](#createangulardimension) | Bearbeiten | mittel | Erstellt eine Winkelbemaßung. |
@@ -362,7 +362,7 @@ Alle Winkel in dieser Gruppe werden im Bogenmaß angegeben. Eine Mittelpunktmark
 
 Erstellt eine gebundene, horizontale, vertikale, ungebundene oder Ordinatenbemaßung.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createLinearDimension" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createLinearDimension" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -435,7 +435,7 @@ Die beiden Punkte dürfen nicht zusammenfallen.
 
 Erstellt eine Winkelbemaßung.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createAngularDimension" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createAngularDimension" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -512,7 +512,7 @@ Erstellt am `vertex` eine Winkelbemaßung des gegen den Uhrzeigersinn gemessenen
 
 Erstellt eine Bogenlängenbemaßung.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createArcLengthDimension" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createArcLengthDimension" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -593,7 +593,7 @@ Erstellt eine Bogenlängenbemaßung der Länge entlang eines Bogens; der Bemaßu
 
 Erstellt eine Radius- oder Durchmesserbemaßung.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createRadialDimension" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createRadialDimension" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -671,7 +671,7 @@ Erstellt eine Radiusbemaßung für einen Kreis mit Mittelpunkt `center`; die Ma�
 
 Erstellt eine Mittelpunktmarkierung für ein rundes Element.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: createCenterMark" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: createCenterMark" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -706,7 +706,7 @@ Erstellt eine Mittelpunktmarkierung: ein Kreuz, optional mit vier Verlängerungs
 
 Liest Art, Messpunkte, Wert und Texteinstellungen einer Bemaßung aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 
@@ -741,7 +741,7 @@ Alle Winkel werden im Bogenmaß angegeben. Mittelpunktmarkierungen sind nicht ge
 
 Bearbeitet eine Bemaßung.
 
-> **Auswirkung:** Bearbeiten · **Sicherheitsstufe:** mittel · **Rückgängig:** ein Schritt "MCP: setDimension" · **Bei runToolBatch:** Ja
+> **Auswirkung:** Bearbeiten · **Risikostufe:** mittel · **Rückgängig:** ein Schritt "MCP: setDimension" · **Bei runToolBatch:** Ja
 
 **Details**
 
@@ -819,7 +819,7 @@ Bearbeitet eine Bemaßung anhand von UUID, Name oder Index. Jede gemeinsame Eins
 
 Listet die einem Objekt zugeordneten Bemaßungen auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheitsstufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
+> **Auswirkung:** Nur lesend · **Risikostufe:** niedrig · **Rückgängig:** keiner · **Bei runToolBatch:** Zulässig
 
 **Details**
 

@@ -27,13 +27,13 @@ Tools that operate the interactive Vectorworks tools of the tool palettes like a
 
 This folder holds 1 tool group with 10 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [InteractiveTools](#interactivetools) | `interactivetools` | No | high | 10 | Operate the interactive Vectorworks tools of the tool palettes like a user. |
 
 ## InteractiveTools
 
-> **Group:** `InteractiveTools` · **Group ID:** `interactivetools` · **Active by default:** No · **Safety level:** high · **Tools:** 10
+> **Group:** `InteractiveTools` · **Group ID:** `interactivetools` · **Active by default:** No · **Risk level:** high · **Tools:** 10
 
 **Operate the interactive Vectorworks tools of the tool palettes like a user.**
 
@@ -53,7 +53,7 @@ Check the outcome with getActiveTool (`toolPointCount`, `helpMessage`) and with 
 >
 > **Note:** A call returns `err` for invalid arguments, an unknown tool or mode, a tool that cannot be activated and, for `sendToolPointer` and `sendToolAction`, when there is no active drawing pane. When the active tool does not accept an input or a mode change, the call still succeeds and says so in the result (`ok: false`, `allApplied: false` or `modesApplied: false`). The five tools that operate a tool are not allowed in `runToolBatch`. The server opens no undo event for them and never rolls them back, so a failed call has no `rolledBack` key.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`getTools`](#gettools) | Read-only | low | Lists the Vectorworks tools. |
 | [`getTool`](#gettool) | Read-only | low | Returns one tool with its declared mode buttons. |
@@ -70,7 +70,7 @@ Check the outcome with getActiveTool (`toolPointCount`, `helpMessage`) and with 
 
 Lists the Vectorworks tools.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -121,7 +121,7 @@ Errors: `'filter' must be all, activatable or inWorkspace`; the paging errors (s
 
 Returns one tool with its declared mode buttons.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -145,7 +145,7 @@ Errors: `'name' is required`; `no Vectorworks tool matches '<name>' (use getTool
 
 Returns the state of the active tool.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -177,7 +177,7 @@ Return the state of the active tool: the tool, its current instruction text (`he
 
 Activates a tool.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 
@@ -220,7 +220,7 @@ Errors: `'name' is required (or set 'selectionTool' to true)`; `no Vectorworks t
 
 Reads the live mode bar of the active tool.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -266,7 +266,7 @@ Error: `no mode matches 'modeIndex' / 'modeName' (modeCount is N)`, where N is t
 
 Changes one mode of the active tool.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 
@@ -334,7 +334,7 @@ Errors: `no mode matches 'modeIndex' / 'modeName' (modeCount is N)`; `unknown 'a
 
 Sets several modes of the active tool.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 
@@ -375,7 +375,7 @@ Error: `'settings' must be a non-empty array of { modeIndex | modeName, value }`
 
 Clicks, double-clicks, hovers or drags in the drawing with the active tool.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 
@@ -417,7 +417,7 @@ Errors, in the order in which they are checked: `there is no active drawing pane
 
 Finishes or cancels the action of the active tool, or removes its last point.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 
@@ -449,7 +449,7 @@ Errors: `there is no active drawing pane to send input to`; `'action' must be fi
 
 Converts points between model space and the view of the active pane.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 

@@ -31,13 +31,13 @@ ConnectCADの配線略図のDevice、そのSocketとDevice Type、およびそ�
 
 このフォルダには1個のツールグループがあり、合計10個のツールが含まれています。
 
-| グループ | グループID | 初期状態で有効 | 安全性レベル | ツール数 | 概要 |
+| グループ | グループID | 初期状態で有効 | リスクレベル | ツール数 | 概要 |
 |---|---|---|---|---|---|
 | [ConnectCAD](#connectcad) | `connectcad` | いいえ | 中 | 10 | JSONのDevice記述データから構築する、ConnectCADの配線略図のDevice、Socket、Device Type。 |
 
 ## ConnectCAD
 
-> **グループ:** `ConnectCAD` · **グループID:** `connectcad` · **初期状態で有効:** いいえ · **安全性レベル:** 中 · **ツール数:** 10
+> **グループ:** `ConnectCAD` · **グループID:** `connectcad` · **初期状態で有効:** いいえ · **リスクレベル:** 中 · **ツール数:** 10
 
 **JSONのDevice記述データから構築する、ConnectCADの配線略図のDevice、Socket、Device Type。**
 
@@ -53,7 +53,7 @@ ConnectCADの配線略図のDevice、そのSocketとDevice Type、およびそ�
 >
 > **注:** 型が異なる引数は、エラーなしで代替値になります。点でない`position`または`origin`は(0, 0)、数値でない`gap`は0、真偽値でない`createDeviceType`または`createDeviceTypes`はfalse、文字列でないテキストフィルタまたはSocketの値は空になります。型の誤りを報告するのは`limit`、`offset`、`countOnly`だけです。
 
-| ツール | 作用 | 安全性 | 概要 |
+| ツール | 作用 | リスク | 概要 |
 |---|---|---|---|
 | [`listConnectCADSignals`](#listconnectcadsignals) | 読み取り専用 | 低 | ConnectCADのSignal Typeの一覧を返します。 |
 | [`listConnectCADConnectors`](#listconnectcadconnectors) | 読み取り専用 | 低 | ConnectCADのConnector Typeとそのピンの一覧を返します。 |
@@ -70,7 +70,7 @@ ConnectCADの配線略図のDevice、そのSocketとDevice Type、およびそ�
 
 ConnectCADのSignal Typeの一覧を返します。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 
@@ -102,7 +102,7 @@ ConnectCADのSignal Typeの一覧を返します。各項目は`name`（Socket�
 
 ConnectCADのConnector Typeとそのピンの一覧を返します。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 
@@ -133,7 +133,7 @@ ConnectCADのConnector Typeの一覧を返します。各項目は`name`（Socke
 
 何も作成せずにDevice記述データを検証します。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 
@@ -174,7 +174,7 @@ ConnectCADのConnector Typeの一覧を返します。各項目は`name`（Socke
 
 Device記述データから全Socketを含む配線略図のDeviceを作成します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: createConnectCADDevice" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: createConnectCADDevice" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -207,7 +207,7 @@ Device記述データから全Socketを含むConnectCADの配線略図のDevice�
 
 1回の操作で複数の配線略図のDeviceを横一列に作成します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: createConnectCADDevices" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: createConnectCADDevices" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -237,7 +237,7 @@ Device記述データの配列から、1回の操作で複数のConnectCADのDev
 
 ConnectCADのDeviceとそのSocketを読み取ります。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 
@@ -271,7 +271,7 @@ Deviceの[オブジェクト参照](Common.md#object-references)と、次のキ�
 
 DeviceにSocketを追加します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: addConnectCADSocket" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: addConnectCADSocket" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -305,7 +305,7 @@ ConnectCADのDevice（uuid、name、indexのいずれかで指定）にSocketを
 
 Socketを編集します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: setConnectCADSocket" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: setConnectCADSocket" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -337,7 +337,7 @@ Socket（`addConnectCADSocket`が返すのと同じ`uuid`、`name`、`type`、`s
 
 DeviceのDevice Typeシンボルを作成します。
 
-> **作用:** 編集 · **安全性:** 中 · **取り消し:** 1ステップ "MCP: createConnectCADDeviceType" · **runToolBatch内:** はい
+> **作用:** 編集 · **リスク:** 中 · **取り消し:** 1ステップ "MCP: createConnectCADDeviceType" · **runToolBatch内:** はい
 
 **詳細**
 
@@ -376,7 +376,7 @@ Device Typeのシンボル定義の[オブジェクト参照](Common.md#object-r
 
 Device TypeのシンボルのDevice Definitionレコードを読み取ります。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 許可
 
 **詳細**
 

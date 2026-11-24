@@ -45,14 +45,14 @@ Tools for any object of the drawing (finding, inspecting, styling, transforming,
 
 This folder holds 2 tool groups with 27 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Draw2D](#draw2d) | `draw2d` | No | low | 15 | Create, edit, measure and combine 2D primitives, and create, read and edit text objects. |
 | [Objects](#objects) | `objects` | Yes | medium | 12 | Find, inspect and edit any object: attributes, transforms, containers, plug-in parameters and records. |
 
 ## Draw2D
 
-> **Group:** `Draw2D` · **Group ID:** `draw2d` · **Active by default:** No · **Safety level:** low · **Tools:** 15
+> **Group:** `Draw2D` · **Group ID:** `draw2d` · **Active by default:** No · **Risk level:** low · **Tools:** 15
 
 **Create, edit, measure and combine 2D primitives, and create, read and edit text objects.**
 
@@ -60,7 +60,7 @@ Create, edit and measure 2D primitive geometry: lines, rectangles, rounded recta
 
 Coordinates are in world units, angles in radians. New objects go on the active layer, the results of combineShapes into the container of the first shape; every change runs as its own named, undoable Vectorworks operation. queryGeometry answers closest point, distance, containment, intersection and tangent questions, and measures polygons and polylines along their true curve (length, the point, tangent and curvature at a distance, division into equal parts), without changing the drawing.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`createLine`](#createline) | Edit | low | Creates a straight line between two points. |
 | [`createRectangle`](#createrectangle) | Edit | low | Creates a rectangle, optionally rotated and with rounded corners. |
@@ -82,7 +82,7 @@ Coordinates are in world units, angles in radians. New objects go on the active 
 
 Creates a straight line between two points.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createLine" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createLine" · **In runToolBatch:** yes
 
 **Details**
 
@@ -105,7 +105,7 @@ Create a straight line between two points `start` and `end`.
 
 Creates a rectangle, optionally rotated and with rounded corners.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createRectangle" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createRectangle" · **In runToolBatch:** yes
 
 **Details**
 
@@ -135,7 +135,7 @@ Create a rectangle centered at `center` with `width` and `height`, optional `ang
 
 Creates a circle from a center and radius, or through three points.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createCircle" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createCircle" · **In runToolBatch:** yes
 
 **Details**
 
@@ -159,7 +159,7 @@ Create a circle at `center` with `radius`, or the circle through the three point
 
 Creates a circular arc from a center, radius and angles, or through three points.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createArc" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createArc" · **In runToolBatch:** yes
 
 **Details**
 
@@ -185,7 +185,7 @@ Create a circular arc at `center` with `radius`, `startAngle` and `sweepAngle` (
 
 Creates a polygon from points, or a regular polygon.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createPolygon" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createPolygon" · **In runToolBatch:** yes
 
 **Details**
 
@@ -212,7 +212,7 @@ Create a polygon from a `points` array (with `closed`, default true), or a regul
 
 Creates a polyline from vertices of any vertex type, or a rounded shape.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createPolyline" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createPolyline" · **In runToolBatch:** yes
 
 **Details**
 
@@ -245,7 +245,7 @@ Create a polyline from a `vertices` array. Each vertex is { x, y, type?, arcRadi
 
 Creates a 2D locus (reference point).
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createLocus" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createLocus" · **In runToolBatch:** yes
 
 **Details**
 
@@ -267,7 +267,7 @@ Create a 2D locus (reference/snap point) at `position`.
 
 Reads the type-specific geometry of a 2D primitive.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -301,7 +301,7 @@ Read the type-specific geometry of a 2D primitive (`kind`).
 
 Edits the geometry of a 2D primitive.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: setGeometry" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: setGeometry" · **In runToolBatch:** yes
 
 **Details**
 
@@ -368,7 +368,7 @@ Errors: `object not found`; `this object's geometry cannot be edited with setGeo
 
 Adds, inserts, changes, deletes, reverses or replaces the vertices of a polygon or polyline.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: editVertices" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: editVertices" · **In runToolBatch:** yes
 
 **Details**
 
@@ -418,7 +418,7 @@ Errors: `object not found`; `object is not a polygon or a polyline`; `'point' is
 
 Answers geometric questions about a 2D primitive: closest point, distance, containment, intersections, tangents and measurements along curves.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -471,7 +471,7 @@ Errors: `object not found`; `unknown 'operation' (closestPoint, distanceTo, cont
 
 Combines two 2D shapes with a Boolean operation: union, intersection, difference or symmetric difference.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: combineShapes" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: combineShapes" · **In runToolBatch:** yes
 
 **Details**
 
@@ -521,7 +521,7 @@ Errors: a missing `operation`; an unknown `operation` or `deleteOriginals`; `the
 
 Creates a text object.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: createText" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: createText" · **In runToolBatch:** yes
 
 **Details**
 
@@ -578,7 +578,7 @@ Errors: `'text' must be a text that is not empty`; `'text' is too long: Vectorwo
 
 Reads a text object: its content, character formatting, style and layout.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -604,7 +604,7 @@ The names and keys are those that createText and editText take.
 
 Edits the content and formatting of a text object.
 
-> **Effect:** Edit · **Safety:** low · **Undo:** one step "MCP: editText" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** low · **Undo:** one step "MCP: editText" · **In runToolBatch:** yes
 
 **Details**
 
@@ -683,7 +683,7 @@ Errors: `object not found (provide 'uuid', 'name' or 'index')`; `the object is n
 
 ## Objects
 
-> **Group:** `Objects` · **Group ID:** `objects` · **Active by default:** Yes · **Safety level:** medium · **Tools:** 12
+> **Group:** `Objects` · **Group ID:** `objects` · **Active by default:** Yes · **Risk level:** medium · **Tools:** 12
 
 **Find, inspect and edit any object: attributes, transforms, containers, plug-in parameters and records.**
 
@@ -695,7 +695,7 @@ IFC data (IFC entity, standard and custom property sets, IFC property types) is 
 
 Each edit runs as its own named, undoable Vectorworks operation.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`findObjects`](#findobjects) | Read-only | low | Finds the objects that match a criteria string. |
 | [`getObjectsAtPoint`](#getobjectsatpoint) | Read-only | low | Finds the objects at a point. |
@@ -714,7 +714,7 @@ Each edit runs as its own named, undoable Vectorworks operation.
 
 Finds the objects that match a criteria string.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -758,7 +758,7 @@ Errors: `'criteria' is required (a Vectorworks criteria string, e.g. "(T=RECT)" 
 
 Finds the objects at a point.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -792,7 +792,7 @@ Errors: `'point' is required`; `unknown 'traverse'; use allObjects | visibleObje
 
 Returns the identity, class, layer, bounds, state and container of an object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -838,7 +838,7 @@ Errors: `object not found (provide 'uuid', 'name' or 'index')`; `'includeMembers
 
 Returns the graphical attributes of an object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -864,7 +864,7 @@ Errors: `object not found`.
 
 Sets graphical attributes of an object: pen, fill, opacity, markers, drop shadow and more.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setObjectAttributes" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setObjectAttributes" · **In runToolBatch:** yes
 
 **Details**
 
@@ -990,7 +990,7 @@ Errors: `object not found`. It is the only error text: a value that Vectorworks 
 
 Copies the graphical attributes of one object onto other objects.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: copyAttributes" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: copyAttributes" · **In runToolBatch:** yes
 
 **Details**
 
@@ -1026,7 +1026,7 @@ Errors: `source object not found (provide 'uuid', 'name' or 'index')` and `provi
 
 Moves, rotates, scales, mirrors, duplicates, regroups, converts, resets or deletes an object, or changes its name and class.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: editObject" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: editObject" · **In runToolBatch:** yes
 
 **Details**
 
@@ -1094,7 +1094,7 @@ Errors: `object not found`, `failed to duplicate`, `failed to convert to a polyg
 
 Reads the parameters of a plug-in object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -1133,7 +1133,7 @@ Errors: `object not found`, `object is not a parametric plug-in object (no param
 
 Reads the data records attached to an object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -1168,7 +1168,7 @@ Errors: `object not found`.
 
 Writes one or more parameters of a plug-in object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setObjectParameter" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setObjectParameter" · **In runToolBatch:** yes
 
 **Details**
 
@@ -1202,7 +1202,7 @@ Errors: `object not found`, `object is not a parametric plug-in object`, `'name'
 
 Describes an installed plug-in object: its kind, parameters and pop-up choices.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -1232,7 +1232,7 @@ Errors: `'universalName' is required: the universal name of a plug-in object, e.
 
 Creates a plug-in object that has no dedicated create tool.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createPluginObject" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createPluginObject" · **In runToolBatch:** yes
 
 **Details**
 

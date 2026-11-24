@@ -21,13 +21,13 @@ Tools that read the Vectorworks menus, check whether a command can run, and run 
 
 This folder holds 1 tool group with 4 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Menus](#menus) | `menus` | No | high | 4 | Find menu commands, read the menu bar, check whether a command can run now, and run it. |
 
 ## Menus
 
-> **Group:** `Menus` · **Group ID:** `menus` · **Active by default:** No · **Safety level:** high · **Tools:** 4
+> **Group:** `Menus` · **Group ID:** `menus` · **Active by default:** No · **Risk level:** high · **Tools:** 4
 
 **Find menu commands, read the menu bar, check whether a command can run now, and run it.**
 
@@ -48,7 +48,7 @@ Workflow:
 3. getMenuStatus tells whether a command or chunk item could run now, and why not.
 4. runMenuCommand runs it, after the user agreed.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`findMenuCommands`](#findmenucommands) | Read-only | low | Finds installed menu commands by text and by workspace. |
 | [`getMenus`](#getmenus) | Read-only | low | Reads the menu bar of the current workspace, one menu, or the items of a chunk. |
@@ -59,7 +59,7 @@ Workflow:
 
 Finds installed menu commands by text and by workspace.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -86,7 +86,7 @@ Errors: `'filter' must be all, inWorkspace or enabled`; `'name' cannot be used w
 
 Reads the menu bar of the current workspace, one menu, or the items of a chunk.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -115,7 +115,7 @@ Errors: `'chunk' cannot be used with 'menu' or 'search'`; `'<key>' must be a non
 
 Tells whether a menu command or chunk item can run now, and why not.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -139,7 +139,7 @@ Errors: `'name' must be a non-empty string`; `'chunkItemText' must be a non-empt
 
 Runs a menu command or chunk item as if the user chose it.
 
-> **Effect:** Interactive, destructive · **Safety:** high · **Undo:** recorded by the menu command · **In runToolBatch:** no
+> **Effect:** Interactive, destructive · **Risk:** high · **Undo:** recorded by the menu command · **In runToolBatch:** no
 
 **Details**
 

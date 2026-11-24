@@ -24,14 +24,14 @@ Schreibgeschützter Zugriff auf IFC-Daten (Industry Foundation Classes) der Zeic
 
 Dieser Ordner enthält 2 Werkzeuggruppen mit insgesamt 6 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [IFC](#ifc) | `ifc` | Ja | low | 4 | Schreibgeschützte IFC-Daten: IFC-Entität und Eigenschaftensätze von Objekten sowie Eigenschaftensatzdefinitionen des Dokuments. |
 | [IFC Data Mapping](#ifc-data-mapping) | `ifc-data-mapping` | Nein | low | 2 | Liest IFC-Data-Manager-Zuordnungsdefinitionen des aktiven Dokuments aus. |
 
 ## IFC
 
-> **Gruppe:** `IFC` · **Gruppen-ID:** `ifc` · **Standardmäßig aktiv:** Ja · **Sicherheitsstufe:** low · **Werkzeuge:** 4
+> **Gruppe:** `IFC` · **Gruppen-ID:** `ifc` · **Standardmäßig aktiv:** Ja · **Risikostufe:** low · **Werkzeuge:** 4
 
 **Schreibgeschützte IFC-Daten: IFC-Entität und Eigenschaftensätze von Objekten sowie Eigenschaftensatzdefinitionen des Dokuments.**
 
@@ -41,7 +41,7 @@ Wenn IFC-Unterstützung nicht verfügbar ist, geben die Werkzeuge einen ausdrüc
 
 Data-Manager-Zuordnungsdefinitionen befinden sich in der inaktiven Gruppe 'IFC Data Mapping'; verwenden Sie diese nur, wenn der Benutzer nach Datenzuordnungen fragt. Ein fehlgeschlagenes Auslesen ist ein `err`-Ergebnis und bedeutet niemals, dass die Daten nicht vorhanden sind.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`getObjectIFCData`](#getobjectifcdata) | Nur lesend | low | Liest die IFC-Daten eines Objekts so aus, wie sie beim IFC-Export berechnet werden. |
 | [`getIFCPsetDefinition`](#getifcpsetdefinition) | Nur lesend | low | Liest eine IFC-Eigenschaftensatzdefinition anhand ihres Namens aus. |
@@ -52,7 +52,7 @@ Data-Manager-Zuordnungsdefinitionen befinden sich in der inaktiven Gruppe 'IFC D
 
 Liest die IFC-Daten eines Objekts so aus, wie sie beim IFC-Export berechnet werden.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -87,7 +87,7 @@ Das Ergebnis enthält nur den aktuellen Zustand und kann daher nicht zeigen, das
 
 Liest eine IFC-Eigenschaftensatzdefinition anhand ihres Namens aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -116,7 +116,7 @@ Ein ähnlich benannter Eigenschaftensatz oder ein Datensatzformat ist davon vers
 
 Listet die IFC-Eigenschaftensätze auf, die für einen IFC-Entitätstyp gelten.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -142,7 +142,7 @@ Listet die IFC-Eigenschaftensätze auf, die für einen Entitätstyp gelten. `ent
 
 Listet die benutzerdefinierten IFC-Eigenschaftensatzdefinitionen des Dokuments auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -164,13 +164,13 @@ Fehler: `IFC support is unavailable in this Vectorworks session` und `the custom
 
 ## IFC Data Mapping
 
-> **Gruppe:** `IFC Data Mapping` · **Gruppen-ID:** `ifc-data-mapping` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** low · **Werkzeuge:** 2
+> **Gruppe:** `IFC Data Mapping` · **Gruppen-ID:** `ifc-data-mapping` · **Standardmäßig aktiv:** Nein · **Risikostufe:** low · **Werkzeuge:** 2
 
 **Liest IFC-Data-Manager-Zuordnungsdefinitionen des aktiven Dokuments aus.**
 
 Liest IFC-Data-Manager-Zuordnungsdefinitionen des aktiven Dokuments aus: welche Objekte zugeordnet sind, ihre Bedingungen, IFC-Einträge und Eigenschaftensätze sowie die Formel, die jeden Wert bereitstellt. Verwenden Sie diese Werkzeuge nur, wenn der Benutzer nach Datenzuordnungen oder dem Data Manager fragt; für IFC-Werte eines Objekts verwenden Sie getObjectIFCData in der Gruppe IFC.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`listIFCMappingObjects`](#listifcmappingobjects) | Nur lesend | low | Listet die Zuordnungsobjekte der aktiven Data-Manager-Zuordnung auf. |
 | [`getIFCMapping`](#getifcmapping) | Nur lesend | low | Liest die Data-Manager-Zuordnung eines Zuordnungsobjekts aus. |
@@ -179,7 +179,7 @@ Liest IFC-Data-Manager-Zuordnungsdefinitionen des aktiven Dokuments aus: welche 
 
 Listet die Zuordnungsobjekte der aktiven Data-Manager-Zuordnung auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -208,7 +208,7 @@ Listet die Zuordnungsobjekte der aktiven Data-Manager-Zuordnung mit `name`, `ena
 
 Liest die Data-Manager-Zuordnung eines Zuordnungsobjekts aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 

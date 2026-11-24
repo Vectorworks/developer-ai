@@ -15,6 +15,9 @@ See the [Python API documentation](PythonAPI/README.md) to learn about the API a
 
 ## MCP Server
 
+> [!NOTE]
+> Customers can request [access to the beta here](https://www3.vectorworks.net/mcp-server-public-beta-group). Once you fill out the form, you’ll be admitted to the Vectorworks MCP Server Public Beta Group. And as a member of this private group on the [Vectorworks Forum](https://forum.vectorworks.net/), you’ll be able to share insights, tips and tricks, or seek guidance from peers and experts.
+
 The Vectorworks MCP server lets compatible AI clients connect directly to Vectorworks through the [Model Context Protocol (MCP)](https://modelcontextprotocol.io), an open standard for connecting AI applications to external capabilities and context. The connection supports both script development and execution, and direct interaction with drawings through a broad set of MCP tools.
 
 Highlights:

@@ -73,7 +73,7 @@ MCPの概要とサーバーの動作については、[Vectorworks MCPサーバ�
 | [適用した設定](Common.md#applied-settings) | 複数の設定を書き込むツールは、それぞれの結果を`applied`で報告します。 |
 | [プラグインパラメータ](Common.md#plug-in-parameters) | プラグインオブジェクトのパラメータは、`params`を使ってユニバーサル名で読み書きします。 |
 | [ページ分割](Common.md#paging) | 長いリストは`limit`、`offset`、`countOnly`を受け取り、`count`、`truncated`、`nextOffset`を報告します。 |
-| [作用と安全性レベル](Common.md#effects-and-safety-levels) | 各ツールは、読み取り専用、編集、対話操作、スクリプト実行のいずれかで、安全性レベルは低、中、高のいずれかです。 |
+| [作用とリスクレベル](Common.md#effects-and-risk-levels) | 各ツールは、読み取り専用、編集、対話操作、スクリプト実行のいずれかで、リスクレベルは低、中、高のいずれかです。 |
 | [取り消し](Common.md#undo) | 各編集の呼び出しは、`MCP: <tool>`という1つの取り消しステップ（スクリプトは`MCP: script`）になります。失敗した編集の呼び出しは元に戻され、`rolledBack`を報告します。対話型ツールは、独自の取り消しステップを記録します。 |
 | [マーカーとドロップシャドウ](Attributes.md) | 部分指定のオブジェクトです: 指定したメンバーだけが変更されます。 |
 
@@ -134,12 +134,12 @@ Vectorworks MCPサーバー
 
 すべてのツールの呼び出し方法と、共通の値の形式を説明します。
 
-- **[Common](Common.md)** — Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び出しと結果、オブジェクト参照、点と色、単位、作成オプション、適用した設定、プラグインパラメータ、ページ分割、作用、安全性レベル、取り消し。
+- **[Common](Common.md)** — Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び出しと結果、オブジェクト参照、点と色、単位、作成オプション、適用した設定、プラグインパラメータ、ページ分割、作用、リスクレベル、取り消し。
   - **[Core](Common.md#core-group)** (`core`, 3ツール, 常に有効) — ツールグループを検出して有効にし、複数のツール呼び出しを1つの取り消しステップとして実行します。
     - [`listToolGroups`](Common.md#listtoolgroups) — 有効、無効を問わずすべてのツールグループを、有効状態と、必要に応じてそのツールとともに一覧表示します。
     - [`activateToolGroups`](Common.md#activatetoolgroups) — サーバーが停止されるまで、ツールグループを有効にして、そのツールをツール一覧に表示します。
     - [`runToolBatch`](Common.md#runtoolbatch) — 複数のツール呼び出しを、全成功または全取り消しの1つの取り消しステップとして実行します。
-  - 共通の規則: [ツールの呼び出し](Common.md#calling-a-tool) · [結果とエラー](Common.md#results-and-errors) · [オブジェクト参照](Common.md#object-references) · [点、矩形、色](Common.md#points-rectangles-and-colors) · [単位と角度](Common.md#units-and-angles) · [作成オプション](Common.md#creation-options) · [適用した設定](Common.md#applied-settings) · [プラグインパラメータ](Common.md#plug-in-parameters) · [ページ分割](Common.md#paging) · [作用と安全性レベル](Common.md#effects-and-safety-levels) · [取り消し](Common.md#undo)
+  - 共通の規則: [ツールの呼び出し](Common.md#calling-a-tool) · [結果とエラー](Common.md#results-and-errors) · [オブジェクト参照](Common.md#object-references) · [点、矩形、色](Common.md#points-rectangles-and-colors) · [単位と角度](Common.md#units-and-angles) · [作成オプション](Common.md#creation-options) · [適用した設定](Common.md#applied-settings) · [プラグインパラメータ](Common.md#plug-in-parameters) · [ページ分割](Common.md#paging) · [作用とリスクレベル](Common.md#effects-and-risk-levels) · [取り消し](Common.md#undo)
 - **[Attributes](Attributes.md)** — マーカーとドロップシャドウの値の形式です。クラスとオブジェクトのグラフィック属性を読み書きするツールで共通して使用します。
   - 形式: [マーカー](Attributes.md#line-end-markers) · [ドロップシャドウ](Attributes.md#drop-shadow)
 
@@ -640,9 +640,9 @@ Vectorworks MCPサーバー
 
 1. **タイトル** — フォルダとその主題、サーバーとVectorworksのバージョン、およびこの一覧に戻るリンク。
 2. **目次** — ページのすべてのグループとすべてのツール。
-3. **概要** — グループごとに1行: グループID、初期状態で有効かどうか、安全性レベル、ツール数、1行の概要。
-4. **グループ** — 各グループについて: グループID、有効状態と安全性レベル、概要、サーバーが報告する説明、および作用、安全性レベル、概要を含むツールの表。
-5. **ツール** — 各ツールについて: 1行の概要、作用、安全性レベル、取り消しの動作、`runToolBatch`内で実行できるかどうか、サーバーが報告する**詳細**、および**パラメータ**表（名前、型、必須、説明）。オブジェクトパラメータのメンバーは`parameter.member`、配列項目のメンバーは`parameter[].member`として記載しています。判明している場合は、**結果**セクションに結果のキーを、**エラー**に失敗を記載し、**注**で説明に記載されていない動作を補足しています。
+3. **概要** — グループごとに1行: グループID、初期状態で有効かどうか、リスクレベル、ツール数、1行の概要。
+4. **グループ** — 各グループについて: グループID、有効状態とリスクレベル、概要、サーバーが報告する説明、および作用、リスクレベル、概要を含むツールの表。
+5. **ツール** — 各ツールについて: 1行の概要、作用、リスクレベル、取り消しの動作、`runToolBatch`内で実行できるかどうか、サーバーが報告する**詳細**、および**パラメータ**表（名前、型、必須、説明）。オブジェクトパラメータのメンバーは`parameter.member`、配列項目のメンバーは`parameter[].member`として記載しています。判明している場合は、**結果**セクションに結果のキーを、**エラー**に失敗を記載し、**注**で説明に記載されていない動作を補足しています。
 
 共通の形式は[Common](Common.md)と[Attributes](Attributes.md)にリンクしています。たとえば、[点](Common.md#points)、[色](Common.md#colors)、[マーカー](Attributes.md#line-end-markers)です。
 

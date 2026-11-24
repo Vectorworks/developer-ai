@@ -67,7 +67,7 @@ The [Common](Common.md) page describes the conventions that every tool follows; 
 | [Applied settings](Common.md#applied-settings) | Tools that write several settings report each one in `applied`. |
 | [Plug-in parameters](Common.md#plug-in-parameters) | Parameters of plug-in objects are read and written by universal name, with `params`. |
 | [Paging](Common.md#paging) | Long lists take `limit`, `offset` and `countOnly` and report `count`, `truncated` and `nextOffset`. |
-| [Effects and safety levels](Common.md#effects-and-safety-levels) | Each tool is read-only, an edit, interactive or a script run, with a safety level low, medium or high. |
+| [Effects and risk levels](Common.md#effects-and-risk-levels) | Each tool is read-only, an edit, interactive or a script run, with a risk level low, medium or high. |
 | [Undo](Common.md#undo) | Each edit call is one undo step `MCP: <tool>` (scripts `MCP: script`); a failed edit call is reverted and reports `rolledBack`. Interactive tools record their own undo steps. |
 | [Line end markers and drop shadows](Attributes.md) | Partial objects: only the members given are changed. |
 
@@ -122,12 +122,12 @@ Every page, group and tool, by subject. Each tool links to its description.
 
 How every tool is called and what the shared value formats look like.
 
-- **[Common](Common.md)** — The conventions that every tool of the Vectorworks MCP server follows: calls and results, object references, points and colors, units, creation options, applied settings, plug-in parameters, paging, effects, safety levels and undo.
+- **[Common](Common.md)** — The conventions that every tool of the Vectorworks MCP server follows: calls and results, object references, points and colors, units, creation options, applied settings, plug-in parameters, paging, effects, risk levels and undo.
   - **[Core](Common.md#core-group)** (`core`, 3 tools, always active) — Discover and activate tool groups, and run several tool calls as one undo step.
     - [`listToolGroups`](Common.md#listtoolgroups) — List all tool groups, active and inactive, with their activation state and, optionally, their tools.
     - [`activateToolGroups`](Common.md#activatetoolgroups) — Activate tool groups so that their tools appear in the tool list, until the server is stopped.
     - [`runToolBatch`](Common.md#runtoolbatch) — Run several tool calls as one undo step, all or nothing.
-  - Conventions: [Calling a tool](Common.md#calling-a-tool) · [Results and errors](Common.md#results-and-errors) · [Object references](Common.md#object-references) · [Points, rectangles and colors](Common.md#points-rectangles-and-colors) · [Units and angles](Common.md#units-and-angles) · [Creation options](Common.md#creation-options) · [Applied settings](Common.md#applied-settings) · [Plug-in parameters](Common.md#plug-in-parameters) · [Paging](Common.md#paging) · [Effects and safety levels](Common.md#effects-and-safety-levels) · [Undo](Common.md#undo)
+  - Conventions: [Calling a tool](Common.md#calling-a-tool) · [Results and errors](Common.md#results-and-errors) · [Object references](Common.md#object-references) · [Points, rectangles and colors](Common.md#points-rectangles-and-colors) · [Units and angles](Common.md#units-and-angles) · [Creation options](Common.md#creation-options) · [Applied settings](Common.md#applied-settings) · [Plug-in parameters](Common.md#plug-in-parameters) · [Paging](Common.md#paging) · [Effects and risk levels](Common.md#effects-and-risk-levels) · [Undo](Common.md#undo)
 - **[Attributes](Attributes.md)** — The value formats of line end markers and drop shadows. They are shared by the tools that read and write the graphical attributes of classes and objects.
   - Formats: [Line end markers](Attributes.md#line-end-markers) · [Drop shadow](Attributes.md#drop-shadow)
 
@@ -584,9 +584,9 @@ Every page of a tool folder follows the same layout:
 
 1. **Title** — the folder and its subject, the server and the Vectorworks version, and a link back to this index.
 2. **Table of contents** — every group and every tool of the page.
-3. **Overview** — one row per group: group ID, whether it is active by default, safety level, number of tools and a one-line summary.
-4. **Groups** — for each group: its group ID, activation and safety level, a summary, the description that the server reports, and a table of its tools with effect, safety level and summary.
-5. **Tools** — for each tool: a one-line summary; its effect, safety level, undo behavior and whether it can run inside `runToolBatch`; the **Details** that the server reports; and the **Parameters** table (name, type, required, description). Members of object parameters are listed as `parameter.member`, members of array items as `parameter[].member`. Where known, the **Result** section lists the result keys, **Errors** lists the failures, and a **Note** adds behavior that the description does not state.
+3. **Overview** — one row per group: group ID, whether it is active by default, risk level, number of tools and a one-line summary.
+4. **Groups** — for each group: its group ID, activation and risk level, a summary, the description that the server reports, and a table of its tools with effect, risk level and summary.
+5. **Tools** — for each tool: a one-line summary; its effect, risk level, undo behavior and whether it can run inside `runToolBatch`; the **Details** that the server reports; and the **Parameters** table (name, type, required, description). Members of object parameters are listed as `parameter.member`, members of array items as `parameter[].member`. Where known, the **Result** section lists the result keys, **Errors** lists the failures, and a **Note** adds behavior that the description does not state.
 
 Shared formats link to [Common](Common.md) and [Attributes](Attributes.md), for example [point](Common.md#points), [color](Common.md#colors) or [marker](Attributes.md#line-end-markers).
 

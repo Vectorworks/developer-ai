@@ -24,13 +24,13 @@ Tools to run Python scripts in Vectorworks, read and save Python script resource
 
 This folder holds 1 tool group with 7 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Scripting](#scripting) | `scripting` | No | high | 7 | Run Python scripts, read and save Python script resources, and look up the Python `api` module. |
 
 ## Scripting
 
-> **Group:** `Scripting` · **Group ID:** `scripting` · **Active by default:** No · **Safety level:** high · **Tools:** 7
+> **Group:** `Scripting` · **Group ID:** `scripting` · **Active by default:** No · **Risk level:** high · **Tools:** 7
 
 **Run Python scripts, read and save Python script resources, and look up the Python `api` module.**
 
@@ -40,11 +40,11 @@ Write scripts for the Python `api` module only (import api, then api.Document() 
 
 A run that fails is reverted (`rolledBack`), so nothing that it registered stays: fix the script and run it again; changes that the script did not register cannot be reverted. A script must never wait for user input (GetPt, dialogs), and an endless loop freezes Vectorworks. A run is refused while another script runs or an undo event is open, and a script of more than 250 lines that deletes something or changes a record format runs only after the user confirms it in Vectorworks.
 
-Scripts run with the rights of the user, now or later from their palette: ask the user before each run and say what the script will do, and tell the user what you saved and where. This is why the group has safety `high` and is off by default. Use it only when the user asks to run, read, write or document a script. Each saveScript is its own named, undoable Vectorworks operation.
+Scripts run with the rights of the user, now or later from their palette: ask the user before each run and say what the script will do, and tell the user what you saved and where. This is why the group has risk level `high` and is off by default. Use it only when the user asks to run, read, write or document a script. Each saveScript is its own named, undoable Vectorworks operation.
 
 > **Note:** The tools mode of the server decides whether this group is offered. In "Enable scripting tools only" it is the only group besides Core and it is active from the start; in "Enable all without scripting tools" it is not offered at all. See [Tool groups and activation](Common.md#tool-groups-and-activation).
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`listScripts`](#listscripts) | Read-only | low | Lists the script resources of the document. |
 | [`getScript`](#getscript) | Read-only | low | Reads a script resource without running it. |
@@ -58,7 +58,7 @@ Scripts run with the rights of the user, now or later from their palette: ask th
 
 Lists the script resources of the document.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -83,7 +83,7 @@ List the script resources of the active document, sorted by name: `name`, `langu
 
 Reads a script resource without running it.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -101,7 +101,7 @@ Read the script resource `name` (1 to 63 characters): `name`, `language` (`pytho
 
 Creates or updates a Python script resource without running it.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: saveScript" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: saveScript" · **In runToolBatch:** yes
 
 **Details**
 
@@ -125,7 +125,7 @@ When a script with that name exists, only its text is replaced: it keeps its pal
 
 Returns the help text of the Python `api` module or one of its names.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -153,7 +153,7 @@ Returns `text`: the help of that class, enum, function or member as pydoc prints
 
 Returns one section of the guide for writing Python scripts.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -177,7 +177,7 @@ The sections: 1 Rules; 2 Where things are; 3 Undo, which ends with the rules for
 
 Runs Python code in Vectorworks.
 
-> **Effect:** Script run · **Safety:** high · **Undo:** one step "MCP: script" (none when the script registered no change) · **In runToolBatch:** no
+> **Effect:** Script run · **Risk:** high · **Undo:** one step "MCP: script" (none when the script registered no change) · **In runToolBatch:** no
 
 **Details**
 
@@ -209,7 +209,7 @@ Run `code` as a Python script in Vectorworks: at most 256 KB of UTF-8, no NUL ch
 
 Runs a saved Python script resource.
 
-> **Effect:** Script run · **Safety:** high · **Undo:** one step "MCP: script" (none when the script registered no change) · **In runToolBatch:** no
+> **Effect:** Script run · **Risk:** high · **Undo:** one step "MCP: script" (none when the script registered no change) · **In runToolBatch:** no
 
 **Details**
 

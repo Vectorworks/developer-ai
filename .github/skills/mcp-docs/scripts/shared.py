@@ -148,7 +148,7 @@ def common_page(cat):
         ("Applied settings", "How tools report, setting by setting, what they wrote."),
         ("Plug-in parameters", "Reading and writing the parameters of plug-in objects."),
         ("Paging", "How long lists are returned page by page."),
-        ("Effects and safety levels", "What a tool may change, and how clients should treat it."),
+        ("Effects and risk levels", "What a tool may change, and how clients should treat it."),
         ("Undo", "How the changes of a tool call are recorded for Edit > Undo."),
     ]
     page.h(2, "Overview")
@@ -192,7 +192,7 @@ def _groups_section(page, cat):
         rows.append(["[%s](%s.md#%s)" % (g["fName"], g["folder"], slug(g["fName"])), code(g["groupId"], True),
                      "[%s](%s.md)" % (g["folder"], g["folder"]), yes_no(g["fActiveByDefault"]), g["fSafetyLevel"],
                      str(len(g["tools"])), inline(GROUP_SUMMARY[g["fName"]], True)])
-    page.table(["Group", "Group ID", "Page", "Active by default", "Safety level", "Tools", "Summary"], rows)
+    page.table(["Group", "Group ID", "Page", "Active by default", "Risk level", "Tools", "Summary"], rows)
 
 
 CORE_SUMMARY_GROUP = "Discover and activate tool groups, and run several tool calls as one undo step."
@@ -200,7 +200,7 @@ CORE_SUMMARY_GROUP = "Discover and activate tool groups, and run several tool ca
 
 def _core_section(page):
     page.h(2, "Core group")
-    page.para(["> **Group:** `Core` · **Group ID:** `%s` · **Active:** always · **Safety level:** %s · **Tools:** %d"
+    page.para(["> **Group:** `Core` · **Group ID:** `%s` · **Active:** always · **Risk level:** %s · **Tools:** %d"
                % (CORE["groupId"], CORE["safetyLevel"], CORE["toolCount"])])
     page.para(["**" + CORE_SUMMARY_GROUP + "**"])
     page.para(["The meta-tools of the Core group are always available. They manage the tool list and group tool calls; "
@@ -210,14 +210,14 @@ def _core_section(page):
         label = CORE_EFFECT[t["name"]][0]
         rows.append(["[%s](#%s)" % (code(t["name"]), t["name"].lower()), label, t["safetyLevel"],
                      inline(CORE_SUMMARY[t["name"]], True)])
-    page.table(["Tool", "Effect", "Safety", "Summary"], rows)
+    page.table(["Tool", "Effect", "Risk", "Summary"], rows)
 
     for t in CORE["tools"]:
         name = t["name"]
         page.h(3, name)
         label, undo, batch = CORE_EFFECT[name]
         page.para([inline(CORE_SUMMARY[name])])
-        page.para(["> **Effect:** %s · **Safety:** %s · **Undo:** %s · **In runToolBatch:** %s"
+        page.para(["> **Effect:** %s · **Risk:** %s · **Undo:** %s · **In runToolBatch:** %s"
                    % (label, t["safetyLevel"], inline(undo), batch)])
         page.para(["**Details**"])
         page.para(block(t["description"]))
@@ -473,15 +473,16 @@ def code_list(text):
 
 
 def _effects_section(page, cat, index):
-    page.h(2, "Effects and safety levels")
+    page.h(2, "Effects and risk levels")
     by_label = {}
     for g in cat:
         for t in g["tools"]:
             by_label.setdefault(EFFECTS[t["effect"]][0], []).append((g, t))
     page.para([
-        "Every tool has an **effect**, which says what it may change, and a **safety level**, which says how carefully a "
+        "Every tool has an **effect**, which says what it may change, and a **risk level**, which says how carefully a "
         "client should treat it. Both are shown with each tool. The tool list reports the effect to MCP clients through "
-        "the standard tool annotations `readOnlyHint` and `destructiveHint`.",
+        "the standard tool annotations `readOnlyHint` and `destructiveHint`. A higher risk level means a call can change "
+        "more or is harder to undo; the server reports it in the `safetyLevel` field.",
     ])
     rows = []
     for label, (meaning, annotations) in EFFECT_INFO.items():
@@ -492,9 +493,9 @@ def _effects_section(page, cat, index):
         effect = next(t["effect"] for g, t in tools)
         undo = EFFECTS[effect][1].format(tool="<tool>")
         rows.append([label, meaning, " or ".join(levels), annotations, inline(undo, True), EFFECTS[effect][2], str(len(tools))])
-    page.table(["Effect", "Meaning", "Safety level", "Annotations", "Undo", "In runToolBatch", "Tools"], rows)
+    page.table(["Effect", "Meaning", "Risk level", "Annotations", "Undo", "In runToolBatch", "Tools"], rows)
     page.para([
-        "**Safety levels**",
+        "**Risk levels**",
         "",
         "- **low**: reads, session changes (such as which tool groups are active), and the plain edits of the document "
         "settings and of 2D primitives and text (%s). Edit > Undo reverts the edits." % _level_groups(cat, "low"),
@@ -503,7 +504,7 @@ def _effects_section(page, cat, index):
         "- **high**: menu commands and scripts, which may make far-reaching changes that are hard to predict. Clients "
         "should ask the user before each call. These tools cannot run inside [`runToolBatch`](#runtoolbatch).",
         "",
-        "Each group has a safety level, shown on its page. A tool reports its own level: read-only tools are always low, "
+        "Each group has a risk level, shown on its page. A tool reports its own level: read-only tools are always low, "
         "interactive tools medium, menu commands and scripts high, and the other edit tools take the level of their "
         "group unless the tool sets its own.",
     ])
