@@ -28,13 +28,13 @@ Werkzeuge für Ressourcen der Zeichnung und externer Inhalte (Bibliotheken, Date
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 11 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Anzahl der Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Anzahl der Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Resources](#resources) | `resources` | Nein | mittel | 11 | Listet Ressourcen auf, importiert, erstellt, untersucht, bearbeitet und wendet sie an; liest und bearbeitet Tabellenblätter. |
 
 ## Resources
 
-> **Gruppe:** `Resources` · **Gruppen-ID:** `resources` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 11
+> **Gruppe:** `Resources` · **Gruppen-ID:** `resources` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 11
 
 **Listet Ressourcen auf, importiert, erstellt, untersucht, bearbeitet und wendet sie an; liest und bearbeitet Tabellenblätter.**
 
@@ -46,7 +46,7 @@ IFC-Eigenschaftssätze, Standard- und benutzerdefinierte, werden über die IFC-G
 
 Jede Änderung wird als eigener benannter, rückgängig zu machender Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Wirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Wirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`getResourceTypes`](#getresourcetypes) | Nur lesend | niedrig | Listet die Ressourcentypen und die standardmäßigen Inhaltsordner auf. |
 | [`getResources`](#getresources) | Nur lesend | niedrig | Listet Ressourcen eines Typs aus der Zeichnung, einer Bibliothek, einer Datei oder einem anderen Dokument auf. |
@@ -64,7 +64,7 @@ Jede Änderung wird als eigener benannter, rückgängig zu machender Vectorworks
 
 Listet die Ressourcentypen und die standardmäßigen Inhaltsordner auf.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -86,7 +86,7 @@ Dieses Werkzeug benötigt keine Parameter.
 
 Listet Ressourcen eines Typs aus der Zeichnung, einer Bibliothek, einer Datei oder einem anderen Dokument auf.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -123,7 +123,7 @@ Jeder Eintrag enthält den Listen-`index`, `name`, `actualName`, `folder` und di
 
 Liest eine Ressource der Zeichnung aus.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -158,7 +158,7 @@ Interne IFC-Datensatzformate werden abgelehnt; verwenden Sie stattdessen die IFC
 
 Importiert eine externe Ressource in die Zeichnung.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: importResource“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: importResource“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 
@@ -195,7 +195,7 @@ Importiert eine externe Ressource in die aktuelle Zeichnung und gibt sie zurück
 
 Benennt eine Ressource um, beschreibt, verschiebt, dupliziert oder löscht sie.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: editResource“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: editResource“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 
@@ -226,7 +226,7 @@ Bearbeitet eine Ressource der aktuellen Zeichnung, identifiziert über uuid, nam
 
 Erstellt eine leere Ressource.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createResource“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createResource“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 
@@ -266,7 +266,7 @@ Erstellt in der aktuellen Zeichnung eine leere Ressource des `resourceType` mit 
 
 Liest den Inhalt einer Ressource aus: Schraffurebenen, Farbverlaufsstopps, Linientypstriche und mehr.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -313,7 +313,7 @@ Grafikattribute (Stift, Füllung usw.) einer Ressource, die solche Attribute bes
 
 Ändert den Inhalt einer Ressource.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: setResourceDetails“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: setResourceDetails“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 
@@ -414,7 +414,7 @@ Grafikattribute (Stift, Füllung usw.) einer Ressource, die solche Attribute bes
 
 Weist einem Objekt eine Textur, einen Stil oder eine Datenvisualisierung zu.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: applyResource“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: applyResource“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 
@@ -450,7 +450,7 @@ Eine Symbolddefinition wird stattdessen instanziiert: Sie wird bei `position` mi
 
 Liest ein Tabellenblatt aus: Größe, Zellen, Formate und Datenbankzeilen.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -501,7 +501,7 @@ Eine Zelle, deren Formel auf eine Neuberechnung wartet, hat `needsRecalculation`
 
 Ändert ein Tabellenblatt mit einer Liste von Aktionen.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: editWorksheet“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: editWorksheet“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 

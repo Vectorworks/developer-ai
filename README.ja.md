@@ -15,6 +15,9 @@ APIとスクリプト開発向けのAIコンテキストについては、[Pytho
 
 ## MCPサーバー
 
+> [!NOTE]
+> お客様は、[こちらからベータ版へのアクセスを申請できます](https://www3.vectorworks.net/mcp-server-public-beta-group)。フォームに記入すると、Vectorworks MCP Server Public Beta Groupに参加できます。この[Vectorworks Forum](https://forum.vectorworks.net/)の非公開グループのメンバーとして、知見やヒント、コツを共有したり、他のメンバーや専門家に相談したりできます。
+
 Vectorworks MCPサーバーを使うと、互換性のあるAIクライアントを[Model Context Protocol（MCP）](https://modelcontextprotocol.io)経由でVectorworksに直接接続できます。MCPは、AIアプリケーションを外部の機能やコンテキストに接続するためのオープンな標準規格です。この接続では、スクリプトの開発と実行に加え、幅広いMCPツールによる図面の直接操作も行えます。
 
 主な特長:

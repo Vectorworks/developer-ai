@@ -94,8 +94,8 @@ def _conventions(page):
          "Parameters of plug-in objects are read and written by universal name, with `params`."),
         ("Paging", "Common.md#paging",
          "Long lists take `limit`, `offset` and `countOnly` and report `count`, `truncated` and `nextOffset`."),
-        ("Effects and safety levels", "Common.md#effects-and-safety-levels",
-         "Each tool is read-only, an edit, interactive or a script run, with a safety level low, medium or high."),
+        ("Effects and risk levels", "Common.md#effects-and-risk-levels",
+         "Each tool is read-only, an edit, interactive or a script run, with a risk level low, medium or high."),
         ("Undo", "Common.md#undo",
          "Each edit call is one undo step `MCP: <tool>`; a failed call is reverted."),
         ("Line end markers and drop shadows", "Attributes.md",
@@ -170,7 +170,7 @@ def _contents(page, by_folder):
                              "[Creation options](Common.md#creation-options) · "
                              "[Applied settings](Common.md#applied-settings) · "
                              "[Plug-in parameters](Common.md#plug-in-parameters) · [Paging](Common.md#paging) · "
-                             "[Effects and safety levels](Common.md#effects-and-safety-levels) · [Undo](Common.md#undo)")
+                             "[Effects and risk levels](Common.md#effects-and-risk-levels) · [Undo](Common.md#undo)")
                 continue
             if folder == "Attributes":
                 lines.append("  - Formats: [Line end markers](Attributes.md#line-end-markers) · "
@@ -213,11 +213,11 @@ def _layout(page):
         "",
         "1. **Title** — the folder and its subject, the server and the Vectorworks version, and a link back to this index.",
         "2. **Table of contents** — every group and every tool of the page.",
-        "3. **Overview** — one row per group: group ID, whether it is active by default, safety level, number of tools "
+        "3. **Overview** — one row per group: group ID, whether it is active by default, risk level, number of tools "
         "and a one-line summary.",
-        "4. **Groups** — for each group: its group ID, activation and safety level, a summary, the description that the "
-        "server reports, and a table of its tools with effect, safety level and summary.",
-        "5. **Tools** — for each tool: a one-line summary; its effect, safety level, undo behavior and whether it can run "
+        "4. **Groups** — for each group: its group ID, activation and risk level, a summary, the description that the "
+        "server reports, and a table of its tools with effect, risk level and summary.",
+        "5. **Tools** — for each tool: a one-line summary; its effect, risk level, undo behavior and whether it can run "
         "inside `runToolBatch`; the **Details** that the server reports; and the **Parameters** table (name, type, "
         "required, description). Members of object parameters are listed as `parameter.member`, members of array items "
         "as `parameter[].member`.",

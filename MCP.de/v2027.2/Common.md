@@ -6,7 +6,7 @@
 
 [Zurück zum Index](README.md)
 
-Die Konventionen, denen alle Werkzeuge des Vectorworks-MCP-Servers folgen: Aufrufe und Ergebnisse, Objektreferenzen, Punkte und Farben, Einheiten, Optionen zur Erstellung, angewendete Einstellungen, Plug-in-Parameter, Seitennavigation, Auswirkungen, Sicherheitsstufen und Rückgängigmachen.
+Die Konventionen, denen alle Werkzeuge des Vectorworks-MCP-Servers folgen: Aufrufe und Ergebnisse, Objektreferenzen, Punkte und Farben, Einheiten, Optionen zur Erstellung, angewendete Einstellungen, Plug-in-Parameter, Seitennavigation, Auswirkungen, Risikostufen und Rückgängigmachen.
 
 ## Inhaltsverzeichnis
 
@@ -30,7 +30,7 @@ Die Konventionen, denen alle Werkzeuge des Vectorworks-MCP-Servers folgen: Aufru
   - [Parameter auslesen](#parameter-auslesen)
   - [Parameter schreiben](#parameter-schreiben)
 - [Seitennavigation](#seitennavigation)
-- [Auswirkungen und Sicherheitsstufen](#auswirkungen-und-sicherheitsstufen)
+- [Auswirkungen und Risikostufen](#auswirkungen-und-risikostufen)
 - [Rückgängig machen](#rückgängig-machen)
 
 ## Überblick
@@ -48,7 +48,7 @@ Die Konventionen, denen alle Werkzeuge des Vectorworks-MCP-Servers folgen: Aufru
 | [Angewendete Einstellungen](#angewendete-einstellungen) | Wie Werkzeuge Einstellung für Einstellung melden, was sie geschrieben haben. |
 | [Plug-in-Parameter](#plug-in-parameter) | Parameter von Plug-in-Objekten auslesen und schreiben. |
 | [Seitennavigation](#seitennavigation) | Wie lange Listen seitenweise zurückgegeben werden. |
-| [Auswirkungen und Sicherheitsstufen](#auswirkungen-und-sicherheitsstufen) | Was ein Werkzeug ändern darf und wie Clients damit umgehen sollten. |
+| [Auswirkungen und Risikostufen](#auswirkungen-und-risikostufen) | Was ein Werkzeug ändern darf und wie Clients damit umgehen sollten. |
 | [Rückgängig machen](#rückgängig-machen) | Wie die Änderungen eines Werkzeugaufrufs für „Bearbeiten > Rückgängig“ aufgezeichnet werden. |
 
 ## Werkzeuggruppen und Aktivierung
@@ -64,7 +64,7 @@ Die Werkzeuge sind in Werkzeuggruppen organisiert. Die Werkzeugliste des Servers
   - **Alle Werkzeuge aktivieren** (Standard): Alle Gruppen werden angeboten.
   - **Alle Werkzeuge ohne Skriptwerkzeuge aktivieren**: Die Gruppe [Scripting](Scripting.md#scripting) mit ihren 7 Werkzeugen wird nicht registriert. Sie erscheint nicht in `listToolGroups`, und `activateToolGroups` meldet sie unter `not_found`.
   - **Nur Skriptwerkzeuge aktivieren**: Nur die Gruppe Scripting (zusätzlich zu Core) wird angeboten und sofort aktiviert.
-| Gruppe | Gruppen-ID | Seite | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Seite | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|---|
 | [Core](#core-gruppe) | `core` | [Allgemeines](#core-gruppe) | Immer | low | 3 | Werkzeuggruppen ermitteln und aktivieren und mehrere Werkzeugaufrufe als einen Rückgängig-Schritt ausführen. |
 | [Document](DocumentAccess.md#document) | `document` | [DocumentAccess](DocumentAccess.md) | Ja | low | 17 | Die aktive Zeichnung: Dokumentübersicht, Ebenen, Geschosse, Klassen, Einheiten, Ansicht und Dokumenteinstellungen. |
@@ -88,13 +88,13 @@ Die Werkzeuge sind in Werkzeuggruppen organisiert. Die Werkzeugliste des Servers
 
 ## Core-Gruppe
 
-> **Gruppe:** `Core` · **Gruppen-ID:** `core` · **Aktiv:** immer · **Sicherheitsstufe:** low · **Werkzeuge:** 3
+> **Gruppe:** `Core` · **Gruppen-ID:** `core` · **Aktiv:** immer · **Risikostufe:** low · **Werkzeuge:** 3
 
 **Werkzeuggruppen ermitteln und aktivieren und mehrere Werkzeugaufrufe als einen Rückgängig-Schritt ausführen.**
 
 Die Meta-Werkzeuge der Core-Gruppe sind immer verfügbar. Sie verwalten die Werkzeugliste und gruppieren Werkzeugaufrufe; sie können nicht innerhalb von [`runToolBatch`](#runtoolbatch) aufgerufen werden.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`listToolGroups`](#listtoolgroups) | Nur lesend | low | Alle Werkzeuggruppen, aktive und inaktive, mit ihrem Aktivierungsstatus und optional ihren Werkzeugen auflisten. |
 | [`activateToolGroups`](#activatetoolgroups) | Sitzungseinstellung | low | Werkzeuggruppen für den Rest der Sitzung aktivieren, damit ihre Werkzeuge in der Werkzeugliste erscheinen. |
@@ -104,7 +104,7 @@ Die Meta-Werkzeuge der Core-Gruppe sind immer verfügbar. Sie verwalten die Werk
 
 Alle Werkzeuggruppen, aktive und inaktive, mit ihrem Aktivierungsstatus und optional ihren Werkzeugen auflisten.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** nein
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** nein
 
 **Details**
 
@@ -129,7 +129,7 @@ Aktive UND inaktive Werkzeuggruppen mit ihren Metadaten und ihrem Aktivierungsst
 | `safetyLevel` | `low`, `medium` oder `high`. |
 | `currentlyActive` | `true`, wenn die Werkzeuge der Gruppe in der Werkzeugliste stehen. |
 | `toolCount` | Anzahl der Werkzeuge in der Gruppe. |
-| `tools` | Nur mit `includeTools`: eine Liste mit `{ "name", "description", "safetyLevel" }`. Hat ein Werkzeug keine eigene Sicherheitsstufe, gilt die Sicherheitsstufe seiner Gruppe. |
+| `tools` | Nur mit `includeTools`: eine Liste mit `{ "name", "description", "safetyLevel" }`. Hat ein Werkzeug keine eigene Risikostufe, gilt die Risikostufe seiner Gruppe. |
 
 Fehler: `listToolGroups requires an arguments object`, `includeTools must be a boolean`, `group must be a display name or groupId string` und `Unknown tool group: <value>`.
 **Beispielargumente**
@@ -145,7 +145,7 @@ Fehler: `listToolGroups requires an arguments object`, `includeTools must be a b
 
 Werkzeuggruppen für den Rest der Sitzung aktivieren, damit ihre Werkzeuge in der Werkzeugliste erscheinen.
 
-> **Auswirkung:** Sitzungseinstellung · **Sicherheit:** low · **Rückgängig:** keiner (die Zeichnung wird nicht geändert) · **In runToolBatch:** nein
+> **Auswirkung:** Sitzungseinstellung · **Risiko:** low · **Rückgängig:** keiner (die Zeichnung wird nicht geändert) · **In runToolBatch:** nein
 
 **Details**
 
@@ -178,7 +178,7 @@ Eine oder mehrere Werkzeuggruppen für den Rest der Sitzung aktivieren, sodass i
 
 Mehrere Werkzeugaufrufe als einen Rückgängig-Schritt ausführen – entweder alle oder keinen.
 
-> **Auswirkung:** Bearbeiten (Batch) · **Sicherheit:** medium · **Rückgängig:** ein Schritt „MCP: &lt;name&gt;“ für den gesamten Batch · **In runToolBatch:** nein
+> **Auswirkung:** Bearbeiten (Batch) · **Risiko:** medium · **Rückgängig:** ein Schritt „MCP: &lt;name&gt;“ für den gesamten Batch · **In runToolBatch:** nein
 
 **Details**
 
@@ -224,7 +224,7 @@ Nur Werkzeuge aus aktiven Gruppen.
 | `call <n> (<tool>): unknown tool` | Es gibt kein Werkzeug mit diesem Namen. |
 | `call <n> (<tool>): the tool is in an inactive group; activate it via activateToolGroups` | Die Gruppe des Werkzeugs ist nicht aktiv. |
 | `call <n> (<tool>): only provider tools can run in a batch, not the meta-tools (listToolGroups, activateToolGroups, runToolBatch)` | Das Werkzeug ist ein Meta-Werkzeug der Core-Gruppe. |
-| `call <n> (<tool>): high-risk tools cannot run in a batch: ask the user, then call the tool on its own` | Das Werkzeug hat `destructiveHint` oder die Sicherheitsstufe `high` (eigene oder, falls nicht vorhanden, die seiner Gruppe): `runPythonScript`, `runScript` und `runMenuCommand`. |
+| `call <n> (<tool>): high-risk tools cannot run in a batch: ask the user, then call the tool on its own` | Das Werkzeug hat `destructiveHint` oder die Risikostufe `high` (eigene oder, falls nicht vorhanden, die seiner Gruppe): `runPythonScript`, `runScript` und `runMenuCommand`. |
 | `call <n> (<tool>): interactive tools record their own undo steps and cannot run in a batch: call the tool on its own` | Das Werkzeug zeichnet eigene Rückgängig-Schritte auf: `activateTool`, `setToolMode`, `setToolModes`, `sendToolPointer`, `sendToolAction`, `setOIPValues` und `pressOIPButton`. |
 | `no document is open` | Keine Zeichnung ist geöffnet. |
 | `an undo event is already open: another Vectorworks operation is in progress; try again when it has finished` | Ein weiteres Rückgängig-Ereignis wird gerade erstellt. |
@@ -503,11 +503,11 @@ Einige Ergebnisse enthalten eine Liste, die mit eigenen Argumenten für die Seit
 | [`getText`](ObjectPrimitives.md#gettext) | `lines` | `lineLimit`, `lineOffset` | `items` | 100 |
 | [`getText`](ObjectPrimitives.md#gettext) | `styleRuns` | `runLimit`, `runOffset` | `items` | 100 |
 
-## Auswirkungen und Sicherheitsstufen
+## Auswirkungen und Risikostufen
 
-Jedes Tool hat eine **Auswirkung**, die angibt, was es ändern darf, und eine **Sicherheitsstufe**, die beschreibt, mit welcher Vorsicht ein Client damit umgehen sollte. Beide Angaben werden bei jedem Tool angezeigt. Die Werkzeugliste meldet die Auswirkung über die standardmäßigen Tool-Annotationen `readOnlyHint` und `destructiveHint` an MCP-Clients.
+Jedes Tool hat eine **Auswirkung**, die angibt, was es ändern darf, und eine **Risikostufe**, die beschreibt, mit welcher Vorsicht ein Client damit umgehen sollte. Beide Angaben werden bei jedem Tool angezeigt. Die Werkzeugliste meldet die Auswirkung über die standardmäßigen Tool-Annotationen `readOnlyHint` und `destructiveHint` an MCP-Clients. Eine höhere Risikostufe bedeutet, dass ein Aufruf mehr ändern kann oder schwerer rückgängig zu machen ist; der Server meldet sie im Feld `safetyLevel`.
 
-| Auswirkung | Bedeutung | Sicherheitsstufe | Annotationen | Rückgängig | In runToolBatch | Werkzeuge |
+| Auswirkung | Bedeutung | Risikostufe | Annotationen | Rückgängig | In runToolBatch | Werkzeuge |
 |---|---|---|---|---|---|---|
 | Nur lesend | Liest die Zeichnung oder den Anwendungsstatus aus und ändert nichts. | low | `readOnlyHint`: true | keiner | zulässig | 58 |
 | Bearbeiten | Ändert die Zeichnung. Mit „Rückgängig“ wird die Änderung rückgängig gemacht. | low oder medium | `readOnlyHint`: false | ein Schritt „MCP: &lt;tool&gt;“ | ja | 86 |
@@ -515,13 +515,13 @@ Jedes Tool hat eine **Auswirkung**, die angibt, was es ändern darf, und eine **
 | Interaktiv, destruktiv | Führt einen Menübefehl so aus, als hätte der Benutzer ihn ausgewählt. | high | `readOnlyHint`: false, `destructiveHint`: true | Vom Menübefehl aufgezeichnet | nein | 1 |
 | Skriptausführung | Führt ein Python-Skript aus, das alles tun kann, was ein Skript tun kann. | high | `readOnlyHint`: false, `destructiveHint`: true | ein Schritt „MCP: script“ | nein | 2 |
 
-**Sicherheitsstufen**
+**Risikostufen**
 
 - **low**: Auslesen, Sitzungsänderungen (zum Beispiel, welche Werkzeuggruppen aktiv sind) und einfache Bearbeitungen der Dokumenteinstellungen sowie von 2D-Grundelementen und Text ([Document](DocumentAccess.md#document), [IFC](IFC.md#ifc), [IFC Data Mapping](IFC.md#ifc-data-mapping), [Draw2D](ObjectPrimitives.md#draw2d)). „Bearbeiten > Rückgängig“ macht die Änderungen rückgängig.
 - **medium**: Bearbeitungen von Objekten, 3D-Geometrie, Anmerkungen und Branchenobjekten, Ressourcen und Tabellenblättern sowie die interaktiven Werkzeuge für Werkzeugpaletten und die Infopalette. „Bearbeiten > Rückgängig“ macht sie rückgängig.
 - **high**: Menübefehle und Skripte, die weitreichende Änderungen vornehmen können, die schwer vorhersehbar sind. Clients sollten vor jedem Aufruf den Benutzer fragen. Diese Werkzeuge können nicht innerhalb von [`runToolBatch`](#runtoolbatch) ausgeführt werden.
 
-Für jede Gruppe ist auf ihrer Seite eine Sicherheitsstufe angegeben. Ein Tool meldet seine eigene Stufe: Schreibgeschützte Werkzeuge sind immer low, interaktive Werkzeuge medium, Menübefehle und Skripte high und für die übrigen Bearbeitungswerkzeuge gilt die Stufe ihrer Gruppe, sofern das Tool nicht selbst eine festlegt.
+Für jede Gruppe ist auf ihrer Seite eine Risikostufe angegeben. Ein Tool meldet seine eigene Stufe: Schreibgeschützte Werkzeuge sind immer low, interaktive Werkzeuge medium, Menübefehle und Skripte high und für die übrigen Bearbeitungswerkzeuge gilt die Stufe ihrer Gruppe, sofern das Tool nicht selbst eine festlegt.
 
 **Werkzeuge mit besonderer Auswirkung**
 

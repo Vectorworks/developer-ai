@@ -28,13 +28,13 @@ Tools for the resources of the drawing and of external content (libraries, files
 
 This folder holds 1 tool group with 11 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Resources](#resources) | `resources` | No | medium | 11 | List, import, create, inspect, edit and apply resources; read and edit worksheets. |
 
 ## Resources
 
-> **Group:** `Resources` · **Group ID:** `resources` · **Active by default:** No · **Safety level:** medium · **Tools:** 11
+> **Group:** `Resources` · **Group ID:** `resources` · **Active by default:** No · **Risk level:** medium · **Tools:** 11
 
 **List, import, create, inspect, edit and apply resources; read and edit worksheets.**
 
@@ -48,7 +48,7 @@ Each change runs as its own named, undoable Vectorworks operation.
 
 > **Note:** The `resourceType` of getResources, importResource and createResource is matched without regard to case, against the names that getResourceTypes lists and these aliases: `plantStyle`, `plant`, `titleBlockStyle`, `titleBlock`, `dataTagStyle`, `dataTag`, `symbol` and `objectStyle` (all mean `symbolDefinition`), `record` and `format` (`recordFormat`), `material` (`buildingMaterial`), `image` (`imageFill`), `font` (`textStyle`) and `background` (`renderBackground`). One trailing `s` is ignored (`textures` is `texture`); `hatches` is not accepted, use `hatch`. An unknown name fails, and the message lists the valid names.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`getResourceTypes`](#getresourcetypes) | Read-only | low | Lists the resource types and the standard content folders. |
 | [`getResources`](#getresources) | Read-only | low | Lists the resources of one type from the drawing, a library, a file or another document. |
@@ -66,7 +66,7 @@ Each change runs as its own named, undoable Vectorworks operation.
 
 Lists the resource types and the standard content folders.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -87,7 +87,7 @@ This tool takes no parameters.
 
 Lists the resources of one type from the drawing, a library, a file or another document.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -127,7 +127,7 @@ Errors: `unknown resourceType '<x>'` and `unknown content folder '<x>'; expected
 
 Reads one resource of the drawing.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -169,7 +169,7 @@ Errors: `resource not found`; `not a resource`; `object not found: <uuid>`; the 
 
 Imports an external resource into the drawing.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: importResource" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: importResource" · **In runToolBatch:** yes
 
 **Details**
 
@@ -209,7 +209,7 @@ Errors: those of getResources for the list arguments; `name or index is required
 
 Renames, describes, moves, duplicates or deletes a resource.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: editResource" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: editResource" · **In runToolBatch:** yes
 
 **Details**
 
@@ -241,7 +241,7 @@ Errors: `resource not found`; `not a resource`; `unknown action: <action>`; `res
 
 Creates an empty resource.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createResource" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createResource" · **In runToolBatch:** yes
 
 **Details**
 
@@ -290,7 +290,7 @@ If the new resource cannot be registered with Undo, the call fails. A new folder
 
 Reads what a resource holds: hatch levels, gradient stops, line type dashes and more.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -342,7 +342,7 @@ Errors: `resource not found`; `not a resource`; the refusal for an internal IFC 
 
 Changes what a resource holds.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setResourceDetails" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setResourceDetails" · **In runToolBatch:** yes
 
 **Details**
 
@@ -456,7 +456,7 @@ Errors: `resource not found`; `not a resource`; `unknown compression: <x>`; `unk
 
 Applies a texture, style or data visualization to an object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: applyResource" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: applyResource" · **In runToolBatch:** yes
 
 **Details**
 
@@ -497,7 +497,7 @@ Errors: `resource not found`; `not a resource`; the refusal for an internal IFC 
 
 Reads a worksheet: its size, cells, formats and database rows.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -559,7 +559,7 @@ Errors: `no worksheet found: pass the 'uuid', 'name' or 'index' of a worksheet r
 
 Changes a worksheet with a list of actions.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: editWorksheet" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: editWorksheet" · **In runToolBatch:** yes
 
 **Details**
 

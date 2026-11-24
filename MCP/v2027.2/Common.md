@@ -6,7 +6,7 @@
 
 [Back to the index](README.md)
 
-The conventions that every tool of the Vectorworks MCP server follows: calls and results, object references, points and colors, units, creation options, applied settings, plug-in parameters, paging, effects, safety levels and undo.
+The conventions that every tool of the Vectorworks MCP server follows: calls and results, object references, points and colors, units, creation options, applied settings, plug-in parameters, paging, effects, risk levels and undo.
 
 ## Table of contents
 
@@ -30,7 +30,7 @@ The conventions that every tool of the Vectorworks MCP server follows: calls and
   - [Reading parameters](#reading-parameters)
   - [Writing parameters](#writing-parameters)
 - [Paging](#paging)
-- [Effects and safety levels](#effects-and-safety-levels)
+- [Effects and risk levels](#effects-and-risk-levels)
 - [Undo](#undo)
 
 ## Overview
@@ -48,7 +48,7 @@ The conventions that every tool of the Vectorworks MCP server follows: calls and
 | [Applied settings](#applied-settings) | How tools report, setting by setting, what they wrote. |
 | [Plug-in parameters](#plug-in-parameters) | Reading and writing the parameters of plug-in objects. |
 | [Paging](#paging) | How long lists are returned page by page. |
-| [Effects and safety levels](#effects-and-safety-levels) | What a tool may change, and how clients should treat it. |
+| [Effects and risk levels](#effects-and-risk-levels) | What a tool may change, and how clients should treat it. |
 | [Undo](#undo) | How the changes of a tool call are recorded for Edit &gt; Undo. |
 
 ## Tool groups and activation
@@ -64,7 +64,7 @@ The tools are organized in tool groups. The tool list of the server (`tools/list
   - **Enable all without scripting tools**: the [Scripting](Scripting.md#scripting) group, with its 7 tools, is not registered. It does not appear in `listToolGroups`, and `activateToolGroups` reports it in `not_found`.
   - **Enable scripting tools only**: only the Scripting group is offered (besides the Core group), and it is active at once.
 
-| Group | Group ID | Page | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Page | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|---|
 | [Core](#core-group) | `core` | [Common](#core-group) | Always | low | 3 | Discover and activate tool groups, and run several tool calls as one undo step. |
 | [Document](DocumentAccess.md#document) | `document` | [DocumentAccess](DocumentAccess.md) | Yes | low | 17 | The active drawing: document summary, layers, stories, classes, units, view and document preferences. |
@@ -88,13 +88,13 @@ The tools are organized in tool groups. The tool list of the server (`tools/list
 
 ## Core group
 
-> **Group:** `Core` · **Group ID:** `core` · **Active:** always · **Safety level:** low · **Tools:** 3
+> **Group:** `Core` · **Group ID:** `core` · **Active:** always · **Risk level:** low · **Tools:** 3
 
 **Discover and activate tool groups, and run several tool calls as one undo step.**
 
 The meta-tools of the Core group are always available. They manage the tool list and group tool calls; they cannot be called inside [`runToolBatch`](#runtoolbatch).
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`listToolGroups`](#listtoolgroups) | Read-only | low | List all tool groups, active and inactive, with their activation state and, optionally, their tools. |
 | [`activateToolGroups`](#activatetoolgroups) | Session setting | low | Activate tool groups so that their tools appear in the tool list, until the server is stopped. |
@@ -104,7 +104,7 @@ The meta-tools of the Core group are always available. They manage the tool list
 
 List all tool groups, active and inactive, with their activation state and, optionally, their tools.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** no
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** no
 
 **Details**
 
@@ -129,7 +129,7 @@ List active AND inactive tool groups with their metadata and activation state. B
 | `safetyLevel` | `low`, `medium` or `high`. |
 | `currentlyActive` | `true` when the tools of the group are in the tool list. |
 | `toolCount` | The number of tools of the group. |
-| `tools` | Only with `includeTools`: a list of `{ "name", "description", "safetyLevel" }`. A tool that has no safety level of its own gets the safety level of its group. |
+| `tools` | Only with `includeTools`: a list of `{ "name", "description", "safetyLevel" }`. A tool that has no risk level of its own gets the risk level of its group. |
 
 Errors: `listToolGroups requires an arguments object`, `includeTools must be a boolean`, `group must be a display name or groupId string` and `Unknown tool group: <value>`.
 
@@ -146,7 +146,7 @@ Errors: `listToolGroups requires an arguments object`, `includeTools must be a b
 
 Activate tool groups so that their tools appear in the tool list, until the server is stopped.
 
-> **Effect:** Session setting · **Safety:** low · **Undo:** none (the drawing is not changed) · **In runToolBatch:** no
+> **Effect:** Session setting · **Risk:** low · **Undo:** none (the drawing is not changed) · **In runToolBatch:** no
 
 **Details**
 
@@ -182,7 +182,7 @@ Enable one or more tool groups for the rest of the session, exposing their tools
 
 Run several tool calls as one undo step, all or nothing.
 
-> **Effect:** Edit (batch) · **Safety:** medium · **Undo:** one step "MCP: &lt;name&gt;" for the whole batch · **In runToolBatch:** no
+> **Effect:** Edit (batch) · **Risk:** medium · **Undo:** one step "MCP: &lt;name&gt;" for the whole batch · **In runToolBatch:** no
 
 **Details**
 
@@ -230,7 +230,7 @@ Only tools of active groups.
 | `call <n> (<tool>): unknown tool` | No tool has this name. |
 | `call <n> (<tool>): the tool is in an inactive group; activate it via activateToolGroups` | The group of the tool is not active. |
 | `call <n> (<tool>): only provider tools can run in a batch, not the meta-tools (listToolGroups, activateToolGroups, runToolBatch)` | The tool is a meta-tool of the Core group. |
-| `call <n> (<tool>): high-risk tools cannot run in a batch: ask the user, then call the tool on its own` | The tool has `destructiveHint`, or the safety level `high` (its own or, without one, that of its group): `runPythonScript`, `runScript` and `runMenuCommand`. |
+| `call <n> (<tool>): high-risk tools cannot run in a batch: ask the user, then call the tool on its own` | The tool has `destructiveHint`, or the risk level `high` (its own or, without one, that of its group): `runPythonScript`, `runScript` and `runMenuCommand`. |
 | `call <n> (<tool>): interactive tools record their own undo steps and cannot run in a batch: call the tool on its own` | The tool records its own undo steps: `activateTool`, `setToolMode`, `setToolModes`, `sendToolPointer`, `sendToolAction`, `setOIPValues` and `pressOIPButton`. |
 | `no document is open` | No drawing is open. |
 | `an undo event is already open: another Vectorworks operation is in progress; try again when it has finished` | Another undo event is being built. |
@@ -526,11 +526,11 @@ Some results contain a list that is paged with arguments of its own. Each such l
 | [`getText`](ObjectPrimitives.md#gettext) | `lines` | `lineLimit`, `lineOffset` | `items` | 100 |
 | [`getText`](ObjectPrimitives.md#gettext) | `styleRuns` | `runLimit`, `runOffset` | `items` | 100 |
 
-## Effects and safety levels
+## Effects and risk levels
 
-Every tool has an **effect**, which says what it may change, and a **safety level**, which says how carefully a client should treat it. Both are shown with each tool. The tool list reports the effect to MCP clients through the standard tool annotations `readOnlyHint` and `destructiveHint`.
+Every tool has an **effect**, which says what it may change, and a **risk level**, which says how carefully a client should treat it. Both are shown with each tool. The tool list reports the effect to MCP clients through the standard tool annotations `readOnlyHint` and `destructiveHint`. A higher risk level means a call can change more or is harder to undo; the server reports it in the `safetyLevel` field.
 
-| Effect | Meaning | Safety level | Annotations | Undo | In runToolBatch | Tools |
+| Effect | Meaning | Risk level | Annotations | Undo | In runToolBatch | Tools |
 |---|---|---|---|---|---|---|
 | Read-only | Reads the drawing or the application state and changes nothing. | low | `readOnlyHint`: true | none | allowed | 58 |
 | Edit | Changes the drawing. Undo reverts the change. | low or medium | `readOnlyHint`: false | one step "MCP: &lt;tool&gt;" | yes | 86 |
@@ -538,15 +538,15 @@ Every tool has an **effect**, which says what it may change, and a **safety leve
 | Interactive, destructive | Runs a menu command as if the user chose it. | high | `readOnlyHint`: false, `destructiveHint`: true | recorded by the menu command | no | 1 |
 | Script run | Runs a Python script, which can do anything a script can do. | high | `readOnlyHint`: false, `destructiveHint`: true | one step "MCP: script" (none when the script registered no change) | no | 2 |
 
-The three meta-tools of the [Core group](#core-group) are not counted in this table. [`listToolGroups`](#listtoolgroups) is read-only. [`activateToolGroups`](#activatetoolgroups) is a **session setting**: it changes which tool groups the server offers, not the drawing (annotations `readOnlyHint`: true, `destructiveHint`: false). [`runToolBatch`](#runtoolbatch) is an **edit (batch)**: it runs other tools in one undo step (annotations `readOnlyHint`: false, `destructiveHint`: false; safety level medium).
+The three meta-tools of the [Core group](#core-group) are not counted in this table. [`listToolGroups`](#listtoolgroups) is read-only. [`activateToolGroups`](#activatetoolgroups) is a **session setting**: it changes which tool groups the server offers, not the drawing (annotations `readOnlyHint`: true, `destructiveHint`: false). [`runToolBatch`](#runtoolbatch) is an **edit (batch)**: it runs other tools in one undo step (annotations `readOnlyHint`: false, `destructiveHint`: false; risk level medium).
 
-**Safety levels**
+**Risk levels**
 
 - **low**: reads, session changes (such as which tool groups are active), and the plain edits of the document settings and of 2D primitives and text ([Document](DocumentAccess.md#document), [IFC](IFC.md#ifc), [IFC Data Mapping](IFC.md#ifc-data-mapping), [Draw2D](ObjectPrimitives.md#draw2d)). Edit > Undo reverts the edits.
 - **medium**: edits of objects, 3D geometry, annotation and industry objects, resources and worksheets, and the interactive tools that operate the tool palettes and the Object Info palette. Edit > Undo reverts them.
 - **high**: menu commands and scripts, which may make far-reaching changes that are hard to predict. Clients should ask the user before each call. These tools cannot run inside [`runToolBatch`](#runtoolbatch).
 
-Each group has a safety level, shown on its page. A tool reports its own level: read-only tools are always low, interactive tools medium, menu commands and scripts high, and the other edit tools take the level of their group unless the tool sets its own. The level that the [InteractiveTools](ToolAccess.md#interactivetools) group shows (high) is therefore the level of none of its tools: its read-only tools are low and its interactive tools medium.
+Each group has a risk level, shown on its page. A tool reports its own level: read-only tools are always low, interactive tools medium, menu commands and scripts high, and the other edit tools take the level of their group unless the tool sets its own. The level that the [InteractiveTools](ToolAccess.md#interactivetools) group shows (high) is therefore the level of none of its tools: its read-only tools are low and its interactive tools medium.
 
 **Tools with a special effect**
 

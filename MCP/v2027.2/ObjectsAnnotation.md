@@ -34,14 +34,14 @@ Tools for annotations: data tags, title block borders and the title block projec
 
 This folder holds 2 tool groups with 16 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Annotation](#annotation) | `annotation` | No | medium | 8 | Data tags, title block borders and the title block project data of the document. |
 | [Dimensioning](#dimensioning) | `dimensioning` | No | medium | 8 | Linear, angular, arc length and radial dimensions, and center marks. |
 
 ## Annotation
 
-> **Group:** `Annotation` · **Group ID:** `annotation` · **Active by default:** No · **Safety level:** medium · **Tools:** 8
+> **Group:** `Annotation` · **Group ID:** `annotation` · **Active by default:** No · **Risk level:** medium · **Tools:** 8
 
 **Data tags, title block borders and the title block project data of the document.**
 
@@ -49,7 +49,7 @@ Annotate the drawing with data tags and title block borders. A data tag labels a
 
 Each change runs as its own named, undoable Vectorworks operation.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`createDataTag`](#createdatatag) | Edit | medium | Creates a data tag, optionally attached to an object. |
 | [`createTitleBlock`](#createtitleblock) | Edit | medium | Creates a title block border. |
@@ -64,7 +64,7 @@ Each change runs as its own named, undoable Vectorworks operation.
 
 Creates a data tag, optionally attached to an object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createDataTag" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createDataTag" · **In runToolBatch:** yes
 
 **Details**
 
@@ -104,7 +104,7 @@ There is no `applied`. Errors: `object to tag not found` (no object has the `tag
 
 Creates a title block border.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createTitleBlock" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createTitleBlock" · **In runToolBatch:** yes
 
 **Details**
 
@@ -139,7 +139,7 @@ The object reference of the new title block border (see [Object references](Comm
 
 Reads a data tag or a title block border.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -181,7 +181,7 @@ The other keys are named in the Details above; lengths are in world units and an
 
 Edits a data tag or a title block border.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setAnnotationObject" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setAnnotationObject" · **In runToolBatch:** yes
 
 **Details**
 
@@ -255,7 +255,7 @@ A setting that the kind of the object does not have has no entry. A `sheetData`,
 
 Attaches a data tag to an object, or detaches it.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: tagObject" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: tagObject" · **In runToolBatch:** yes
 
 **Details**
 
@@ -284,7 +284,7 @@ Errors: `data tag not found` (the reference gives no object, or the object is no
 
 Lists the data tags attached to an object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -312,7 +312,7 @@ Errors: `object not found`.
 
 Reads the title block project data of the document.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -335,7 +335,7 @@ Errors: `this document has no title block project data (it is created with the f
 
 Writes the title block project data of the document.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setProjectData" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setProjectData" · **In runToolBatch:** yes
 
 **Details**
 
@@ -353,7 +353,7 @@ Write the title block project data of the document. `projectData` is an object o
 
 ## Dimensioning
 
-> **Group:** `Dimensioning` · **Group ID:** `dimensioning` · **Active by default:** No · **Safety level:** medium · **Tools:** 8
+> **Group:** `Dimensioning` · **Group ID:** `dimensioning` · **Active by default:** No · **Risk level:** medium · **Tools:** 8
 
 **Linear, angular, arc length and radial dimensions, and center marks.**
 
@@ -375,7 +375,7 @@ All angles in this group are radians. A center mark is not a dimension object bu
 
 > **Note:** These values are refused: nothing is written and `applied` reports `false` for the setting. A `witnessOverride` outside 0 to 4, a negative `precision` or `secondaryPrecision`, `fontSize` of 0 or less, a negative `fontStyle`, a `textRotation` outside 0 to 2, an empty `standard`, a `standardIndex` of 0, a negative `unit`, a radial `radius` or `diameter` of 0 or less in `setDimension`, and a `textStyle` name that no named object has (`textStyle` takes a name, never a UUID, and the object found is not checked to be a text style). A `toleranceType` outside 0 to 3 is written and reported as applied, but the dimension then reports no `toleranceType`; send 0 to 3. Setting `textOffsetAlongLine` also switches `textPositionAutomatic` off.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`createLinearDimension`](#createlineardimension) | Edit | medium | Creates a constrained, horizontal, vertical, unconstrained or ordinate linear dimension. |
 | [`createAngularDimension`](#createangulardimension) | Edit | medium | Creates an angular dimension. |
@@ -390,7 +390,7 @@ All angles in this group are radians. A center mark is not a dimension object bu
 
 Creates a constrained, horizontal, vertical, unconstrained or ordinate linear dimension.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createLinearDimension" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createLinearDimension" · **In runToolBatch:** yes
 
 **Details**
 
@@ -466,7 +466,7 @@ Errors: `unknown mode: <mode> (expected constrained, horizontal, vertical, uncon
 
 Creates an angular dimension.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createAngularDimension" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createAngularDimension" · **In runToolBatch:** yes
 
 **Details**
 
@@ -548,7 +548,7 @@ Errors: `failed to create the angular dimension (the vertex and the two leg poin
 
 Creates an arc length dimension.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createArcLengthDimension" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createArcLengthDimension" · **In runToolBatch:** yes
 
 **Details**
 
@@ -634,7 +634,7 @@ Errors: `failed to create the arc length dimension (provide either 'start', 'end
 
 Creates a radial or diametrical dimension.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createRadialDimension" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createRadialDimension" · **In runToolBatch:** yes
 
 **Details**
 
@@ -717,7 +717,7 @@ Errors: `unknown mode: <mode> (expected radial or diametrical)`; `failed to crea
 
 Creates a center mark for a circular feature.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createCenterMark" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createCenterMark" · **In runToolBatch:** yes
 
 **Details**
 
@@ -757,7 +757,7 @@ There is no `applied`. Errors: `object to mark not found` (unknown `objectUuid`)
 
 Reads a dimension: its kind, measured points, value and text settings.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -795,7 +795,7 @@ Errors: `object not found`; `not a dimension object` (a center mark is a group o
 
 Edits a dimension.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setDimension" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setDimension" · **In runToolBatch:** yes
 
 **Details**
 
@@ -876,7 +876,7 @@ The result holds no object reference. Errors: `object not found`; `not a dimensi
 
 Lists the dimensions associated with an object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 

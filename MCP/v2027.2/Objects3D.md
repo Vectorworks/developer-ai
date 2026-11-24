@@ -33,13 +33,13 @@ Tools to create, read and edit 3D geometry: solids, 3D polygons, meshes, NURBS c
 
 This folder holds 1 tool group with 16 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [3D Modeling](#3d-modeling) | `3d-modeling` | No | medium | 16 | Create, read and edit solids, 3D polygons, meshes, NURBS curves and surfaces, and surface models. |
 
 ## 3D Modeling
 
-> **Group:** `3D Modeling` · **Group ID:** `3d-modeling` · **Active by default:** No · **Safety level:** medium · **Tools:** 16
+> **Group:** `3D Modeling` · **Group ID:** `3d-modeling` · **Active by default:** No · **Risk level:** medium · **Tools:** 16
 
 **Create, read and edit solids, 3D polygons, meshes, NURBS curves and surfaces, and surface models.**
 
@@ -51,7 +51,7 @@ Create, read and edit 3D solids: extrudes (from points, a rectangle, a 2D shape 
 
 > **Note:** `createShell` and `convertSolid` (both `genericSolid` and `mesh`) always place the result right after the source, in the source's container (a layer, a symbol definition or a group). `combineSolids` places its result in the active layer, or in the group or symbol definition being edited, not next to its operands.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`createExtrude`](#createextrude) | Edit | medium | Creates an extrude, a multiple extrude or a tapered extrude. |
 | [`createSolidPrimitive`](#createsolidprimitive) | Edit | medium | Creates a sphere, ellipsoid, hemisphere, cone, box, cylinder or torus. |
@@ -74,7 +74,7 @@ Create, read and edit 3D solids: extrudes (from points, a rectangle, a 2D shape 
 
 Creates an extrude, a multiple extrude or a tapered extrude.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createExtrude" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createExtrude" · **In runToolBatch:** yes
 
 **Details**
 
@@ -121,7 +121,7 @@ Create an extrude from exactly one profile source: `points` (3 or more points { 
 
 Creates a sphere, ellipsoid, hemisphere, cone, box, cylinder or torus.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createSolidPrimitive" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createSolidPrimitive" · **In runToolBatch:** yes
 
 **Details**
 
@@ -154,7 +154,7 @@ Points are in world Z. Radii must be positive. Every argument is checked before 
 
 Creates a sweep: 2D profiles revolved about an axis.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createSweep" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createSweep" · **In runToolBatch:** yes
 
 **Details**
 
@@ -183,7 +183,7 @@ Returns the object reference, `kind` sweep, `bounds3D` { min, max } in world Z a
 
 Combines two solids into a Generic Solid by union, intersection or difference.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: combineSolids" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: combineSolids" · **In runToolBatch:** yes
 
 **Details**
 
@@ -207,7 +207,7 @@ Combine two solid objects by `blankUuid` and `toolUuid` with `operation` union, 
 
 Creates a shell by thickening a NURBS surface or hollowing a solid.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createShell" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createShell" · **In runToolBatch:** yes
 
 **Details**
 
@@ -233,7 +233,7 @@ A locked source, or a source that is not in a layer, a symbol definition or a gr
 
 Creates a copy of a solid converted to a Generic Solid or a mesh.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: convertSolid" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: convertSolid" · **In runToolBatch:** yes
 
 **Details**
 
@@ -258,7 +258,7 @@ The optional `select` creation option controls whether the result is selected. R
 
 Reads a solid: its kind, 3D bounds, parameters and Generic Solid history.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -280,7 +280,7 @@ Read a solid by uuid, name or index: the object reference, its `kind` (extrude, 
 
 Moves, rotates, scales, re-orients or resizes a solid.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: editSolid" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: editSolid" · **In runToolBatch:** yes
 
 **Details**
 
@@ -342,7 +342,7 @@ Returns the object reference, `changed` (the arguments applied, in order) and th
 
 Creates a 3D polygon from 3D points, from 2D points at a height, or from a rectangle.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: create3DPolygon" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: create3DPolygon" · **In runToolBatch:** yes
 
 **Details**
 
@@ -370,7 +370,7 @@ Every argument is checked before anything is created; the polygon goes on the ac
 
 Creates a mesh from vertices and faces, from polygons or from a group of 3D polygons.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createMesh" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createMesh" · **In runToolBatch:** yes
 
 **Details**
 
@@ -395,7 +395,7 @@ A locked group, or a group that is not in a layer, a symbol definition or a grou
 
 Creates a NURBS curve from control points or fit points.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createNurbsCurve" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createNurbsCurve" · **In runToolBatch:** yes
 
 **Details**
 
@@ -420,7 +420,7 @@ Every argument is checked before anything is created; the curve goes on the acti
 
 Creates a NURBS surface from its control net.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createNurbsSurface" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createNurbsSurface" · **In runToolBatch:** yes
 
 **Details**
 
@@ -445,7 +445,7 @@ Create a NURBS surface from its control net `points`: an array of 2 or more rows
 
 Creates a loft, rail sweep, revolve or extrude-along-path surface model from existing objects.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createSurfaceModel" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createSurfaceModel" · **In runToolBatch:** yes
 
 **Details**
 
@@ -486,7 +486,7 @@ Create a surface model of `kind` from copies of existing objects, which stay unc
 
 Reads a 3D polygon, mesh, NURBS curve or NURBS surface.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -524,7 +524,7 @@ Read a 3D polygon, a mesh, a NURBS curve or a NURBS surface by uuid, name or ind
 
 Edits a 3D polygon, mesh, NURBS curve or NURBS surface.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: edit3DGeometry" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: edit3DGeometry" · **In runToolBatch:** yes
 
 **Details**
 
@@ -618,7 +618,7 @@ The operations, applied in this order: `vertices` (replaces all; a polygon takes
 
 Converts a copy of an object to 3D polygons, a mesh or a Generic Solid.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: convertTo3D" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: convertTo3D" · **In runToolBatch:** yes
 
 **Details**
 

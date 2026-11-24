@@ -67,7 +67,7 @@ Die Seite [Common](Common.md) beschreibt die Konventionen, die für alle Tools g
 | [Übernommene Einstellungen](Common.md#angewendete-einstellungen) | Tools, die mehrere Einstellungen schreiben, melden jede davon in `applied`. |
 | [Plug-in-Parameter](Common.md#plug-in-parameter) | Parameter von Plug-in-Objekten werden über ihren universellen Namen mit `params` gelesen und geschrieben. |
 | [Seitennavigation](Common.md#seitennavigation) | Lange Listen verwenden `limit`, `offset` und `countOnly` und geben `count`, `truncated` und `nextOffset` zurück. |
-| [Auswirkungen und Sicherheitsstufen](Common.md#auswirkungen-und-sicherheitsstufen) | Jedes Tool ist schreibgeschützt, eine Bearbeitung, interaktiv oder ein Skriptlauf und hat eine niedrige, mittlere oder hohe Sicherheitsstufe. |
+| [Auswirkungen und Risikostufen](Common.md#auswirkungen-und-risikostufen) | Jedes Tool ist schreibgeschützt, eine Bearbeitung, interaktiv oder ein Skriptlauf und hat eine niedrige, mittlere oder hohe Risikostufe. |
 | [Rückgängig](Common.md#rückgängig-machen) | Jeder Bearbeitungsaufruf ist ein Rückgängig-Schritt `MCP: <tool>`; ein fehlgeschlagener Aufruf wird rückgängig gemacht. |
 | [Linienendmarkierungen und Schlagschatten](Attributes.md) | Es handelt sich um Teilobjekte: Geändert werden nur die angegebenen Elemente. |
 
@@ -122,12 +122,12 @@ Alle Seiten, Gruppen und Tools nach Themen geordnet. Jedes Tool ist mit seiner B
 
 Aufruf aller Tools und Aufbau der gemeinsam verwendeten Werteformate.
 
-- **[Common](Common.md)** — Die Konventionen, die für alle Tools des Vectorworks-MCP-Servers gelten: Aufrufe und Ergebnisse, Objektreferenzen, Punkte und Farben, Einheiten, Erstellungsoptionen, übernommene Einstellungen, Plug-in-Parameter, Seitennavigation, Auswirkungen, Sicherheitsstufen und Rückgängig.
+- **[Common](Common.md)** — Die Konventionen, die für alle Tools des Vectorworks-MCP-Servers gelten: Aufrufe und Ergebnisse, Objektreferenzen, Punkte und Farben, Einheiten, Erstellungsoptionen, übernommene Einstellungen, Plug-in-Parameter, Seitennavigation, Auswirkungen, Risikostufen und Rückgängig.
   - **[Core](Common.md#core-gruppe)** (`core`, 3 Tools, immer aktiv) — Tool-Gruppen ermitteln und aktivieren sowie mehrere Tool-Aufrufe als einen Rückgängig-Schritt ausführen.
     - [`listToolGroups`](Common.md#listtoolgroups) — Listet alle aktiven und inaktiven Tool-Gruppen mit ihrem Aktivierungsstatus und optional ihren Tools auf.
     - [`activateToolGroups`](Common.md#activatetoolgroups) — Aktiviert Tool-Gruppen für den Rest der Sitzung, damit ihre Tools in der Tool-Liste erscheinen.
     - [`runToolBatch`](Common.md#runtoolbatch) — Führt mehrere Tool-Aufrufe als einen Rückgängig-Schritt aus; entweder alle oder keinen.
-  - Konventionen: [Tool-Aufruf](Common.md#ein-tool-aufrufen) · [Ergebnisse und Fehler](Common.md#ergebnisse-und-fehler) · [Objektreferenzen](Common.md#objektreferenzen) · [Punkte, Rechtecke und Farben](Common.md#punkte-rechtecke-und-farben) · [Einheiten und Winkel](Common.md#einheiten-und-winkel) · [Erstellungsoptionen](Common.md#optionen-zur-erstellung) · [Übernommene Einstellungen](Common.md#angewendete-einstellungen) · [Plug-in-Parameter](Common.md#plug-in-parameter) · [Seitennavigation](Common.md#seitennavigation) · [Auswirkungen und Sicherheitsstufen](Common.md#auswirkungen-und-sicherheitsstufen) · [Rückgängig](Common.md#rückgängig-machen)
+  - Konventionen: [Tool-Aufruf](Common.md#ein-tool-aufrufen) · [Ergebnisse und Fehler](Common.md#ergebnisse-und-fehler) · [Objektreferenzen](Common.md#objektreferenzen) · [Punkte, Rechtecke und Farben](Common.md#punkte-rechtecke-und-farben) · [Einheiten und Winkel](Common.md#einheiten-und-winkel) · [Erstellungsoptionen](Common.md#optionen-zur-erstellung) · [Übernommene Einstellungen](Common.md#angewendete-einstellungen) · [Plug-in-Parameter](Common.md#plug-in-parameter) · [Seitennavigation](Common.md#seitennavigation) · [Auswirkungen und Risikostufen](Common.md#auswirkungen-und-risikostufen) · [Rückgängig](Common.md#rückgängig-machen)
 - **[Attributes](Attributes.md)** — Die Werteformate für Linienendmarkierungen und Schlagschatten. Sie werden von Tools gemeinsam verwendet, die die grafischen Attribute von Klassen und Objekten lesen und schreiben.
   - Formate: [Linienendmarkierungen](Attributes.md#linienendmarkierungen) · [Schlagschatten](Attributes.md#schlagschatten)
 
@@ -584,9 +584,9 @@ Jede Seite eines Tool-Ordners folgt demselben Aufbau:
 
 1. **Titel** — Ordner und Thema, Server und Vectorworks-Version sowie ein Link zurück zu diesem Index.
 2. **Inhaltsverzeichnis** — alle Gruppen und Tools der Seite.
-3. **Übersicht** — eine Zeile pro Gruppe mit Gruppen-ID, Standardaktivierung, Sicherheitsstufe, Tool-Anzahl und einer kurzen Zusammenfassung.
-4. **Gruppen** — für jede Gruppe: Gruppen-ID, Aktivierung und Sicherheitsstufe, Zusammenfassung, vom Server gemeldete Beschreibung und eine Tabelle ihrer Tools mit Auswirkung, Sicherheitsstufe und Zusammenfassung.
-5. **Werkzeuge** — für jedes Tool: kurze Zusammenfassung; Auswirkung, Sicherheitsstufe, Rückgängig-Verhalten und Ausführbarkeit innerhalb von `runToolBatch`; die vom Server gemeldeten **Details** und die Tabelle **Parameter** (Name, Typ, erforderlich, Beschreibung). Elemente von Objektparametern werden als `parameter.member`, Elemente von Array-Elementen als `parameter[].member` aufgeführt. Wenn bekannt, listet der Abschnitt **Ergebnis** die Ergebnisschlüssel auf; **Fehler** führt Fehlermeldungen auf, und ein **Hinweis** ergänzt Verhalten, das in der Beschreibung nicht genannt wird.
+3. **Übersicht** — eine Zeile pro Gruppe mit Gruppen-ID, Standardaktivierung, Risikostufe, Tool-Anzahl und einer kurzen Zusammenfassung.
+4. **Gruppen** — für jede Gruppe: Gruppen-ID, Aktivierung und Risikostufe, Zusammenfassung, vom Server gemeldete Beschreibung und eine Tabelle ihrer Tools mit Auswirkung, Risikostufe und Zusammenfassung.
+5. **Werkzeuge** — für jedes Tool: kurze Zusammenfassung; Auswirkung, Risikostufe, Rückgängig-Verhalten und Ausführbarkeit innerhalb von `runToolBatch`; die vom Server gemeldeten **Details** und die Tabelle **Parameter** (Name, Typ, erforderlich, Beschreibung). Elemente von Objektparametern werden als `parameter.member`, Elemente von Array-Elementen als `parameter[].member` aufgeführt. Wenn bekannt, listet der Abschnitt **Ergebnis** die Ergebnisschlüssel auf; **Fehler** führt Fehlermeldungen auf, und ein **Hinweis** ergänzt Verhalten, das in der Beschreibung nicht genannt wird.
 
 Links auf gemeinsam verwendete Formate verweisen auf [Common](Common.md) und [Attributes](Attributes.md), zum Beispiel [Punkt](Common.md#punkte), [Farbe](Common.md#farben) oder [Markierung](Attributes.md#linienendmarkierungen).
 

@@ -27,13 +27,13 @@ Tools for site and landscape objects: plants, hardscapes, landscape areas, site 
 
 This folder holds 1 tool group with 10 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Landmark](#landmark) | `landmark` | No | medium | 10 | Plants, hardscapes, landscape areas, site models, site modifiers, stakes, property lines and existing trees. |
 
 ## Landmark
 
-> **Group:** `Landmark` · **Group ID:** `landmark` · **Active by default:** No · **Safety level:** medium · **Tools:** 10
+> **Group:** `Landmark` · **Group ID:** `landmark` · **Active by default:** No · **Risk level:** medium · **Tools:** 10
 
 **Plants, hardscapes, landscape areas, site models, site modifiers, stakes, property lines and existing trees.**
 
@@ -45,7 +45,7 @@ Create, inspect and edit site and landscape objects: plants, hardscapes, landsca
 >
 > **Note:** In the result of a create tool, `applied` holds only the typed properties that the tool describes as "set as by `setLandmarkObject`". The main arguments (`position`, `pathUuid`, `plantResource`, `latinName`, `commonName`, `spread`, `height`, `z`, `data`, `botanicalName`, `canopyDiameter`, `caliper`) and the creation options are written without an `applied` entry. `applied` is left out when no typed property was given. A main argument of the wrong JSON type (for example a numeric string for a number) is written as `0` or as an empty string, without an error; `setLandmarkObject` reports `true` for it.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`createPlant`](#createplant) | Edit | medium | Creates a plant at a point or along a path. |
 | [`createHardscape`](#createhardscape) | Edit | medium | Creates a hardscape from a 2D path object. |
@@ -62,7 +62,7 @@ Create, inspect and edit site and landscape objects: plants, hardscapes, landsca
 
 Creates a plant at a point or along a path.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createPlant" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createPlant" · **In runToolBatch:** yes
 
 **Details**
 
@@ -115,7 +115,7 @@ Errors: `failed to create plant: no plant style is available. …`, with `reques
 
 Creates a hardscape from a 2D path object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createHardscape" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createHardscape" · **In runToolBatch:** yes
 
 **Details**
 
@@ -157,7 +157,7 @@ Errors: `path object not found (provide 'pathUuid' of a polygon/polyline)`; `fai
 
 Creates a landscape area from a 2D path object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createLandscapeArea" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createLandscapeArea" · **In runToolBatch:** yes
 
 **Details**
 
@@ -197,7 +197,7 @@ Errors: `path object not found (provide 'pathUuid' of a polygon/polyline)`; `fai
 
 Creates a site modifier from a 2D path object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createSiteModifier" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createSiteModifier" · **In runToolBatch:** yes
 
 **Details**
 
@@ -234,7 +234,7 @@ Errors: `path object not found (provide 'pathUuid' of a polygon/polyline)`; `fai
 
 Creates a property line from a closed 2D path object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createPropertyLine" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createPropertyLine" · **In runToolBatch:** yes
 
 **Details**
 
@@ -272,7 +272,7 @@ Errors: `path object not found (provide 'pathUuid' of a polygon/polyline)`; `fai
 
 Creates an empty site model.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createSiteModel" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createSiteModel" · **In runToolBatch:** yes
 
 **Details**
 
@@ -310,7 +310,7 @@ Errors: `failed to create object`. A failed call is rolled back (`rolledBack`), 
 
 Creates a stake (elevation point).
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createStake" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createStake" · **In runToolBatch:** yes
 
 **Details**
 
@@ -354,7 +354,7 @@ Errors: `failed to create stake`. A failed call is rolled back (`rolledBack`), s
 
 Creates an existing tree.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createExistingTree" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createExistingTree" · **In runToolBatch:** yes
 
 **Details**
 
@@ -406,7 +406,7 @@ Errors: `failed to create existing tree`. A failed call is rolled back (`rolledB
 
 Reads the properties of a site or landscape object.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -444,7 +444,7 @@ Errors: `object not found`; `not a landmark object`.
 
 Edits a site or landscape object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setLandmarkObject" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setLandmarkObject" · **In runToolBatch:** yes
 
 **Details**
 

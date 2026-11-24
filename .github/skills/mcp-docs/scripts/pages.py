@@ -24,7 +24,7 @@ def folder_page(folder, groups):
     for g in groups:
         rows.append(["[%s](#%s)" % (g["fName"], _peek(page, g["fName"])), code(g["groupId"], True), yes_no(g["fActiveByDefault"]),
                      g["fSafetyLevel"], str(len(g["tools"])), inline(GROUP_SUMMARY[g["fName"]], True)])
-    page.table(["Group", "Group ID", "Active by default", "Safety level", "Tools", "Summary"], rows)
+    page.table(["Group", "Group ID", "Active by default", "Risk level", "Tools", "Summary"], rows)
 
     for g in groups:
         group_section(page, g)
@@ -41,7 +41,7 @@ def _peek(page, text):
 
 def group_section(page, g):
     page.h(2, g["fName"])
-    page.para(["> **Group:** %s · **Group ID:** %s · **Active by default:** %s · **Safety level:** %s · **Tools:** %d"
+    page.para(["> **Group:** %s · **Group ID:** %s · **Active by default:** %s · **Risk level:** %s · **Tools:** %d"
                % (code(g["fName"]), code(g["groupId"]), yes_no(g["fActiveByDefault"]), g["fSafetyLevel"], len(g["tools"]))])
     page.para(["**" + inline(GROUP_SUMMARY[g["fName"]]) + "**"])
     page.para(block(g["fDesc"]))
@@ -51,7 +51,7 @@ def group_section(page, g):
         label = EFFECTS[t["effect"]][0]
         rows.append(["[%s](#%s)" % (code(t["name"]), t["name"].lower()), label,
                      tool_safety(t["effect"], g["fSafetyLevel"]), inline(TOOL_SUMMARY[t["name"]], True)])
-    page.table(["Tool", "Effect", "Safety", "Summary"], rows)
+    page.table(["Tool", "Effect", "Risk", "Summary"], rows)
 
     for t in g["tools"]:
         tool_section(page, g, t)
@@ -62,7 +62,7 @@ def tool_section(page, g, t):
     assert anchor == t["name"].lower(), (anchor, t["name"])
     label, undo, batch = EFFECTS[t["effect"]]
     page.para([inline(TOOL_SUMMARY[t["name"]])])
-    page.para(["> **Effect:** %s · **Safety:** %s · **Undo:** %s · **In runToolBatch:** %s"
+    page.para(["> **Effect:** %s · **Risk:** %s · **Undo:** %s · **In runToolBatch:** %s"
                % (label, tool_safety(t["effect"], g["fSafetyLevel"]), inline(undo.format(tool=t["name"])), batch)])
     page.para(["**Details**"])
     page.para(block(t["description"]))

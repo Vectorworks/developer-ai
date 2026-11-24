@@ -6,7 +6,7 @@
 
 [一覧に戻る](README.md)
 
-Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び出しと結果、オブジェクト参照、点と色、単位、作成オプション、適用した設定、プラグインパラメータ、ページ分割、作用、安全性レベル、取り消し。
+Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び出しと結果、オブジェクト参照、点と色、単位、作成オプション、適用した設定、プラグインパラメータ、ページ分割、作用、リスクレベル、取り消し。
 
 <a id="table-of-contents"></a>
 
@@ -32,7 +32,7 @@ Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び
   - [パラメータの読み取り](#reading-parameters)
   - [パラメータの書き込み](#writing-parameters)
 - [ページ分割](#paging)
-- [作用と安全性レベル](#effects-and-safety-levels)
+- [作用とリスクレベル](#effects-and-risk-levels)
 - [取り消し](#undo)
 
 <a id="overview"></a>
@@ -52,7 +52,7 @@ Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び
 | [適用した設定](#applied-settings) | ツールが書き込んだ内容を設定ごとに報告する方法。 |
 | [プラグインパラメータ](#plug-in-parameters) | プラグインオブジェクトのパラメータの読み取りと書き込み。 |
 | [ページ分割](#paging) | 長いリストをページごとに返す方法。 |
-| [作用と安全性レベル](#effects-and-safety-levels) | ツールが変更し得る内容と、クライアントでの扱い方。 |
+| [作用とリスクレベル](#effects-and-risk-levels) | ツールが変更し得る内容と、クライアントでの扱い方。 |
 | [取り消し](#undo) | ツール呼び出しによる変更を「編集 &gt; 取り消し」用に記録する方法。 |
 
 <a id="tool-groups-and-activation"></a>
@@ -70,7 +70,7 @@ Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び
   - **スクリプトツールを除くすべてを有効化**: 7つのツールを持つ[Scripting](Scripting.md#scripting)グループは登録されません。`listToolGroups`には表示されず、`activateToolGroups`はこのグループを`not_found`で報告します。
   - **スクリプトツールのみを有効化**: （Coreグループのほかに）Scriptingグループだけが提供され、すぐに有効になります。
 
-| グループ | グループID | ページ | 初期状態で有効 | 安全性レベル | ツール数 | 概要 |
+| グループ | グループID | ページ | 初期状態で有効 | リスクレベル | ツール数 | 概要 |
 |---|---|---|---|---|---|---|
 | [Core](#core-group) | `core` | [Common](#core-group) | 常に有効 | 低 | 3 | ツールグループを検出して有効にし、複数のツール呼び出しを1つの取り消しステップとして実行します。 |
 | [Document](DocumentAccess.md#document) | `document` | [DocumentAccess](DocumentAccess.md) | はい | 低 | 17 | アクティブな図面を扱います: ファイルの概要、レイヤ、ストーリ、クラス、単位、ビュー、ファイル設定。 |
@@ -96,13 +96,13 @@ Vectorworks MCPサーバーのすべてのツールが従う規則です: 呼び
 
 ## Coreグループ
 
-> **グループ:** `Core` · **グループID:** `core` · **有効状態:** 常に有効 · **安全性レベル:** 低 · **ツール数:** 3
+> **グループ:** `Core` · **グループID:** `core` · **有効状態:** 常に有効 · **リスクレベル:** 低 · **ツール数:** 3
 
 **ツールグループを検出して有効にし、複数のツール呼び出しを1つの取り消しステップとして実行します。**
 
 Coreグループのメタツールは常に利用できます。ツール一覧を管理し、ツール呼び出しをまとめます。[`runToolBatch`](#runtoolbatch)内からは呼び出せません。
 
-| ツール | 作用 | 安全性 | 概要 |
+| ツール | 作用 | リスク | 概要 |
 |---|---|---|---|
 | [`listToolGroups`](#listtoolgroups) | 読み取り専用 | 低 | 有効、無効を問わずすべてのツールグループを、有効状態と、必要に応じてそのツールとともに一覧表示します。 |
 | [`activateToolGroups`](#activatetoolgroups) | セッション設定 | 低 | サーバーが停止されるまで、ツールグループを有効にして、そのツールをツール一覧に表示します。 |
@@ -112,7 +112,7 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 
 有効、無効を問わずすべてのツールグループを、有効状態と、必要に応じてそのツールとともに一覧表示します。
 
-> **作用:** 読み取り専用 · **安全性:** 低 · **取り消し:** なし · **runToolBatch内:** 不可
+> **作用:** 読み取り専用 · **リスク:** 低 · **取り消し:** なし · **runToolBatch内:** 不可
 
 **詳細**
 
@@ -137,7 +137,7 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 | `safetyLevel` | `low`、`medium`、`high`のいずれか。 |
 | `currentlyActive` | グループのツールがツール一覧にある場合は`true`。 |
 | `toolCount` | グループのツール数。 |
-| `tools` | `includeTools`を指定した場合のみ: `{ "name", "description", "safetyLevel" }`のリスト。独自の安全性レベルを持たないツールには、グループの安全性レベルが設定されます。 |
+| `tools` | `includeTools`を指定した場合のみ: `{ "name", "description", "safetyLevel" }`のリスト。独自のリスクレベルを持たないツールには、グループのリスクレベルが設定されます。 |
 
 エラー: `listToolGroups requires an arguments object`、`includeTools must be a boolean`、`group must be a display name or groupId string`、`Unknown tool group: <value>`。
 
@@ -154,7 +154,7 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 
 サーバーが停止されるまで、ツールグループを有効にして、そのツールをツール一覧に表示します。
 
-> **作用:** セッション設定 · **安全性:** 低 · **取り消し:** なし（図面は変更されません） · **runToolBatch内:** 不可
+> **作用:** セッション設定 · **リスク:** 低 · **取り消し:** なし（図面は変更されません） · **runToolBatch内:** 不可
 
 **詳細**
 
@@ -190,7 +190,7 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 
 複数のツール呼び出しを、全成功または全取り消しの1つの取り消しステップとして実行します。
 
-> **作用:** 編集（バッチ） · **安全性:** 中 · **取り消し:** バッチ全体で1ステップ「MCP: &lt;name&gt;」 · **runToolBatch内:** 不可
+> **作用:** 編集（バッチ） · **リスク:** 中 · **取り消し:** バッチ全体で1ステップ「MCP: &lt;name&gt;」 · **runToolBatch内:** 不可
 
 **詳細**
 
@@ -238,7 +238,7 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 | `call <n> (<tool>): unknown tool` | この名前のツールはありません。 |
 | `call <n> (<tool>): the tool is in an inactive group; activate it via activateToolGroups` | ツールのグループが有効ではありません。 |
 | `call <n> (<tool>): only provider tools can run in a batch, not the meta-tools (listToolGroups, activateToolGroups, runToolBatch)` | ツールはCoreグループのメタツールです。 |
-| `call <n> (<tool>): high-risk tools cannot run in a batch: ask the user, then call the tool on its own` | ツールに`destructiveHint`がある、または安全性レベルが`high`（ツール自身のレベル、ない場合はグループのレベル）です: `runPythonScript`、`runScript`、`runMenuCommand`。 |
+| `call <n> (<tool>): high-risk tools cannot run in a batch: ask the user, then call the tool on its own` | ツールに`destructiveHint`がある、またはリスクレベルが`high`（ツール自身のレベル、ない場合はグループのレベル）です: `runPythonScript`、`runScript`、`runMenuCommand`。 |
 | `call <n> (<tool>): interactive tools record their own undo steps and cannot run in a batch: call the tool on its own` | ツールが独自の取り消しステップを記録します: `activateTool`、`setToolMode`、`setToolModes`、`sendToolPointer`、`sendToolAction`、`setOIPValues`、`pressOIPButton`。 |
 | `no document is open` | ファイルが開いていません。 |
 | `an undo event is already open: another Vectorworks operation is in progress; try again when it has finished` | 別の取り消しイベントが作成中です。 |
@@ -563,13 +563,13 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 | [`getText`](ObjectPrimitives.md#gettext) | `lines` | `lineLimit`, `lineOffset` | `items` | 100 |
 | [`getText`](ObjectPrimitives.md#gettext) | `styleRuns` | `runLimit`, `runOffset` | `items` | 100 |
 
-<a id="effects-and-safety-levels"></a>
+<a id="effects-and-risk-levels"></a>
 
-## 作用と安全性レベル
+## 作用とリスクレベル
 
-各ツールには、何を変更し得るかを示す**作用**と、クライアントがどの程度注意して扱うべきかを示す**安全性レベル**があります。どちらも各ツールに表示しています。ツール一覧は、標準のツール注釈`readOnlyHint`と`destructiveHint`によって、作用をMCPクライアントに報告します。
+各ツールには、何を変更し得るかを示す**作用**と、クライアントがどの程度注意して扱うべきかを示す**リスクレベル**があります。どちらも各ツールに表示しています。ツール一覧は、標準のツール注釈`readOnlyHint`と`destructiveHint`によって、作用をMCPクライアントに報告します。リスクレベルが高いほど、1回の呼び出しで変更し得る内容が多く、元に戻すのが難しくなります。サーバーはこの値を`safetyLevel`フィールドで報告します。
 
-| 作用 | 意味 | 安全性レベル | 注釈 | 取り消し | runToolBatch内 | ツール数 |
+| 作用 | 意味 | リスクレベル | 注釈 | 取り消し | runToolBatch内 | ツール数 |
 |---|---|---|---|---|---|---|
 | 読み取り専用 | 図面またはアプリケーションの状態を読み取り、何も変更しません。 | 低 | `readOnlyHint`: true | なし | 許可 | 58 |
 | 編集 | 図面を変更します。取り消しで変更を元に戻せます。 | 低または中 | `readOnlyHint`: false | 1ステップ「MCP: &lt;tool&gt;」 | はい | 86 |
@@ -577,15 +577,15 @@ Coreグループのメタツールは常に利用できます。ツール一覧�
 | 対話操作（破壊的） | ユーザーが選択した場合と同じように、メニューコマンドを実行します。 | 高 | `readOnlyHint`: false, `destructiveHint`: true | メニューコマンドが記録 | 不可 | 1 |
 | スクリプト実行 | Pythonスクリプトを実行します。スクリプトで可能なあらゆる操作を行えます。 | 高 | `readOnlyHint`: false, `destructiveHint`: true | 1ステップ「MCP: script」（スクリプトが変更を登録しなかった場合はなし） | 不可 | 2 |
 
-[Coreグループ](#core-group)の3つのメタツールは、この表には含まれていません。[`listToolGroups`](#listtoolgroups)は読み取り専用です。[`activateToolGroups`](#activatetoolgroups)は**セッション設定**で、サーバーが提供するツールグループを変更しますが、図面は変更しません（注釈`readOnlyHint`: true、`destructiveHint`: false）。[`runToolBatch`](#runtoolbatch)は**編集（バッチ）**で、他のツールを1つの取り消しステップで実行します（注釈`readOnlyHint`: false、`destructiveHint`: false。安全性レベルは中）。
+[Coreグループ](#core-group)の3つのメタツールは、この表には含まれていません。[`listToolGroups`](#listtoolgroups)は読み取り専用です。[`activateToolGroups`](#activatetoolgroups)は**セッション設定**で、サーバーが提供するツールグループを変更しますが、図面は変更しません（注釈`readOnlyHint`: true、`destructiveHint`: false）。[`runToolBatch`](#runtoolbatch)は**編集（バッチ）**で、他のツールを1つの取り消しステップで実行します（注釈`readOnlyHint`: false、`destructiveHint`: false。リスクレベルは中）。
 
-**安全性レベル**
+**リスクレベル**
 
 - **低**: 読み取り、セッションの変更（有効なツールグループなど）、およびファイルの設定、2Dプリミティブ、文字列の通常の編集（[Document](DocumentAccess.md#document)、[IFC](IFC.md#ifc)、[IFC Data Mapping](IFC.md#ifc-data-mapping)、[Draw2D](ObjectPrimitives.md#draw2d)）。「編集 > 取り消し」で編集を元に戻せます。
 - **中**: オブジェクト、3Dジオメトリ、注釈、業種別オブジェクト、リソース、ワークシートの編集、およびツールパレットとオブジェクト情報パレットを操作する対話型ツール。「編集 > 取り消し」で元に戻せます。
 - **高**: メニューコマンドとスクリプト。予測が難しい広範囲の変更を行う可能性があります。クライアントは、呼び出しのたびにユーザーに確認する必要があります。これらのツールは、[`runToolBatch`](#runtoolbatch)内では実行できません。
 
-各グループには安全性レベルがあり、そのページに表示されています。ツールは独自のレベルを報告します: 読み取り専用ツールは常に低、対話型ツールは中、メニューコマンドとスクリプトは高で、その他の編集ツールは、ツールが独自のレベルを設定していない限り、グループのレベルになります。そのため、[InteractiveTools](ToolAccess.md#interactivetools)グループに表示されるレベル（高）は、そのどのツールのレベルでもありません: その読み取り専用ツールは低、対話型ツールは中です。
+各グループにはリスクレベルがあり、そのページに表示されています。ツールは独自のレベルを報告します: 読み取り専用ツールは常に低、対話型ツールは中、メニューコマンドとスクリプトは高で、その他の編集ツールは、ツールが独自のレベルを設定していない限り、グループのレベルになります。そのため、[InteractiveTools](ToolAccess.md#interactivetools)グループに表示されるレベル（高）は、そのどのツールのレベルでもありません: その読み取り専用ツールは低、対話型ツールは中です。
 
 **特別な作用を持つツール**
 

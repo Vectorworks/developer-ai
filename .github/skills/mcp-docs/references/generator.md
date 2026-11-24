@@ -56,7 +56,7 @@ The Core group (`listToolGroups`, `activateToolGroups`, `runToolBatch`) is defin
 | Group summary (bold line, overview and README) | `GROUP_SUMMARY` in summaries.py |
 | Group description | `fDesc`, through `REPLACEMENTS` and `block()` |
 | Tool summary (tables, index, first line of the tool) | `TOOL_SUMMARY` in summaries.py |
-| Effect, safety, undo, runToolBatch line | `effect` and the group safety level, through `EFFECTS` and `tool_safety` in mdlib.py |
+| Effect, safety, undo, runToolBatch line | `effect` and the group risk level, through `EFFECTS` and `tool_safety` in mdlib.py |
 | **Details** | The tool `description`, through `REPLACEMENTS` and `block()` |
 | **Parameters** | `inputSchema`: type, required, then the notes below |
 | Version label | `--version` (`summaries.VERSION` at render time) |
@@ -82,7 +82,7 @@ to `Common.md#colors`, and the marker and drop shadow objects to `Attributes.md`
 
 ## Effects
 
-| Effect (catalog) | Published label | Safety | Undo | In runToolBatch |
+| Effect (catalog) | Published label | Risk | Undo | In runToolBatch |
 |---|---|---|---|---|
 | `ReadOnly` | Read-only | low | none | allowed |
 | `Modify` | Edit | the group's | one step `MCP: <tool>` | yes |

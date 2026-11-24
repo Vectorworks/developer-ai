@@ -38,14 +38,14 @@ Werkzeuge für die aktive Zeichnung insgesamt und die aktuelle Auswahl: die Doku
 
 Dieser Ordner enthält 2 Werkzeuggruppen mit insgesamt 20 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Document](#document) | `document` | Ja | low | 17 | Die aktive Zeichnung: Dokumentübersicht, Konstruktionsebenen, Geschosse, Klassen, Einheiten, Ansicht und Dokumenteinstellungen. |
 | [Selection](#selection) | `selection` | Ja | medium | 3 | Aktuelle Auswahl auflisten und Objekte gemeinsam verschieben, drehen, skalieren, duplizieren, gruppieren, löschen oder neu klassifizieren. |
 
 ## Document
 
-> **Gruppe:** `Document` · **Gruppen-ID:** `document` · **Standardmäßig aktiv:** Ja · **Sicherheitsstufe:** low · **Werkzeuge:** 17
+> **Gruppe:** `Document` · **Gruppen-ID:** `document` · **Standardmäßig aktiv:** Ja · **Risikostufe:** low · **Werkzeuge:** 17
 
 **Die aktive Zeichnung: Dokumentübersicht, Konstruktionsebenen, Geschosse, Klassen, Einheiten, Ansicht und Dokumenteinstellungen.**
 
@@ -62,7 +62,7 @@ Aufbau einer Vectorworks-Zeichnung:
 - KOORDINATEN sind Welteinheiten (die interne Längeneinheit der API); in der Benutzeroberfläche werden sie in die Dokumenteinheiten umgerechnet (verwenden Sie convertUnits). Der BENUTZERNULLPUNKT ist der Weltpunkt, den der Benutzer als (0,0) sieht. Winkel werden im Bogenmaß gegen den Uhrzeigersinn ab der X-Achse angegeben.
 - RÜCKGÄNGIG: Jeder Aufruf, der die Zeichnung ändert, ist EIN Rückgängig-Schritt „MCP: &lt;tool&gt;“, den der Benutzer rückgängig machen kann (Vectorworks zeigt den Namen nach Bearbeiten &gt; Rückgängig in der Statusmeldung an). Ein fehlgeschlagener Aufruf ändert nichts (`rolledBack` im Ergebnis). Um eine Aufgabe auf Benutzerebene mit einem Rückgängig-Schritt auszuführen, erledigen Sie sie in einem einzigen runPythonScript-Aufruf (Gruppe Scripting).
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`getDocumentInfo`](#getdocumentinfo) | Nur lesend | low | Gibt eine Übersicht des aktiven Dokuments zurück: Datei, Anzahlen, Seitengrenzen, Ansichtsmitte und Benutzernullpunkt. |
 | [`getLayers`](#getlayers) | Nur lesend | low | Listet die Ebenen mit Typ, Sichtbarkeit, Maßstab, Höhe, Objektanzahl und Begrenzungen auf. |
@@ -86,7 +86,7 @@ Aufbau einer Vectorworks-Zeichnung:
 
 Gibt eine Übersicht des aktiven Dokuments zurück: Datei, Anzahlen, Seitengrenzen, Ansichtsmitte und Benutzernullpunkt.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -120,7 +120,7 @@ Dieses Werkzeug benötigt keine Parameter.
 
 Listet die Ebenen mit Typ, Sichtbarkeit, Maßstab, Höhe, Objektanzahl und Begrenzungen auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -150,7 +150,7 @@ Die Antwort enthält `traverse`, `visibleOnly` und `activeOnly` erneut.
 
 Erstellt eine Konstruktionsebene oder Layoutebene.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: createLayer“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: createLayer“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -184,7 +184,7 @@ Ein unzulässiges Argument führt zum Fehlschlagen des Aufrufs, sodass keine Ebe
 
 Ändert Eigenschaften einer Ebene: Name, Sichtbarkeit, Maßstab, Höhe, Dicke und mehr.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: editLayer“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: editLayer“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -219,7 +219,7 @@ Ein unzulässiges Argument führt zum Fehlschlagen des Aufrufs, sodass keine Ebe
 
 Listet die Geschosse mit ihren Ebenen auf, beginnend mit dem untersten.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -248,7 +248,7 @@ Listet die Geschosse der Zeichnung (die Stockwerke eines Gebäudes) nach Höhe s
 
 Erstellt ein oder mehrere Geschosse mit ihren Ebenen.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: createStory“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: createStory“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -301,7 +301,7 @@ Der Aufruf ist ein Rückgängig-Schritt.
 
 Ändert ein Geschoss, die Ebenentypen des Dokuments oder dessen Standard-Geschossebenen.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: editStory“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: editStory“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -368,7 +368,7 @@ Gibt das Geschoss so zurück, wie getStories es auflistet, mit `applied`, `level
 
 Listet die Klassen des Dokuments auf und benennt die speziellen Klassen.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -396,7 +396,7 @@ Mit `includeGuestClasses` werden auch Klassen eingeschlossen, auf die aus andere
 
 Erstellt eine Klasse oder gibt die vorhandene Klasse mit diesem Namen zurück.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: createClass“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: createClass“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -424,7 +424,7 @@ Erstellt eine Klasse und gibt die vorhandene zurück, wenn der Name bereits verg
 
 Ändert eine Klasse: Beschreibung, Sichtbarkeit, Stift, Füllung, Marker, Schlagschatten und mehr.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: editClass“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: editClass“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -490,7 +490,7 @@ Farbindizes sind Indizes in der Dokumentfarbtabelle; ein Index, der dem aktuelle
 
 Legt die aktive Ebene und Klasse sowie die Anzeige der übrigen Ebenen und Klassen fest.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: setActiveContext“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: setActiveContext“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -521,7 +521,7 @@ Legt fest, was neue Objekte übernehmen und womit der Benutzer arbeiten kann: di
 
 Gibt die Einstellungen der primären und sekundären Einheiten des Dokuments zurück.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -543,7 +543,7 @@ Dieses Werkzeug benötigt keine Parameter.
 
 Ändert die Einstellungen der primären oder sekundären Einheiten des Dokuments.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: setUnits“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: setUnits“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -594,7 +594,7 @@ Dieses Werkzeug benötigt keine Parameter.
 
 Rechnet Längen zwischen Welteinheiten und Dokumenteinheiten um.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -620,7 +620,7 @@ Rechnet Längen zwischen den Welteinheiten um, die alle Werkzeuge dieser API ver
 
 Verschiebt die Ansicht, legt den Zoom fest, verschiebt den Benutzernullpunkt oder zeichnet die Seite neu.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: setView“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: setView“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -649,7 +649,7 @@ Verschiebt die Ansicht, legt den Zoom fest, verschiebt den Benutzernullpunkt ode
 
 Liest eine Kategorie der Dokumenteinstellungen aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -687,7 +687,7 @@ Lassen Sie `category` aus, um alle Einstellungen auszulesen. Mit category "varia
 
 Schreibt Dokumenteinstellungen einer Kategorie.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** low · **Rückgängig:** ein Schritt „MCP: setPreferences“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** low · **Rückgängig:** ein Schritt „MCP: setPreferences“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -719,13 +719,13 @@ Fehler: `unknown 'category' (display, editing, snapping, grid, stackLayers, text
 
 ## Selection
 
-> **Gruppe:** `Selection` · **Gruppen-ID:** `selection` · **Standardmäßig aktiv:** Ja · **Sicherheitsstufe:** medium · **Werkzeuge:** 3
+> **Gruppe:** `Selection` · **Gruppen-ID:** `selection` · **Standardmäßig aktiv:** Ja · **Risikostufe:** medium · **Werkzeuge:** 3
 
 **Aktuelle Auswahl auflisten und Objekte gemeinsam verschieben, drehen, skalieren, duplizieren, gruppieren, löschen oder neu klassifizieren.**
 
 Fragt die aktuelle Auswahl ab und bearbeitet sie: ausgewählte Objekte auflisten und sie gemeinsam verschieben, drehen, skalieren, duplizieren, gruppieren, löschen oder neu klassifizieren. Jede Bearbeitung wird als eigener benannter, rückgängig zu machender Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`getSelection`](#getselection) | Nur lesend | low | Listet die ausgewählten Objekte aller Ebenen sowie die Begrenzungen der Auswahl auf. |
 | [`selectObjects`](#selectobjects) | Bearbeiten | medium | Wählt Objekte anhand von Kriterien oder UUID aus bzw. ab oder wählt alle oder keine aus. |
@@ -735,7 +735,7 @@ Fragt die aktuelle Auswahl ab und bearbeitet sie: ausgewählte Objekte auflisten
 
 Listet die ausgewählten Objekte aller Ebenen sowie die Begrenzungen der Auswahl auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** low · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -763,7 +763,7 @@ Listet die aktuell ausgewählten Objekte (uuid, type, name) sowie die gemeinsame
 
 Wählt Objekte anhand von Kriterien oder UUID aus bzw. ab oder wählt alle oder keine aus.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** medium · **Rückgängig:** ein Schritt „MCP: selectObjects“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** medium · **Rückgängig:** ein Schritt „MCP: selectObjects“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -792,7 +792,7 @@ Wählt Objekte anhand von Kriterien oder UUID aus bzw. ab oder wählt alle oder 
 
 Verschiebt, dreht, skaliert, dupliziert, gruppiert, löscht oder klassifiziert die Auswahl neu.
 
-> **Auswirkung:** Bearbeiten · **Sicherheit:** medium · **Rückgängig:** ein Schritt „MCP: editSelection“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeiten · **Risiko:** medium · **Rückgängig:** ein Schritt „MCP: editSelection“ · **In runToolBatch:** ja
 
 **Details**
 

@@ -27,13 +27,13 @@ Werkzeuge für ConnectCAD-Schaltplangeräte, ihre Anschlüsse und Gerätetypen s
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 10 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [ConnectCAD](#connectcad) | `connectcad` | Nein | mittel | 10 | ConnectCAD-Schaltplangeräte, Anschlüsse und Gerätetypen, erstellt anhand von JSON-Gerätebeschreibungen. |
 
 ## ConnectCAD
 
-> **Gruppe:** `ConnectCAD` · **Gruppen-ID:** `connectcad` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** mittel · **Werkzeuge:** 10
+> **Gruppe:** `ConnectCAD` · **Gruppen-ID:** `connectcad` · **Standardmäßig aktiv:** Nein · **Risikostufe:** mittel · **Werkzeuge:** 10
 
 **ConnectCAD-Schaltplangeräte, Anschlüsse und Gerätetypen, erstellt anhand von JSON-Gerätebeschreibungen.**
 
@@ -41,7 +41,7 @@ ConnectCAD-Schaltplangeräte ohne Skripte erstellen und anzeigen: ein Gerät mit
 
 **Anschlusstypen:** IN, OUT, IO (jeweils ein Anschluss) und LOOP / IOloop (ein Paar „&lt;name&gt;“ + „&lt;name&gt;\_LP“); Ausrichtungen L, R, X (Durchschleifen); LOOP und IOloop nur L oder R; FUSE und BUS sind keine Anschlüsse. Bei qty &gt; 1 werden „&lt;name&gt; 1“ bis „&lt;name&gt; n“ erstellt (Standardnummerierung von ConnectCAD); Anschlussnamen müssen im Gerät eindeutig sein, dürfen kein „+“ enthalten und nicht mit `_LP` enden. Signale und Steckverbinder müssen aus `listConnectCADSignals` / `listConnectCADConnectors` stammen; ein Pinout listet die Pins seines Steckverbinders mit im Gerät eindeutigen `pinID`-Werten auf. Beschreibungen werden zuerst validiert; eine ungültige Beschreibung erstellt nichts. Jede Änderung wird als eigener benannter, rückgängig machbarer Vectorworks-Vorgang ausgeführt.
 
-| Werkzeug | Auswirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Auswirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`listConnectCADSignals`](#listconnectcadsignals) | Nur lesend | niedrig | Listet die ConnectCAD-Signaltypen auf. |
 | [`listConnectCADConnectors`](#listconnectcadconnectors) | Nur lesend | niedrig | Listet die ConnectCAD-Steckverbindertypen und deren Pins auf. |
@@ -58,7 +58,7 @@ ConnectCAD-Schaltplangeräte ohne Skripte erstellen und anzeigen: ein Gerät mit
 
 Listet die ConnectCAD-Signaltypen auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -85,7 +85,7 @@ Listet die ConnectCAD-Signaltypen auf: `name` (als Anschluss-`signal` verwenden)
 
 Listet die ConnectCAD-Steckverbindertypen und deren Pins auf.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -111,7 +111,7 @@ Listet die ConnectCAD-Steckverbindertypen auf: `name` (als Anschluss-`connector`
 
 Prüft eine Gerätebeschreibung, ohne etwas zu erstellen.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -136,7 +136,7 @@ Prüft eine Gerätebeschreibung, ohne etwas zu erstellen: `isValid`, `errors` (w
 
 Erstellt ein Schaltplangerät mit allen Anschlüssen anhand einer Gerätebeschreibung.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createConnectCADDevice“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createConnectCADDevice“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -164,7 +164,7 @@ Eine ungültige Beschreibung erstellt nichts und gibt `errors` zurück.
 
 Erstellt mehrere Schaltplangeräte hintereinander in einem Vorgang.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createConnectCADDevices“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createConnectCADDevices“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -191,7 +191,7 @@ Erstellt mehrere ConnectCAD-Geräte anhand eines Arrays mit Gerätebeschreibunge
 
 Liest ein ConnectCAD-Gerät und seine Anschlüsse aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 
@@ -222,7 +222,7 @@ Liest ein ConnectCAD-Gerät anhand von UUID, Namen oder Index aus: `deviceName`,
 
 Fügt einem Gerät einen Anschluss hinzu.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: addConnectCADSocket“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: addConnectCADSocket“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -253,7 +253,7 @@ Fügt einem ConnectCAD-Gerät (UUID, Name oder Index) einen Anschluss hinzu: `so
 
 Bearbeitet einen Anschluss.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: setConnectCADSocket“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: setConnectCADSocket“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -280,7 +280,7 @@ Bearbeitet einen ConnectCAD-Anschluss anhand seiner UUID: `socketName`, `type` (
 
 Erstellt das Gerätetyp-Symbol eines Geräts.
 
-> **Auswirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: createConnectCADDeviceType“ · **In runToolBatch:** ja
+> **Auswirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: createConnectCADDeviceType“ · **In runToolBatch:** ja
 
 **Details**
 
@@ -310,7 +310,7 @@ Erstellt das Gerätetyp-Symbol „&lt;make&gt; &lt;model&gt;“ mit seinem Conne
 
 Liest den Datensatz „Device Definition“ eines Gerätetyp-Symbols aus.
 
-> **Auswirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Auswirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Details**
 

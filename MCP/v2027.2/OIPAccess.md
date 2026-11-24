@@ -20,13 +20,13 @@ Tools that read and operate the Object Info palette for the current selection, l
 
 This folder holds 1 tool group with 3 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Object Info](#object-info) | `object-info` | No | medium | 3 | Read and operate the Object Info palette for the current selection, like a user. |
 
 ## Object Info
 
-> **Group:** `Object Info` · **Group ID:** `object-info` · **Active by default:** No · **Safety level:** medium · **Tools:** 3
+> **Group:** `Object Info` · **Group ID:** `object-info` · **Active by default:** No · **Risk level:** medium · **Tools:** 3
 
 **Read and operate the Object Info palette for the current selection, like a user.**
 
@@ -47,7 +47,7 @@ Undo: each palette change is its own Vectorworks undo step, named by Vectorworks
 
 Dialogs: a button or a choice can open a modal dialog or an alert. The call then waits until the user closes it, Vectorworks answers no other MCP call meanwhile and the MCP client may time out. A button label or choice name that ends in "..." opens a dialog (`opensDialog` in getOIPControls) and needs `allowDialog`: true (default false); pass it only after telling the user that the dialog will open and that they must close it there.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`getOIPControls`](#getoipcontrols) | Read-only | low | Lists the controls of one pane of the Object Info palette. |
 | [`setOIPValues`](#setoipvalues) | Interactive | medium | Sets controls of the Object Info palette, as a user does. |
@@ -57,7 +57,7 @@ Dialogs: a button or a choice can open a modal dialog or an alert. The call then
 
 Lists the controls of one pane of the Object Info palette.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -91,7 +91,7 @@ Errors: `'pane' must be shape, data or render`, `'search' must be a string`, `'m
 
 Sets controls of the Object Info palette, as a user does.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 
@@ -133,7 +133,7 @@ Errors: `'pane' must be shape, data or render` and `'allowDialog' must be true o
 
 Presses a button of the Object Info palette.
 
-> **Effect:** Interactive · **Safety:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
+> **Effect:** Interactive · **Risk:** medium · **Undo:** recorded by Vectorworks as for user input · **In runToolBatch:** no
 
 **Details**
 

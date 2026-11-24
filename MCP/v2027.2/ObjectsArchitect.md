@@ -26,13 +26,13 @@ Tools for BIM building elements: walls, slabs, roofs, doors, windows, columns an
 
 This folder holds 1 tool group with 9 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Architecture](#architecture) | `architecture` | No | medium | 9 | BIM building elements: walls, slabs, roofs, doors, windows, columns and stairs. |
 
 ## Architecture
 
-> **Group:** `Architecture` · **Group ID:** `architecture` · **Active by default:** No · **Safety level:** medium · **Tools:** 9
+> **Group:** `Architecture` · **Group ID:** `architecture` · **Active by default:** No · **Risk level:** medium · **Tools:** 9
 
 **BIM building elements: walls, slabs, roofs, doors, windows, columns and stairs.**
 
@@ -42,7 +42,7 @@ Inspect, create and edit BIM building objects: straight and round (curved) walls
 
 > **Note:** Angles are in radians, except two cases that are in degrees: the roof edge `slope`, and the angle parameters of plug-in objects (an angle parameter written through `params`, and `openAngleParameter`, which `getArchitectureObject` reports with `includeOpening`). The wall `angle` that `getArchitectureObject` reports is in radians. Where a tool returns `applied`, it reports the values that were given, one entry per value or per group of values (see the Result of each tool): `true` when the value was written, `false` when it was not (for example a value of the wrong type); a value that is not written at all is not listed. `createRoof` and `createColumn` return no `applied`. A failed call returns `err` and is rolled back (`rolledBack`); see [Results and errors](Common.md#results-and-errors).
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`createWall`](#createwall) | Edit | medium | Creates a straight or round wall. |
 | [`createSlab`](#createslab) | Edit | medium | Creates a slab from a 2D boundary object. |
@@ -58,7 +58,7 @@ Inspect, create and edit BIM building objects: straight and round (curved) walls
 
 Creates a straight or round wall.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createWall" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createWall" · **In runToolBatch:** yes
 
 **Details**
 
@@ -107,7 +107,7 @@ Errors: `'start' and 'end' points are required`; `failed to create round wall ('
 
 Creates a slab from a 2D boundary object.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createSlab" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createSlab" · **In runToolBatch:** yes
 
 **Details**
 
@@ -143,7 +143,7 @@ Errors: `profile object not found (provide 'profileUuid' of a polygon/polyline b
 
 Creates a polygonal roof.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createRoof" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createRoof" · **In runToolBatch:** yes
 
 **Details**
 
@@ -182,7 +182,7 @@ Errors: `'edges' must be an array of 3 to 32767 edges`; a problem with an edge, 
 
 Creates a free-standing door.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createDoor" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createDoor" · **In runToolBatch:** yes
 
 **Details**
 
@@ -221,7 +221,7 @@ Errors: `failed to create door`; `'width' must be a positive number (world units
 
 Creates a free-standing window.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createWindow" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createWindow" · **In runToolBatch:** yes
 
 **Details**
 
@@ -262,7 +262,7 @@ Errors: `failed to create window`; `'width' must be a positive number (world uni
 
 Creates a column.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createColumn" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createColumn" · **In runToolBatch:** yes
 
 **Details**
 
@@ -295,7 +295,7 @@ Errors: `failed to create column (requires the 'Column2' plug-in object)`; `fail
 
 Creates a stair.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createStair" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createStair" · **In runToolBatch:** yes
 
 **Details**
 
@@ -332,7 +332,7 @@ Error: `failed to create stair (requires the 'Stairs CW' plug-in object)`. A fai
 
 Reads the properties of a wall, slab, roof, door, window, column or stair.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -389,7 +389,7 @@ Errors: `object not found`; `not an architectural object (wall, slab, roof, door
 
 Edits a wall, slab, roof, door, window, column or stair.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setArchitectureObject" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setArchitectureObject" · **In runToolBatch:** yes
 
 **Details**
 

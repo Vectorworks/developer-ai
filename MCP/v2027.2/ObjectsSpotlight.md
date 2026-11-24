@@ -22,13 +22,13 @@ Tools for Spotlight lighting devices and the GDTF fixture types (General Device 
 
 This folder holds 1 tool group with 5 tools in total.
 
-| Group | Group ID | Active by default | Safety level | Tools | Summary |
+| Group | Group ID | Active by default | Risk level | Tools | Summary |
 |---|---|---|---|---|---|
 | [Spotlight](#spotlight) | `spotlight` | No | medium | 5 | Spotlight lighting devices and the GDTF fixture types they use. |
 
 ## Spotlight
 
-> **Group:** `Spotlight` · **Group ID:** `spotlight` · **Active by default:** No · **Safety level:** medium · **Tools:** 5
+> **Group:** `Spotlight` · **Group ID:** `spotlight` · **Active by default:** No · **Risk level:** medium · **Tools:** 5
 
 **Spotlight lighting devices and the GDTF fixture types they use.**
 
@@ -38,7 +38,7 @@ Each change runs as its own named, undoable Vectorworks operation.
 
 > **Note:** `gdtfName` and `mode` are matched exactly, including the case, and only against the fixture types in the drawing. For a fixture type in the drawing, `gdtfName` is built as `<Manufacturer>@<Name>.gdtf` from the data of the GDTF file. For a .gdtf file that is not imported yet, `listGDTFs` shows the file name on disk, which can differ. Use the `gdtfName` that `importGDTF` returns, or that `listGDTFs` reports with `documentOnly`.
 
-| Tool | Effect | Safety | Summary |
+| Tool | Effect | Risk | Summary |
 |---|---|---|---|
 | [`listGDTFs`](#listgdtfs) | Read-only | low | Lists the available GDTF fixture types and their DMX modes. |
 | [`importGDTF`](#importgdtf) | Edit | medium | Imports a .gdtf file into the drawing as a GDTF fixture type. |
@@ -50,7 +50,7 @@ Each change runs as its own named, undoable Vectorworks operation.
 
 Lists the available GDTF fixture types and their DMX modes.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -91,7 +91,7 @@ Errors: `the GDTF support of Spotlight is not available`; the paging errors (see
 
 Imports a .gdtf file into the drawing as a GDTF fixture type.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: importGDTF" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: importGDTF" · **In runToolBatch:** yes
 
 **Details**
 
@@ -122,7 +122,7 @@ Errors: `'filePath' is required: the full path of a .gdtf file`; `the GDTF suppo
 
 Creates a lighting device, optionally with a GDTF fixture type.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: createLightingDevice" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: createLightingDevice" · **In runToolBatch:** yes
 
 **Details**
 
@@ -158,7 +158,7 @@ Errors: `failed to create the lighting device (is Spotlight installed?)`. A fail
 
 Reads a lighting device.
 
-> **Effect:** Read-only · **Safety:** low · **Undo:** none · **In runToolBatch:** allowed
+> **Effect:** Read-only · **Risk:** low · **Undo:** none · **In runToolBatch:** allowed
 
 **Details**
 
@@ -196,7 +196,7 @@ Errors: `object not found`; `not a lighting device`. The device is looked up by 
 
 Edits a lighting device.
 
-> **Effect:** Edit · **Safety:** medium · **Undo:** one step "MCP: setLightingDevice" · **In runToolBatch:** yes
+> **Effect:** Edit · **Risk:** medium · **Undo:** one step "MCP: setLightingDevice" · **In runToolBatch:** yes
 
 **Details**
 

@@ -3,8 +3,8 @@
 Read-only: it calls initialize, listToolGroups (includeTools) and tools/list, and never activates groups or calls any
 other tool, so nothing changes in Vectorworks or in the session.
 
-Checked for every group: present on the server, groupId, safety level, short description (= fDesc), tool count, tool
-names (the server lists them in no particular order), tool descriptions and safety levels. For the tools in tools/list (those of the active groups): input
+Checked for every group: present on the server, groupId, risk level, short description (= fDesc), tool count, tool
+names (the server lists them in no particular order), tool descriptions and risk levels. For the tools in tools/list (those of the active groups): input
 schema, description and the readOnly and destructive hints against the effect. The Core group against core.json and
 its schemas against shared.CORE_SCHEMA (structure only; the published parameter descriptions are curated).
 Warnings only: groups whose current activation differs from their default (that depends on the session).
@@ -99,7 +99,7 @@ def compare(cat, live_groups, live_tools, core):
             problems.append('%s: not on the server' % where)
             continue
         for key, mine, theirs in (('display name', g['fName'], live.get('displayName')),
-                                  ('safety level', g['fSafetyLevel'], live.get('safetyLevel')),
+                                  ('risk level', g['fSafetyLevel'], live.get('safetyLevel')),
                                   ('short description', g['fDesc'], live.get('shortDescription')),
                                   ('tool count', len(g['tools']), live.get('toolCount'))):
             if mine != theirs:
@@ -122,7 +122,7 @@ def compare(cat, live_groups, live_tools, core):
             if lt.get('description') != t['description']:
                 problems.append('tool %s: description differs' % t['name'])
             if lt.get('safetyLevel') != tool_safety(t['effect'], g['fSafetyLevel']):
-                problems.append('tool %s: safety level %r on the server, %r from effect %s' % (
+                problems.append('tool %s: risk level %r on the server, %r from effect %s' % (
                     t['name'], lt.get('safetyLevel'), tool_safety(t['effect'], g['fSafetyLevel']), t['effect']))
             lt = listed.pop(t['name'], None)
             if lt is None:

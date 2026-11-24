@@ -24,13 +24,13 @@ Werkzeuge zum Ausführen von Python-Skripten in Vectorworks, Lesen und Speichern
 
 Dieser Ordner enthält 1 Werkzeuggruppe mit insgesamt 7 Werkzeugen.
 
-| Gruppe | Gruppen-ID | Standardmäßig aktiv | Sicherheitsstufe | Anzahl der Werkzeuge | Zusammenfassung |
+| Gruppe | Gruppen-ID | Standardmäßig aktiv | Risikostufe | Anzahl der Werkzeuge | Zusammenfassung |
 |---|---|---|---|---|---|
 | [Scripting](#scripting) | `scripting` | Nein | hoch | 7 | Führt Python-Skripte aus, liest und speichert Python-Skriptressourcen und schlägt das Python-`api`-Modul nach. |
 
 ## Scripting
 
-> **Gruppe:** `Scripting` · **Gruppen-ID:** `scripting` · **Standardmäßig aktiv:** Nein · **Sicherheitsstufe:** hoch · **Werkzeuge:** 7
+> **Gruppe:** `Scripting` · **Gruppen-ID:** `scripting` · **Standardmäßig aktiv:** Nein · **Risikostufe:** hoch · **Werkzeuge:** 7
 
 **Führt Python-Skripte aus, liest und speichert Python-Skriptressourcen und schlägt das Python-`api`-Modul nach.**
 
@@ -40,9 +40,9 @@ Schreiben Sie Skripte ausschließlich für das Python-`api`-Modul (import api, d
 
 Ein fehlgeschlagener Lauf wird zurückgenommen (`rolledBack`), sodass nichts von dem registrierten Inhalt erhalten bleibt: Korrigieren Sie das Skript und führen Sie es erneut aus. Änderungen, die das Skript nicht registriert hat, können nicht zurückgenommen werden. Ein Skript darf niemals auf Benutzereingaben warten (GetPt, Dialoge); eine Endlosschleife lässt Vectorworks einfrieren. Ein Lauf wird abgelehnt, während ein anderes Skript ausgeführt wird oder ein Rückgängig-Ereignis geöffnet ist. Ein Skript mit mehr als 250 Zeilen, das etwas löscht oder ein Datensatzformat ändert, wird erst ausgeführt, nachdem der Benutzer dies in Vectorworks bestätigt hat.
 
-Skripte werden mit den Rechten des Benutzers ausgeführt, jetzt oder später über die Skriptpalette: Fragen Sie vor jedem Lauf den Benutzer und erklären Sie, was das Skript tun wird. Teilen Sie ihm mit, was und wo Sie gespeichert haben. Deshalb hat die Gruppe die Sicherheitsstufe `high` und ist standardmäßig deaktiviert. Verwenden Sie sie nur, wenn der Benutzer Sie auffordert, ein Skript auszuführen, zu lesen, zu schreiben oder zu dokumentieren. Jeder Aufruf von saveScript ist ein eigener, benannter Vectorworks-Rückgängig-Schritt.
+Skripte werden mit den Rechten des Benutzers ausgeführt, jetzt oder später über die Skriptpalette: Fragen Sie vor jedem Lauf den Benutzer und erklären Sie, was das Skript tun wird. Teilen Sie ihm mit, was und wo Sie gespeichert haben. Deshalb hat die Gruppe die Risikostufe `high` und ist standardmäßig deaktiviert. Verwenden Sie sie nur, wenn der Benutzer Sie auffordert, ein Skript auszuführen, zu lesen, zu schreiben oder zu dokumentieren. Jeder Aufruf von saveScript ist ein eigener, benannter Vectorworks-Rückgängig-Schritt.
 
-| Werkzeug | Wirkung | Sicherheit | Zusammenfassung |
+| Werkzeug | Wirkung | Risiko | Zusammenfassung |
 |---|---|---|---|
 | [`listScripts`](#listscripts) | Nur lesend | niedrig | Listet die Skriptressourcen des Dokuments auf. |
 | [`getScript`](#getscript) | Nur lesend | niedrig | Liest eine Skriptressource, ohne sie auszuführen. |
@@ -56,7 +56,7 @@ Skripte werden mit den Rechten des Benutzers ausgeführt, jetzt oder später üb
 
 Listet die Skriptressourcen des Dokuments auf.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -82,7 +82,7 @@ Listet die Skriptressourcen des aktiven Dokuments nach Namen sortiert auf: `name
 
 Liest eine Skriptressource, ohne sie auszuführen.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -98,7 +98,7 @@ Liest die Skriptressource `name` (1 bis 63 Zeichen) aus: `name`, `language` (`py
 
 Erstellt oder aktualisiert eine Python-Skriptressource, ohne sie auszuführen.
 
-> **Wirkung:** Bearbeitung · **Sicherheit:** mittel · **Rückgängig:** ein Schritt „MCP: saveScript“ · **In runToolBatch:** ja
+> **Wirkung:** Bearbeitung · **Risiko:** mittel · **Rückgängig:** ein Schritt „MCP: saveScript“ · **In runToolBatch:** ja
 
 **Einzelheiten**
 
@@ -120,7 +120,7 @@ Wenn bereits ein Skript mit diesem Namen existiert, wird nur dessen Text ersetzt
 
 Gibt den Hilfetext des Python-`api`-Moduls oder eines seiner Namen zurück.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -149,7 +149,7 @@ Gibt `text` zurück: die Hilfe für die Klasse, Enumeration, Funktion oder das E
 
 Gibt einen Abschnitt des Leitfadens zum Schreiben von Python-Skripten zurück.
 
-> **Wirkung:** Nur lesend · **Sicherheit:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
+> **Wirkung:** Nur lesend · **Risiko:** niedrig · **Rückgängig:** keiner · **In runToolBatch:** zulässig
 
 **Einzelheiten**
 
@@ -171,7 +171,7 @@ Die Abschnitte: 1 Regeln; 2 Wo sich Elemente befinden; 3 Rückgängig, einschlie
 
 Führt Python-Code in Vectorworks aus.
 
-> **Wirkung:** Skriptausführung · **Sicherheit:** hoch · **Rückgängig:** ein Schritt „MCP: script“ · **In runToolBatch:** nein
+> **Wirkung:** Skriptausführung · **Risiko:** hoch · **Rückgängig:** ein Schritt „MCP: script“ · **In runToolBatch:** nein
 
 **Einzelheiten**
 
@@ -193,7 +193,7 @@ Führt `code` als Python-Skript in Vectorworks aus: höchstens 256 KB UTF-8, kei
 
 Führt eine gespeicherte Python-Skriptressource aus.
 
-> **Wirkung:** Skriptausführung · **Sicherheit:** hoch · **Rückgängig:** ein Schritt „MCP: script“ · **In runToolBatch:** nein
+> **Wirkung:** Skriptausführung · **Risiko:** hoch · **Rückgängig:** ein Schritt „MCP: script“ · **In runToolBatch:** nein
 
 **Einzelheiten**
 
