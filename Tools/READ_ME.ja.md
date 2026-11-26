@@ -36,7 +36,7 @@ VS Code の Copilot も HTTP URL に直接接続します。プラグインや�
 ## Claude Desktop
 
 1. コンピューターに合う Vectorworks 拡張機能をダウンロードします：[macOS 用バンドル](files/mac/vworks_mcp_server.mcpb) または [Windows 用バンドル](files/win/vworks_mcp_server.mcpb)。
-2. Claude Desktop で **Settings > Extensions > Advanced settings > Install Extension...** を開き、ダウンロードした `.mcpb` ファイルを選んでインストールを確定します。
+2. Claude Desktop で **Settings > Desktop App > Extensions > Advanced settings > Install Extension...** を開き、ダウンロードした `.mcpb` ファイルを選んでインストールを確定します。
 3. 拡張機能の設定で **Vectorworks MCP server address** にコピーした URL を貼り付けて保存します。新しいチャットで Claude に「現在の図面のレイヤを一覧表示して」と依頼します。
 
 ## Claude Code

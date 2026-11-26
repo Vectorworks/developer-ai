@@ -36,7 +36,7 @@ Copilot in VS Code also connects directly to the HTTP URL. No plugin or bundle i
 ## Claude Desktop
 
 1. Download the Vectorworks extension for your computer: [macOS bundle](files/mac/vworks_mcp_server.mcpb) or [Windows bundle](files/win/vworks_mcp_server.mcpb).
-2. In Claude Desktop, open **Settings > Extensions > Advanced settings > Install Extension...**, select the downloaded `.mcpb` file, and confirm the installation.
+2. In Claude Desktop, open **Settings > Desktop App > Extensions > Advanced settings > Install Extension...**, select the downloaded `.mcpb` file, and confirm the installation.
 3. In the extension settings, paste the copied URL into **Vectorworks MCP server address** and save. In a new chat, ask Claude to list the layers in the active drawing.
 
 ## Claude Code

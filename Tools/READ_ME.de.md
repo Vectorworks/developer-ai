@@ -36,7 +36,7 @@ Auch Copilot in VS Code verbindet sich direkt mit der HTTP-URL. Dafür benötige
 ## Claude Desktop
 
 1. Laden Sie die Vectorworks-Erweiterung für Ihren Computer herunter: [Bundle für macOS](files/mac/vworks_mcp_server.mcpb) oder [Bundle für Windows](files/win/vworks_mcp_server.mcpb).
-2. Öffnen Sie in Claude Desktop **Settings > Extensions > Advanced settings > Install Extension...**, wählen Sie die heruntergeladene `.mcpb`-Datei und bestätigen Sie die Installation.
+2. Öffnen Sie in Claude Desktop **Settings > Desktop App > Extensions > Advanced settings > Install Extension...**, wählen Sie die heruntergeladene `.mcpb`-Datei und bestätigen Sie die Installation.
 3. Fügen Sie in den Erweiterungseinstellungen die kopierte URL unter **Vectorworks MCP server address** ein und speichern Sie die Einstellung. Bitten Sie Claude in einem neuen Chat, die Ebenen der aktiven Zeichnung aufzulisten.
 
 ## Claude Code
