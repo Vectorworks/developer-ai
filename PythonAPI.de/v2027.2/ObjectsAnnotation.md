@@ -44,11 +44,11 @@ Bemaßungen bilden den anderen Teil der Beschriftung: `DimensionObject` enthält
 | Name | Art | Erbt von | Zusammenfassung |
 |---|---|---|---|
 | [`AnnotationObject`](#annotationobject) | Klasse | [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) | Gemeinsame Basisklasse der Beschriftungs-Plug-in-Objektklassen (Datenstempel, Plankopf). |
-| [`DataTagObject`](#datatagobject) | Klasse | [`AnnotationObject`](#annotationobject) | Plug-in-Objekt Datenstempel (universeller Name "Data Tag") aus Plug-Ins/Shipping/DataTag. |
+| [`DataTagObject`](#datatagobject) | Klasse | [`AnnotationObject`](#annotationobject) | Plug-in-Objekt Datenstempel (universeller Name "Data Tag"). |
 | [`DataTagObject.LeaderType`](#datatagobjectleadertype) | IntEnum (verschachtelt) |  | Form der Verweislinie eines Datenstempels („Verweislinientyp“). |
 | [`DataTagObject.HorizontalPosition`](#datatagobjecthorizontalposition) | IntEnum (verschachtelt) |  | Seite der Verweislinie, auf der sich der Stempeltext befindet („Horizontale Position“). |
 | [`DataTagObject.MoveBehaviour`](#datatagobjectmovebehaviour) | IntEnum (verschachtelt) |  | Was beim Ziehen des Stempels in der Zeichnung verschoben wird: der gesamte Stempel oder nur die Spitze seiner Verweislinie. |
-| [`TitleBlockBorderObject`](#titleblockborderobject) | Klasse | [`AnnotationObject`](#annotationobject) | Plug-in-Objekt Plankopf (universeller Name "Title Block Border") aus Plug-Ins/Shipping/TitleBlockBorder. |
+| [`TitleBlockBorderObject`](#titleblockborderobject) | Klasse | [`AnnotationObject`](#annotationobject) | Plug-in-Objekt Plankopf (universeller Name "Title Block Border"). |
 | [`TitleBlockBorderObject.Revision`](#titleblockborderobjectrevision) | Klasse (verschachtelt) |  | Eine Revision eines Plankopfs: Nummer, Datum, Anmerkung, Veröffentlichungsdatum und Empfänger. |
 | [`DimensionObject`](#dimensionobject) | Klasse | [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) | Basisklasse jedes Bemaßungsobjekts (`ObjectType.Dimension`). |
 | [`LinearDimensionObject`](#lineardimensionobject) | Klasse | [`DimensionObject`](#dimensionobject) | Lineare Bemaßung: misst den Abstand zwischen zwei Punkten. |
@@ -138,7 +138,7 @@ Geerbt: alle Elemente von [`PrimitiveObject`](ObjectPrimitives.md#primitiveobjec
 
 > **Vollständiger Name:** `api.DataTagObject` · **Erbt von:** [`AnnotationObject`](#annotationobject) → [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) → `api.Object`
 
-Plug-in-Objekt Datenstempel (universeller Name "Data Tag") aus Plug-Ins/Shipping/DataTag.
+Plug-in-Objekt Datenstempel (universeller Name "Data Tag").
 
 Ein Datenstempel beschriftet ein anderes Objekt mit Daten, die aus diesem Objekt gelesen werden: Datenbankfelder, Plug-in-Parameter, Klasse, Attribute, Tabellenformeln, ... Die Textanordnung des Stempels – welche Felder er zeigt, in welcher Anordnung und innerhalb welcher Umrandung – ist vollständig im STIL des Stempels enthalten, einer Symboldefinition eines Objektstils. Ein Datenstempel ohne Stil zeigt daher überhaupt nichts an. Deshalb ermittelt `Create()` immer einen Stil (und importiert einen aus den Vectorworks-Bibliotheken, wenn die Zeichnung keinen enthält) und schlägt fehl, wenn nirgends ein Datenstempelstil verfügbar ist.
 
@@ -321,7 +321,7 @@ Was beim Ziehen des Stempels in der Zeichnung verschoben wird: der gesamte Stemp
 
 > **Vollständiger Name:** `api.TitleBlockBorderObject` · **Erbt von:** [`AnnotationObject`](#annotationobject) → [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) → `api.Object`
 
-Plug-in-Objekt Plankopf (universeller Name "Title Block Border") aus Plug-Ins/Shipping/TitleBlockBorder.
+Plug-in-Objekt Plankopf (universeller Name "Title Block Border").
 
 Ein Plankopfobjekt bildet den Rahmen eines Plans: den Planrahmen mit Rändern und Rastereinteilung sowie den eigentlichen Plankopf – den Textblock in der Ecke, der Projektname, Auftraggeber, Plannummer, Maßstab, Ausgabe- und Revisionshistorie usw. ausgibt. Es wird normalerweise auf einer Layoutebene platziert, eines pro Plan.
 

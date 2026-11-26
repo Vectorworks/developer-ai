@@ -44,11 +44,11 @@ Dimensions are the other half of annotation: `DimensionObject` holds the setting
 | Name | Kind | Inherits from | Summary |
 |---|---|---|---|
 | [`AnnotationObject`](#annotationobject) | class | [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) | Common base of the annotation plug-in object classes (data tag, title block border). |
-| [`DataTagObject`](#datatagobject) | class | [`AnnotationObject`](#annotationobject) | Data tag plug-in object (universal name "Data Tag") from Plug-Ins/Shipping/DataTag. |
+| [`DataTagObject`](#datatagobject) | class | [`AnnotationObject`](#annotationobject) | Data tag plug-in object (universal name "Data Tag"). |
 | [`DataTagObject.LeaderType`](#datatagobjectleadertype) | IntEnum (nested) |  | Shape of the leader of a data tag ("Leader Type"). |
 | [`DataTagObject.HorizontalPosition`](#datatagobjecthorizontalposition) | IntEnum (nested) |  | Which side of the leader the tag text sits on ("Horizontal Position"). |
 | [`DataTagObject.MoveBehaviour`](#datatagobjectmovebehaviour) | IntEnum (nested) |  | What dragging the tag in the drawing moves: the whole tag, or only the tip of its leader. |
-| [`TitleBlockBorderObject`](#titleblockborderobject) | class | [`AnnotationObject`](#annotationobject) | Title block border plug-in object (universal name "Title Block Border") from Plug-Ins/Shipping/TitleBlockBorder. |
+| [`TitleBlockBorderObject`](#titleblockborderobject) | class | [`AnnotationObject`](#annotationobject) | Title block border plug-in object (universal name "Title Block Border"). |
 | [`TitleBlockBorderObject.Revision`](#titleblockborderobjectrevision) | class (nested) |  | One revision of a title block: number, date, note, publish date and recipients. |
 | [`DimensionObject`](#dimensionobject) | class | [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) | Base class of every dimension object (`ObjectType.Dimension`). |
 | [`LinearDimensionObject`](#lineardimensionobject) | class | [`DimensionObject`](#dimensionobject) | Linear dimension: measures the distance between two points. |
@@ -138,7 +138,7 @@ Inherited: everything from [`PrimitiveObject`](ObjectPrimitives.md#primitiveobje
 
 > **Full name:** `api.DataTagObject` · **Inherits:** [`AnnotationObject`](#annotationobject) → [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) → `api.Object`
 
-Data tag plug-in object (universal name "Data Tag") from Plug-Ins/Shipping/DataTag.
+Data tag plug-in object (universal name "Data Tag").
 
 A data tag labels another object with data read out of that object: its record fields, its plug-in parameters, its class, its attributes, worksheet formulas, ... The text layout of the tag - which fields it shows, in what arrangement, inside which bubble - lives entirely in the tag's STYLE, a plug-in style symbol definition. A data tag without a style therefore displays nothing at all, which is why `Create()` always resolves a style (importing one from the Vectorworks content when the drawing has none) and fails when no data tag style is available anywhere.
 
@@ -321,7 +321,7 @@ What dragging the tag in the drawing moves: the whole tag, or only the tip of it
 
 > **Full name:** `api.TitleBlockBorderObject` · **Inherits:** [`AnnotationObject`](#annotationobject) → [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) → `api.Object`
 
-Title block border plug-in object (universal name "Title Block Border") from Plug-Ins/Shipping/TitleBlockBorder.
+Title block border plug-in object (universal name "Title Block Border").
 
 A title block border is the frame of a sheet: the sheet border with its margins and zone grid, plus the title block itself - the block of text in the corner that prints the project name, the client, the sheet number, the scale, the issue and revision history, and so on. It is normally placed on a sheet layer, one per sheet.
 

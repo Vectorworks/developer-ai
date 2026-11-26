@@ -433,7 +433,7 @@ api
 
 | Name | Art | Seite | Zusammenfassung |
 |---|---|---|---|
-| [`DataTagObject`](ObjectsAnnotation.md#datatagobject) | Klasse | [ObjectsAnnotation](ObjectsAnnotation.md) | Plug-in-Objekt Datenstempel (universeller Name "Data Tag") aus Plug-Ins/Shipping/DataTag. |
+| [`DataTagObject`](ObjectsAnnotation.md#datatagobject) | Klasse | [ObjectsAnnotation](ObjectsAnnotation.md) | Plug-in-Objekt Datenstempel (universeller Name "Data Tag"). |
 | [`DataTagObject.HorizontalPosition`](ObjectsAnnotation.md#datatagobjecthorizontalposition) | IntEnum (verschachtelt) | [ObjectsAnnotation](ObjectsAnnotation.md) | Seite der Verweislinie, auf der sich der Stempeltext befindet („Horizontale Position“). |
 | [`DataTagObject.LeaderType`](ObjectsAnnotation.md#datatagobjectleadertype) | IntEnum (verschachtelt) | [ObjectsAnnotation](ObjectsAnnotation.md) | Form der Verweislinie eines Datenstempels („Verweislinientyp“). |
 | [`DataTagObject.MoveBehaviour`](ObjectsAnnotation.md#datatagobjectmovebehaviour) | IntEnum (verschachtelt) | [ObjectsAnnotation](ObjectsAnnotation.md) | Was beim Ziehen des Stempels in der Zeichnung verschoben wird: der gesamte Stempel oder nur die Spitze seiner Verweislinie. |
@@ -719,7 +719,7 @@ api
 | [`Texture.Part`](Resources.md#texturepart) | IntEnum (verschachtelt) | [Resources](Resources.md) | Teil eines Objekts, auf den eine Textur angewendet wird. |
 | [`TextVerticalAlignment`](DocumentAccess.md#textverticalalignment) | IntEnum | [DocumentAccess](DocumentAccess.md) | Vertikale Ausrichtung neuer Texte (`TextDefaults`). |
 | [`Tile`](Resources.md#tile) | Klasse | [Resources](Resources.md) | Mosaikfüllung (`ObjectType.TileDefinition`): eine Gruppe von 2D-Objekten, die sich auf einem Raster über die gefüllte Fläche wiederholt. |
-| [`TitleBlockBorderObject`](ObjectsAnnotation.md#titleblockborderobject) | Klasse | [ObjectsAnnotation](ObjectsAnnotation.md) | Plug-in-Objekt Plankopf (universeller Name „Title Block Border“) aus ... |
+| [`TitleBlockBorderObject`](ObjectsAnnotation.md#titleblockborderobject) | Klasse | [ObjectsAnnotation](ObjectsAnnotation.md) | Plug-in-Objekt Plankopf (universeller Name "Title Block Border"). |
 | [`TitleBlockBorderObject.Revision`](ObjectsAnnotation.md#titleblockborderobjectrevision) | Klasse (verschachtelt) | [ObjectsAnnotation](ObjectsAnnotation.md) | Eine Revision eines Plankopfs: Nummer, Datum, Anmerkung, Veröffentlichungsdatum und Empfänger. |
 | [`Tool`](UIAutomation.md#tool) | Klasse | [UIAutomation](UIAutomation.md) | Beschreibung eines Werkzeugs. |
 | [`ToolAccess`](UIAutomation.md#toolaccess) | Klasse | [UIAutomation](UIAutomation.md) | Zustandslose Schnittstelle zum Vectorworks-Werkzeugsystem. |
