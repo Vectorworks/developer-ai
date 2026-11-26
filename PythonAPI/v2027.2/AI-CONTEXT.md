@@ -1269,7 +1269,7 @@ Common base of the annotation plug-in object wrappers (data tag, title block bor
 - RemoveStyle() -> bool  # Detaches the object from its style; every parameter becomes "by instance" and keeps its...
 
 ### DataTagObject(h: Handle)  : AnnotationObject  +Is +Duplicate
-Data tag plug-in object (universal name "Data Tag") from Plug-Ins/Shipping/DataTag.
+Data tag plug-in object (universal name "Data Tag").
 props:
   bool: UseLeader, UseMarker, AlignToWalls
   LeaderType: LeaderType
@@ -1293,7 +1293,7 @@ props:
 - Update() -> bool  # Re-reads the data from the tagged object and redraws the tag.
 
 ### TitleBlockBorderObject(h: Handle)  : AnnotationObject  +Is +Duplicate
-Title block border plug-in object (universal name "Title Block Border") from Plug-Ins/Shipping/TitleBlockBorder.
+Title block border plug-in object (universal name "Title Block Border").
 props:
   float: SheetHeight
   bool: ShowGrids, DrawCropMarks, DisplayNorthArrow, DisplayDrawingStamp

@@ -433,7 +433,7 @@ api
 
 | Name | Kind | Page | Summary |
 |---|---|---|---|
-| [`DataTagObject`](ObjectsAnnotation.md#datatagobject) | class | [ObjectsAnnotation](ObjectsAnnotation.md) | Data tag plug-in object (universal name "Data Tag") from Plug-Ins/Shipping/DataTag. |
+| [`DataTagObject`](ObjectsAnnotation.md#datatagobject) | class | [ObjectsAnnotation](ObjectsAnnotation.md) | Data tag plug-in object (universal name "Data Tag"). |
 | [`DataTagObject.HorizontalPosition`](ObjectsAnnotation.md#datatagobjecthorizontalposition) | IntEnum (nested) | [ObjectsAnnotation](ObjectsAnnotation.md) | Which side of the leader the tag text sits on ("Horizontal Position"). |
 | [`DataTagObject.LeaderType`](ObjectsAnnotation.md#datatagobjectleadertype) | IntEnum (nested) | [ObjectsAnnotation](ObjectsAnnotation.md) | Shape of the leader of a data tag ("Leader Type"). |
 | [`DataTagObject.MoveBehaviour`](ObjectsAnnotation.md#datatagobjectmovebehaviour) | IntEnum (nested) | [ObjectsAnnotation](ObjectsAnnotation.md) | What dragging the tag in the drawing moves: the whole tag, or only the tip of its leader. |
@@ -719,7 +719,7 @@ api
 | [`Texture.Part`](Resources.md#texturepart) | IntEnum (nested) | [Resources](Resources.md) | Part of an object a texture is applied to. |
 | [`TextVerticalAlignment`](DocumentAccess.md#textverticalalignment) | IntEnum | [DocumentAccess](DocumentAccess.md) | Vertical alignment of new text (`TextDefaults`). |
 | [`Tile`](Resources.md#tile) | class | [Resources](Resources.md) | Tile fill (`ObjectType.TileDefinition`): a group of 2D objects repeated over the filled area on a grid. |
-| [`TitleBlockBorderObject`](ObjectsAnnotation.md#titleblockborderobject) | class | [ObjectsAnnotation](ObjectsAnnotation.md) | Title block border plug-in object (universal name "Title Block Border") from... |
+| [`TitleBlockBorderObject`](ObjectsAnnotation.md#titleblockborderobject) | class | [ObjectsAnnotation](ObjectsAnnotation.md) | Title block border plug-in object (universal name "Title Block Border"). |
 | [`TitleBlockBorderObject.Revision`](ObjectsAnnotation.md#titleblockborderobjectrevision) | class (nested) | [ObjectsAnnotation](ObjectsAnnotation.md) | One revision of a title block: number, date, note, publish date and recipients. |
 | [`Tool`](UIAutomation.md#tool) | class | [UIAutomation](UIAutomation.md) | Description of one tool. |
 | [`ToolAccess`](UIAutomation.md#toolaccess) | class | [UIAutomation](UIAutomation.md) | Stateless facade over the Vectorworks tool system. |

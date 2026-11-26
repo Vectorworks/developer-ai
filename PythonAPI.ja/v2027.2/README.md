@@ -473,7 +473,7 @@ api
 
 | 名前 | 種類 | ページ | 概要 |
 |---|---|---|---|
-| [`DataTagObject`](ObjectsAnnotation.md#datatagobject) | クラス | [ObjectsAnnotation](ObjectsAnnotation.md) | Plug-Ins/Shipping/DataTagのデータタグプラグインオブジェクトです（ユニバーサル名は"Data Tag"）。 |
+| [`DataTagObject`](ObjectsAnnotation.md#datatagobject) | クラス | [ObjectsAnnotation](ObjectsAnnotation.md) | データタグプラグインオブジェクトです（ユニバーサル名は"Data Tag"）。 |
 | [`DataTagObject.HorizontalPosition`](ObjectsAnnotation.md#datatagobjecthorizontalposition) | IntEnum (入れ子) | [ObjectsAnnotation](ObjectsAnnotation.md) | タグのテキストを引出線のどちら側に配置するかを指定します（"Horizontal Position"）。 |
 | [`DataTagObject.LeaderType`](ObjectsAnnotation.md#datatagobjectleadertype) | IntEnum (入れ子) | [ObjectsAnnotation](ObjectsAnnotation.md) | データタグの引出線の種類です（"Leader Type"）。 |
 | [`DataTagObject.MoveBehaviour`](ObjectsAnnotation.md#datatagobjectmovebehaviour) | IntEnum (入れ子) | [ObjectsAnnotation](ObjectsAnnotation.md) | 図面でタグをドラッグした際に移動する対象です。タグ全体、または引出線の先端のみを移動します。 |
@@ -785,7 +785,7 @@ api
 | [`Texture.Part`](Resources.md#texturepart) | IntEnum (入れ子) | [Resources](Resources.md) | テクスチャを適用するオブジェクトの部分。 |
 | [`TextVerticalAlignment`](DocumentAccess.md#textverticalalignment) | IntEnum | [DocumentAccess](DocumentAccess.md) | 新しい文字の垂直方向の揃え（`TextDefaults`）。 |
 | [`Tile`](Resources.md#tile) | クラス | [Resources](Resources.md) | タイルによる面（`ObjectType.TileDefinition`）：塗りつぶす領域全体で、グリッドに沿って繰り返される2Dオブジェクトのグループ。 |
-| [`TitleBlockBorderObject`](ObjectsAnnotation.md#titleblockborderobject) | クラス | [ObjectsAnnotation](ObjectsAnnotation.md) | 図面枠のプラグインオブジェクト（ユニバーサル名 "Title Block Border"）... |
+| [`TitleBlockBorderObject`](ObjectsAnnotation.md#titleblockborderobject) | クラス | [ObjectsAnnotation](ObjectsAnnotation.md) | 図面枠プラグインオブジェクトです（ユニバーサル名は"Title Block Border"）。 |
 | [`TitleBlockBorderObject.Revision`](ObjectsAnnotation.md#titleblockborderobjectrevision) | クラス (入れ子) | [ObjectsAnnotation](ObjectsAnnotation.md) | 表題欄の一つの改訂です。番号、日付、注記、発行日、受信者を含みます。 |
 | [`Tool`](UIAutomation.md#tool) | クラス | [UIAutomation](UIAutomation.md) | 一つのツールの説明。 |
 | [`ToolAccess`](UIAutomation.md#toolaccess) | クラス | [UIAutomation](UIAutomation.md) | Vectorworksのツールシステムに対する、状態を保持しないファサード。 |

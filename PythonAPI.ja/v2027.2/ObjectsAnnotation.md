@@ -50,11 +50,11 @@
 | 名前 | 種類 | 継承元 | 概要 |
 |---|---|---|---|
 | [`AnnotationObject`](#annotationobject) | クラス | [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) | 注釈プラグインオブジェクトのクラス（データタグ、図面枠）に共通する基底クラスです。 |
-| [`DataTagObject`](#datatagobject) | クラス | [`AnnotationObject`](#annotationobject) | Plug-Ins/Shipping/DataTagのデータタグプラグインオブジェクトです（ユニバーサル名は"Data Tag"）。 |
+| [`DataTagObject`](#datatagobject) | クラス | [`AnnotationObject`](#annotationobject) | データタグプラグインオブジェクトです（ユニバーサル名は"Data Tag"）。 |
 | [`DataTagObject.LeaderType`](#datatagobjectleadertype) | IntEnum（入れ子） |  | データタグの引出線の種類です（"Leader Type"）。 |
 | [`DataTagObject.HorizontalPosition`](#datatagobjecthorizontalposition) | IntEnum（入れ子） |  | タグのテキストを引出線のどちら側に配置するかを指定します（"Horizontal Position"）。 |
 | [`DataTagObject.MoveBehaviour`](#datatagobjectmovebehaviour) | IntEnum（入れ子） |  | 図面でタグをドラッグした際に移動する対象です。タグ全体、または引出線の先端のみを移動します。 |
-| [`TitleBlockBorderObject`](#titleblockborderobject) | クラス | [`AnnotationObject`](#annotationobject) | Plug-Ins/Shipping/TitleBlockBorderの図面枠プラグインオブジェクトです（ユニバーサル名は"Title Block Border"）。 |
+| [`TitleBlockBorderObject`](#titleblockborderobject) | クラス | [`AnnotationObject`](#annotationobject) | 図面枠プラグインオブジェクトです（ユニバーサル名は"Title Block Border"）。 |
 | [`TitleBlockBorderObject.Revision`](#titleblockborderobjectrevision) | クラス（入れ子） |  | 表題欄の一つの改訂です。番号、日付、注記、発行日、受信者を含みます。 |
 | [`DimensionObject`](#dimensionobject) | クラス | [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) | すべての寸法線オブジェクトの基底クラスです（`ObjectType.Dimension`）。 |
 | [`LinearDimensionObject`](#lineardimensionobject) | クラス | [`DimensionObject`](#dimensionobject) | 長さ寸法です。二点間の距離を測定します。 |
@@ -146,7 +146,7 @@ PrimitiveObjectから引き継がれる規約：
 
 > **完全修飾名:** `api.DataTagObject` · **継承元:** [`AnnotationObject`](#annotationobject) → [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) → `api.Object`
 
-Plug-Ins/Shipping/DataTagのデータタグプラグインオブジェクトです（ユニバーサル名は"Data Tag"）。
+データタグプラグインオブジェクトです（ユニバーサル名は"Data Tag"）。
 
 データタグは、オブジェクトから読み取ったデータでそのオブジェクトにラベルを付けます。データにはレコードフィールド、プラグインパラメータ、クラス、属性、ワークシートの数式などがあります。タグのテキストレイアウト、すなわちどのフィールドをどのように配置し、どの囲みの中に表示するかは、すべてタグのスタイル（プラグインスタイルのシンボル定義）に格納されます。そのため、スタイルのないデータタグには何も表示されません。これが、`Create()`が常にスタイルを解決し（図面にない場合はVectorworksのコンテンツから取り込み）、どこにも利用可能なデータタグスタイルがない場合に失敗する理由です。
 
@@ -329,7 +329,7 @@ GetParam.../SetParam...の全パラメータリファレンス（パラメータ
 
 > **完全修飾名:** `api.TitleBlockBorderObject` · **継承元:** [`AnnotationObject`](#annotationobject) → [`PrimitiveObject`](ObjectPrimitives.md#primitiveobject) → `api.Object`
 
-Plug-Ins/Shipping/TitleBlockBorderの図面枠プラグインオブジェクトです（ユニバーサル名は"Title Block Border"）。
+図面枠プラグインオブジェクトです（ユニバーサル名は"Title Block Border"）。
 
 図面枠はシートの枠です。余白と枠の区域/グリッドを備えたシートの枠に加え、隅に配置され、物件名、施主、シートレイヤ番号、縮尺、版情報および改訂情報の履歴などを表示するテキストブロックである表題欄自体を含みます。通常はシートレイヤに、シートごとに一つ配置します。
 
